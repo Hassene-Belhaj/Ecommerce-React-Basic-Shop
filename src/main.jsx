@@ -6,7 +6,7 @@ import ContextData from './Context/ContextData.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ContextData>
-        <App /> 
+          <App /> 
     </ContextData>
   </React.StrictMode>,
 )
