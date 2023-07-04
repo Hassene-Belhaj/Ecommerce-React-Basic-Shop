@@ -1,7 +1,6 @@
 import React from 'react'
 import { BsFillBagFill } from 'react-icons/bs'
 import { styled } from 'styled-components'
-import { ToggleOf, ToggleOn } from './Global'
 
 const Container = styled.div`
 width : 100% ;
@@ -47,33 +46,13 @@ font-size: 0.8rem;
 color : #fff ;
 font-weight: 700;
 `
-const DarkLight = styled.div`
-width : 100% ;
-height : auto;
-display : flex ;
-justify-content: end;
-align-items :center; 
-padding-right : 2rem ;
-margin-top:6px;
-button{
-    display:flex;
-    justify-content: center;
-    border: none;
-    padding :1px;
-    border-radius:3px;
-    background:transparent;
-    cursor:pointer;
-    &:hover{
-     background :rgba(237, 233, 157,0.2);
-    }
-}
-`
+
 
 
 /* border-bottom : 1px solid rgba(0,0,0,0.1); */
 
 
-const Navbar = ({theme,toggleTheme}) => {
+const Navbar = () => {
   return (
 <Container>
     <Nav>
@@ -83,9 +62,7 @@ const Navbar = ({theme,toggleTheme}) => {
          <Quantity>1</Quantity>
        </Bag>
     </Nav>
-    <DarkLight>
-           {theme==='dark' ? <button onClick={toggleTheme}><ToggleOn size={20} color='#000' /></button> : <button onClick={toggleTheme}><ToggleOf size={20} color='#fff' /></button> }
-    </DarkLight>
+   
 </Container>
   )
 }

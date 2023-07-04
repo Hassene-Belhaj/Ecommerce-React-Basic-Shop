@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import {ThemeProvider, styled } from 'styled-components'
-import { GlobalStyle, ToggleOf, ToggleOn } from './components/Global'
+import { GlobalStyle, Theme} from './components/Global'
 import Navbar from './components/Navbar'
+import DarkLight from './components/DarkLight'
+import Hero from './components/Hero'
+import Main from './components/Main'
 
 
 const Container = styled.div`
@@ -28,11 +31,14 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
 }
 
   return (
-    <ThemeProvider theme={theme ==='dark' ? light : dark}>
+    <ThemeProvider theme={Theme && theme ==='dark' ? light : dark}>
     <GlobalStyle />
        <Container >
         {/* {theme==='dark' ? <button onClick={toggleTheme}><ToggleOn/></button> : <button onClick={toggleTheme}><ToggleOf/></button> } */}
-       <Navbar theme={theme} toggleTheme={toggleTheme} />
+       <Navbar  />
+        <DarkLight theme={theme} toggleTheme={toggleTheme}/>
+         <Hero />
+         <Main />
       </Container>
     </ThemeProvider>
 
