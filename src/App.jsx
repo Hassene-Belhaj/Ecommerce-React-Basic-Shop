@@ -5,6 +5,8 @@ import Navbar from './components/Navbar'
 import DarkLight from './components/DarkLight'
 import Hero from './components/Hero'
 import Main from './components/Main'
+import Products from './components/Products'
+import { Cat } from '../public/Data/Cat'
 
 
 const Container = styled.div`
@@ -38,7 +40,8 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
        <Navbar  />
         <DarkLight theme={theme} toggleTheme={toggleTheme}/>
          <Hero />
-         <Main />
+         <Main Cat={Cat} />
+         <Products/>
       </Container>
     </ThemeProvider>
 

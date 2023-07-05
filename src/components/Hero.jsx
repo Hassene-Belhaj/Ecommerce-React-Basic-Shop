@@ -13,6 +13,8 @@ margin: auto;
 margin-bottom:1rem;
 }
 `
+
+
 const HeroDiv = styled.div`
 width : 50% ;
 height : 100%;

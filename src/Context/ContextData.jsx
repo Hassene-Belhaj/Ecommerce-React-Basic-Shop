@@ -1,21 +1,36 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import axios from 'axios'
+import { callAPI } from '../utils/CallApi'
 
 const useContextDataG = createContext()
 
 
 
 const ContextData = ({children}) => {
-    const [data,setdata] = useState([])
+    const [data,setData] = useState([])
 
-const FetchProducts = async () => {
-try {
-    const res = await axios.get('https://dummyjson.com/products')
-    setdata(res.data)
-} catch (error) {
-    console.log(error);
-}
-}
+
+    const FetchProducts  = () => {
+      callAPI(`Data/products.json`)
+      .then((data)=>{
+      setData(data)
+      })
+    }
+    
+    
+    
+  
+    
+
+
+// const FetchProducts = async () => {
+// try {
+//     const res = await axios.get('/data/products.json')
+//     setdata(res.data)
+// } catch (error) {
+//     console.log(error);
+// }
+// }
 
 useEffect(()=>{
 FetchProducts()    
@@ -29,7 +44,6 @@ FetchProducts()
 // }    
 
 
-console.log(data);
 
   return (
   <useContextDataG.Provider value={[data]}>

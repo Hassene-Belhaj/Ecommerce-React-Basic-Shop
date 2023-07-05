@@ -1,7 +1,5 @@
 import React from 'react'
-import { useContextData } from '../Context/ContextData';
 import { styled } from 'styled-components';
-import { useContextCategories } from '../Context/ContextCategories';
 
  const Container = styled.div`
  width: 100%;
@@ -30,16 +28,16 @@ import { useContextCategories } from '../Context/ContextCategories';
   padding:10px;
   border-radius: 5px;
   font-weight: 600;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
-
+&:hover{
+  transform:scale(1.15);
+  transition: all 0.2s ease-in-out;
+}
  }
  `
 
-const Main = () => {
- const {cat} = useContextCategories()
- console.log(cat);
- const [data] =  useContextData()
- console.log(data);
+const Main = ({Cat}) => {
 
 
 
@@ -48,8 +46,8 @@ const Main = () => {
   <Container>
    <h3>Categories</h3>
    <FlexCat>
-   {cat.map((cat,index)=>{
-     return <button style={{marginRight:'1rem'}} key={index}>{cat}</button>
+   {Cat.map((cat,index)=>{
+     return <button style={{marginRight:'1rem'}} key={index}>{cat.category}</button>
     })}
     </FlexCat>
   </Container>
