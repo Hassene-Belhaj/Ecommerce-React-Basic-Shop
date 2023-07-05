@@ -5,7 +5,7 @@ import { Button } from './Global'
 
 const Container = styled.div`
 width: 100%;
-height:32rem;
+height:40rem;
 background:${({theme})=>theme.background};
 transition: all 0.3s ease-in-out;
 margin: auto;
@@ -24,7 +24,9 @@ justify-content: center;
 align-items: center;
 margin: auto;
 text-align: center;
-
+img{
+    min-width: 100%;
+}
 h2{
     font-size: 4rem;
     margin-bottom: 2rem;
@@ -59,12 +61,13 @@ const Hero = () => {
   return (
   <Container>
     <HeroDiv>
+        {/* <img src='/hero.jpg' alt="" /> */}
         <h2>An e-Commerce ipsum dolor sit amet consectetur adipisicing elit</h2>
         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae repellendus, 
             quasi soluta deleniti maxime velit neque beatae cupiditate</h3>
 
    
-            <Button style={{marginTop:'2rem'}}  width={'9rem'} height={'2rem'}>Buy Now</Button>
+       
     
  
     </HeroDiv>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {ThemeProvider, styled } from 'styled-components'
-import { GlobalStyle, Theme} from './components/Global'
+import { GlobalStyle} from './components/Global'
 import Navbar from './components/Navbar'
 import DarkLight from './components/DarkLight'
 import Hero from './components/Hero'
@@ -33,7 +33,7 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
 }
 
   return (
-    <ThemeProvider theme={Theme && theme ==='dark' ? light : dark}>
+    <ThemeProvider theme={theme ==='dark' ? light : dark}>
     <GlobalStyle />
        <Container >
         {/* {theme==='dark' ? <button onClick={toggleTheme}><ToggleOn/></button> : <button onClick={toggleTheme}><ToggleOf/></button> } */}

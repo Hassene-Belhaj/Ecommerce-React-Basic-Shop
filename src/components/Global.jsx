@@ -51,38 +51,38 @@ text-align: center;
 // padding:${({padding})=>padding};
 // `
 
-export const FlexContainer = styled.div`
-display :flex;
-justify-content: ${({justify})=>justify ? 'center' : 'start'};
-flex-direction: ${({direction})=>direction};
-align-items:${({align})=>align} ;
-width : ${({width})=>width};
-height : ${({height})=>height} ;
-background:${({theme})=>theme.background};
-color:${({theme})=>theme.color};
-margin:${({margin})=>margin};
-padding:${({padding})=>padding};
-text-align : ${({text})=>text};
-`
+// export const FlexContainer = styled.div`
+// display :flex;
+// justify-content: ${({justify})=>justify ? 'center' : 'start'};
+// flex-direction: ${({direction})=>direction};
+// align-items:${({align})=>align} ;
+// width : ${({width})=>width};
+// height : ${({height})=>height} ;
+// background:${({theme})=>theme.background};
+// color:${({theme})=>theme.color};
+// margin:${({margin})=>margin};
+// padding:${({padding})=>padding};
+// text-align : ${({text})=>text};
+// `
 
-export const Theme = {
-    colors : {
-        primary : '#0f172a',
-        primary_light : '#131c31',
-        secondary : '#7eadfc',
-        white : 'fff',
-        black: '000',
-        para_text_color : '#dcdcdc',
-    },
-    fonts : {
-        family : 'DM Sans',
-        weight : { 
-            regular : 400 , 
-            medium : 500 ,
-            bold : 700, 
-        }
-    },
-    breakpoints : {
-        mobile : '720px',
-    }
-}
+// export const Theme = {
+//     colors : {
+//         primary : '#0f172a',
+//         primary_light : '#131c31',
+//         secondary : '#7eadfc',
+//         white : 'fff',
+//         black: '000',
+//         para_text_color : '#dcdcdc',
+//     },
+//     fonts : {
+//         family : 'DM Sans',
+//         weight : { 
+//             regular : 400 , 
+//             medium : 500 ,
+//             bold : 700, 
+//         }
+//     },
+//     breakpoints : {
+//         mobile : '720px',
+//     }
+// }

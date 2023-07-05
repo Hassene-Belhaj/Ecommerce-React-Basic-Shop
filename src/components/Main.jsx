@@ -5,6 +5,7 @@ import { styled } from 'styled-components';
  width: 100%;
  height: 100%;
  text-align: center;
+ z-index: 100;
  h3{
   font-size: 1.5rem;
   font-weight: 800;
@@ -35,6 +36,7 @@ import { styled } from 'styled-components';
     transition: all 0.2s ease-in-out;
   }
 }
+z-index: 101;
 `
  const Div = styled.div`
  width: 300px;
@@ -43,6 +45,8 @@ import { styled } from 'styled-components';
  overflow: hidden;
  display: flex;
  border-radius: 10px;
+ z-index: 101;
+
  `
 
  const CategoryDiv = styled.div`
@@ -53,7 +57,6 @@ import { styled } from 'styled-components';
  display: flex;
  border-radius: 10px;
  transition: all 0.2s ease-in-out;
-
  &:hover{
    transform :scale(1.1);
    transition: all 0.2s ease-in-out;
@@ -68,6 +71,7 @@ import { styled } from 'styled-components';
  const Contraste = styled.div`
  overflow: hidden;
  position: absolute;
+ z-index: 10;
  width: 100%;
  height: 100%;
  inset: 0;
@@ -86,7 +90,6 @@ import { styled } from 'styled-components';
   font-size: 2rem;
   font-weight: 800;
   cursor: pointer;
-  
  }
 
  `

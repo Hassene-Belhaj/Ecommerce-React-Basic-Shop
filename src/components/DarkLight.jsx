@@ -16,7 +16,7 @@ button{
     display:flex;
     justify-content: center;
     border: none;
-    padding :1px;
+    padding :4px;
     border-radius:3px;
     background:transparent;
     cursor:pointer;
