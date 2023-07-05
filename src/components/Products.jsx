@@ -10,7 +10,7 @@ height: 100%;
 margin-top: 4rem;
 text-align: center;
  h3{
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
  }
