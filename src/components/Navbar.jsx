@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { BsFillBagFill } from 'react-icons/bs'
 import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
+import { BiSolidChevronDown } from 'react-icons/bi'
 import { styled } from 'styled-components'
 
 const Container = styled.div`
@@ -21,6 +22,7 @@ display: flex;
 align-items: center;
 box-shadow: 1px 0px 0.8px ${({theme})=>theme.color};
 h2{
+    width: 10%;
     font-size : 1.1rem;
     margin-left: 2rem;
 }
@@ -30,6 +32,49 @@ h2{
 }  
 }
 `
+const Links = styled.div`
+position: relative;
+width:60%;
+height: 60px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-left: 5rem;
+@media screen and (max-width : 768px){
+display: none;
+}
+
+`
+const Button = styled.button`
+position: relative;
+background: transparent;
+border: none;
+padding-right :1.2rem;
+padding-top : .3rem ;
+padding-bottom : .3rem ;
+padding-left: .3rem;
+font-size: 14px;
+border-radius :5px; 
+color: ${({theme})=>theme.color};
+transition:all 0.3s ease-in-out;
+cursor: pointer;
+&:hover{
+background :rgba(239, 239, 240,0.2);
+transition:all 0.2s ease;
+:last-child{
+  transform: rotate(360deg);
+}
+}
+
+`
+const Chevron = styled(BiSolidChevronDown)`
+position: absolute;
+top:8px;
+right : 0px;
+cursor: pointer;
+transition:all 0.3s ease-in-out;
+`
+
 const Bag = styled.span`
 position: absolute;
 top : 50% ;
@@ -96,19 +141,16 @@ transition: all 0.3s ease-in-out;
 z-index: 999;
 }
 `
-
 const Heading = styled.div`
 width : auto;
 display: flex;
 justify-content: space-between;
-align-items: center;
+align-items: baseline;
 margin: 1rem;
 h2{
   font-size: 16px;
 }
 `
-
-
 
 const Navbar = () => {
   const [show,setShow] = useState(false)
@@ -117,6 +159,14 @@ const Navbar = () => {
 <Container>
     <Nav>
      <h2>React Shopping </h2> 
+     <Links>
+      <Button> Lorem <Chevron /> </Button>
+      <Button> Lorem <Chevron /> </Button>
+      <Button> Lorem <Chevron /> </Button>
+      <Button> Lorem <Chevron /> </Button>
+      <Button> Lorem <Chevron /> </Button>
+      <Button> Lorem <Chevron /> </Button>
+     </Links>
        <Bag>
         <BsFillBagFill size={25}/>
          <Quantity>1</Quantity>
