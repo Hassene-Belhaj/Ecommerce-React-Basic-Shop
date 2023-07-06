@@ -179,12 +179,50 @@ color : ${({theme})=>theme.color};
 box-shadow :0px 0px 2px ${({theme})=>theme.color} ;
 border-radius:10px;
 `
+const LinksSmDiv = styled.div`
+width : 90% ;
+height : 80% ;
+margin: 2rem 0;
+`
+const LinkItem = styled.span`
+width : 100%;
+height: auto;
+display:flex;
+justify-content: space-between;
+margin: 1rem 1rem;
+position: relative;
+`
+const LinkItemDiv  = styled.div`
+width:100% ;
+height : auto;
+
+`
+
+const DropDown = styled.div`
+display :${({chevron})=>chevron ? 'flex' : 'none'};
+flex-direction: column;
+width: 100%;
+height: auto;
+margin:1rem 1rem;
+background :#f3f5f9 ;
+p{
+  margin-bottom :.6rem; 
+}
+`
 
 const Navbar = ({Navigation}) => {
   const [show,setShow] = useState(false)
   const [chevron,setChevron] = useState(false)
+  const [mouse,setMouse] = useState(false)
   const handleClick = () => setShow(!show)
-  const handleChevron = () =>setChevron(!chevron)
+  const handleChevron = () => {
+  if(mouse) {
+    setChevron(!chevron)
+
+  }
+
+
+  }
 
 
   return (
@@ -195,40 +233,18 @@ const Navbar = ({Navigation}) => {
        {Navigation.map((item,index)=>{
         return (
           <>
-           <Button key={index} onClick={handleChevron} onMouseEnter={()=>setChevron(true)}>
+           <Button key={index}  onClick={handleChevron} onMouseEnter={()=>setChevron(true)}>
             {item.title}
             <span> 
                 <ChevronDown />
             </span>
        
-            <AnimatePresence>
          {chevron ?  
 
-         <SubMenu
-          //  variants={{
-          //    hidden : { opacity : 0 , x : 200} ,
-          //    visible : {opacity : 1 , x :0},
-          //   }}
-          //   initial='hidden'
-          //   animate='visible'
-          //   transition={{
-          //     duration : 1 ,
-          //     delay : 0.2 ,
-          //     type : 'spring',
-          //     bounce : 0.3 ,
-          //   }}
-            
-            
-            > 
-            <motion.div
-          
-          
-          >
+         <SubMenu> 
               <h4>{item.id}</h4>
-            </motion.div>
            </SubMenu>
            : ''}     
-           </AnimatePresence>  
           </Button>
           </>
           )
@@ -246,9 +262,30 @@ const Navbar = ({Navigation}) => {
     <AsideMenu show={show}>
        <Heading>
         <h2>React Shopping </h2> 
-            <AiOutlineClose color={`${({theme})=>theme.color}`} size={'15'} onClick={handleClick} />
+            <AiOutlineClose style={{cursor:'pointer'}} color={`${({theme})=>theme.color}`} size={'15'} onClick={handleClick} />
        </Heading>
-    
+
+        <LinksSmDiv>
+
+
+            <LinkItemDiv>
+              <LinkItem>
+                <span>lorem</span>
+                <BiSolidChevronDown onClick={handleChevron} onMouseEnter={()=>setMouse(true)} /> 
+                </LinkItem>
+              <DropDown chevron={chevron}>
+                  <p>lorem</p>
+                  <p>lorem</p>
+                  <p>lorem</p>
+                  <p>lorem</p>
+              </DropDown> 
+        </LinkItemDiv>  
+        
+              
+           
+
+        </LinksSmDiv>
+                
       </AsideMenu>
 
  
