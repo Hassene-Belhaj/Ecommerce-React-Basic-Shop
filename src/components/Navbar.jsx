@@ -4,6 +4,7 @@ import { BsFillBagFill } from 'react-icons/bs'
 import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
 import { BiSolidChevronDown, BiSolidChevronUp } from 'react-icons/bi'
 import { styled } from 'styled-components'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const Container = styled.div`
 width : 100% ;
@@ -38,7 +39,7 @@ width:60%;
 height: 60px;
 display: flex;
 justify-content: start;
-align-items: center;
+align-items:center;
 margin-left: 5rem;
 @media screen and (max-width : 768px){
 display: none;
@@ -56,32 +57,38 @@ padding-top : .3rem ;
 padding-bottom : .3rem ;
 padding-left: .3rem;
 font-size: 14px;
+font-weight : 700;
 border-radius :5px; 
 color: ${({theme})=>theme.color};
 transition:all 0.3s ease-in-out;
 cursor: pointer;
-&:hover{
-background :rgba(239, 239, 240,0.2);
-transition:all 0.3s ease-in-out;
-
+span{
+  position: absolute;
+  right:2px;
+  top:8px;
+ transition:all 0.2s ease;  
+}
 :last-child{
-  display : block;
+transition:all 0.6s ease-in-out;  
 }
-}
-`
-// const ChevronDown = styled(BiSolidChevronDown)`
-// position: absolute;
-// top:8px;
-// right : 0px;
-// cursor: pointer;
-// transition:all 0.3s ease-in-out;
-// `
-const ChevronUp = styled.span`
-cursor: pointer;
 &:hover{
-  transform: rotate(180deg);
+background :rgba(239, 239, 239,0.4);
+transition:all 0.3s ease-in-out;  
+span{
+  transform : rotate(180deg);
+  transition:all 0.2s ease;  
+}
+:last-child{
+display: block;
+transition:all 0.6s ease-in-out;  
+}
+
 }
 `
+const ChevronDown = styled(BiSolidChevronDown)`
+cursor: pointer;
+`
+
 
 const Bag = styled.div`
 position: absolute;
@@ -163,6 +170,7 @@ const SubMenu = styled.div`
 display :none;
 position: absolute;
 top:30px;
+left:4px;
 width: 500px;
 height: 200px;
 transition: all 2s ease-in-out;
@@ -170,13 +178,13 @@ background: ${({theme})=>theme.background};
 color : ${({theme})=>theme.color};
 box-shadow :0px 0px 2px ${({theme})=>theme.color} ;
 border-radius:10px;
-transition: all 0.3s ease-in-out;
 `
 
 const Navbar = ({Navigation}) => {
   const [show,setShow] = useState(false)
   const [chevron,setChevron] = useState(false)
   const handleClick = () => setShow(!show)
+  const handleChevron = () =>setChevron(!chevron)
 
 
   return (
@@ -184,27 +192,49 @@ const Navbar = ({Navigation}) => {
     <Nav>
      <h2>React Shopping </h2> 
      <Links>
-          <Button onClick={()=>setChevron(true)}>
-            lorem
-            {chevron}
-            <ChevronUp>
-               <BiSolidChevronDown color='red'/> 
-            </ChevronUp>
-            <SubMenu > 
-            <div>
-              <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, optio repellat soluta nihil vel delectus.</h4>
-            </div>
-           </SubMenu>
-          </Button>
+       {Navigation.map((item,index)=>{
+        return (
+          <>
+           <Button key={index} onClick={handleChevron} onMouseEnter={()=>setChevron(true)}>
+            {item.title}
+            <span> 
+                <ChevronDown />
+            </span>
        
-  
+            <AnimatePresence>
+         {chevron ?  
+
+         <SubMenu
+          //  variants={{
+          //    hidden : { opacity : 0 , x : 200} ,
+          //    visible : {opacity : 1 , x :0},
+          //   }}
+          //   initial='hidden'
+          //   animate='visible'
+          //   transition={{
+          //     duration : 1 ,
+          //     delay : 0.2 ,
+          //     type : 'spring',
+          //     bounce : 0.3 ,
+          //   }}
+            
+            
+            > 
+            <motion.div
           
-             
-           
-     </Links>
-    
-    
-    
+          
+          >
+              <h4>{item.id}</h4>
+            </motion.div>
+           </SubMenu>
+           : ''}     
+           </AnimatePresence>  
+          </Button>
+          </>
+          )
+        })}
+        
+        </Links>
 
        <Bag>
         <BsFillBagFill size={25}/>
