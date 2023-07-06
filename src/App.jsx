@@ -7,6 +7,7 @@ import Hero from './components/Hero'
 import Main from './components/Main'
 import Products from './components/Products'
 import { Cat } from '../public/Data/Cat'
+import { Navigation } from './utils/Const'
 
 
 const Container = styled.div`
@@ -37,7 +38,7 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
     <GlobalStyle />
        <Container >
         {/* {theme==='dark' ? <button onClick={toggleTheme}><ToggleOn/></button> : <button onClick={toggleTheme}><ToggleOf/></button> } */}
-       <Navbar  />
+       <Navbar Navigation={Navigation} />
         <DarkLight theme={theme} toggleTheme={toggleTheme}/>
          <Hero />
          <Main Cat={Cat} />

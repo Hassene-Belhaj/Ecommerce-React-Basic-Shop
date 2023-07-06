@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { BsFillBagFill } from 'react-icons/bs'
 import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
-import { BiSolidChevronDown } from 'react-icons/bi'
+import { BiSolidChevronDown, BiSolidChevronUp } from 'react-icons/bi'
 import { styled } from 'styled-components'
 
 const Container = styled.div`
@@ -37,7 +37,7 @@ position: relative;
 width:60%;
 height: 60px;
 display: flex;
-justify-content: space-between;
+justify-content: start;
 align-items: center;
 margin-left: 5rem;
 @media screen and (max-width : 768px){
@@ -46,9 +46,11 @@ display: none;
 
 `
 const Button = styled.button`
+display:flex;
 position: relative;
 background: transparent;
 border: none;
+margin-left: 1rem;
 padding-right :1.2rem;
 padding-top : .3rem ;
 padding-bottom : .3rem ;
@@ -60,22 +62,28 @@ transition:all 0.3s ease-in-out;
 cursor: pointer;
 &:hover{
 background :rgba(239, 239, 240,0.2);
-transition:all 0.2s ease;
-:last-child{
-  transform: rotate(360deg);
-}
-}
-
-`
-const Chevron = styled(BiSolidChevronDown)`
-position: absolute;
-top:8px;
-right : 0px;
-cursor: pointer;
 transition:all 0.3s ease-in-out;
+
+:last-child{
+  display : block;
+}
+}
+`
+// const ChevronDown = styled(BiSolidChevronDown)`
+// position: absolute;
+// top:8px;
+// right : 0px;
+// cursor: pointer;
+// transition:all 0.3s ease-in-out;
+// `
+const ChevronUp = styled.span`
+cursor: pointer;
+&:hover{
+  transform: rotate(180deg);
+}
 `
 
-const Bag = styled.span`
+const Bag = styled.div`
 position: absolute;
 top : 50% ;
 right : 2rem ;
@@ -151,22 +159,53 @@ h2{
   font-size: 16px;
 }
 `
+const SubMenu = styled.div`
+display :none;
+position: absolute;
+top:30px;
+width: 500px;
+height: 200px;
+transition: all 2s ease-in-out;
+background: ${({theme})=>theme.background};
+color : ${({theme})=>theme.color};
+box-shadow :0px 0px 2px ${({theme})=>theme.color} ;
+border-radius:10px;
+transition: all 0.3s ease-in-out;
+`
 
-const Navbar = () => {
+const Navbar = ({Navigation}) => {
   const [show,setShow] = useState(false)
+  const [chevron,setChevron] = useState(false)
   const handleClick = () => setShow(!show)
+
+
   return (
 <Container>
     <Nav>
      <h2>React Shopping </h2> 
      <Links>
-      <Button> Lorem <Chevron /> </Button>
-      <Button> Lorem <Chevron /> </Button>
-      <Button> Lorem <Chevron /> </Button>
-      <Button> Lorem <Chevron /> </Button>
-      <Button> Lorem <Chevron /> </Button>
-      <Button> Lorem <Chevron /> </Button>
+          <Button onClick={()=>setChevron(true)}>
+            lorem
+            {chevron}
+            <ChevronUp>
+               <BiSolidChevronDown color='red'/> 
+            </ChevronUp>
+            <SubMenu > 
+            <div>
+              <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, optio repellat soluta nihil vel delectus.</h4>
+            </div>
+           </SubMenu>
+          </Button>
+       
+  
+          
+             
+           
      </Links>
+    
+    
+    
+
        <Bag>
         <BsFillBagFill size={25}/>
          <Quantity>1</Quantity>
