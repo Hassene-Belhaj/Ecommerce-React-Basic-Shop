@@ -134,6 +134,7 @@ left : 2rem;
 transform: translateY(-40%);
 transition: all 0.3s ease-in-out;
 z-index: 999;
+cursor: crosshair;
 }
 `
 const Heading = styled.div`
@@ -176,7 +177,7 @@ transition: all 0.3s ease;
 `
 
 const Navbar = ({Navigation}) => {
-  const {isopen,handleClickCart} = useContextCart()
+  const {isopen,setIsOpen,handleClickCart} = useContextCart()
 
   const [toggle,setToggle] = useState(false)
   const [chevron,setChevron] = useState(false)
@@ -200,7 +201,7 @@ const Navbar = ({Navigation}) => {
         </Links>
 
        <Bag>
-        <BsFillBagFill size={25} onClick={handleClickCart}/>
+        <BsFillBagFill size={25} onClick={handleClickCart} onMouseEnter={handleClickCart}/>
          <Quantity>1</Quantity>
        </Bag>
     </Nav>
@@ -231,7 +232,7 @@ const Navbar = ({Navigation}) => {
       <Contraste></Contraste>
     : 
     <IconMenu>
-          <AiOutlineMenu size={'20'} color={`${({theme})=>theme.color}`} onClick={handleClick}/>
+          <AiOutlineMenu onMouseEnter={handleClick} size={'20'} color={`${({theme})=>theme.color}`} onClick={handleClick}/>
     </IconMenu> }
             
          

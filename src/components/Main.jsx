@@ -2,14 +2,18 @@ import React from 'react'
 import { styled } from 'styled-components';
 
  const Container = styled.div`
- width: 100%;
+ width: 70%;
  height: 100%;
+ margin: auto;
  text-align: center;
  z-index: 100;
  h3{
   font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
+ }
+ @media screen and (max-width : 768px){
+  width : 100%
  }
  `
  const FlexCat = styled.div`
@@ -20,9 +24,9 @@ import { styled } from 'styled-components';
  flex-wrap: wrap;
  justify-content: center;
  align-items : center;
- margin : auto ;
+ margin :auto ;
  gap : 2rem ;
-z-index: 101;
+ z-index: 101;
 `
  const Div = styled.div`
  width: 300px;

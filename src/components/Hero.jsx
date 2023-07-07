@@ -37,7 +37,7 @@ h3{
     font-weight: 100;;
 }
 @media screen and (max-width : 768px) {
-padding-top:1rem ;
+padding-top:4rem ;
 display:block;
 width : 80%; 
 height:100%;  
