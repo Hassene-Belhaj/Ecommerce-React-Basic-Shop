@@ -32,16 +32,14 @@ if(productinCart) {
 }
 
 const deleteProduct = (id) => {
-const productinCart = cart.filter((element)=>{
-    return element.id !== id
-})
-
+const productinCart = cart.filter((element)=>element.id !== id)
+setCart(productinCart)
 }
 
 
 
   return (
-    <ContextCartG.Provider value={{isopen,setIsOpen,handleClickCart,cart,addtoCart}}>
+    <ContextCartG.Provider value={{isopen,setIsOpen,handleClickCart,cart,addtoCart,deleteProduct}}>
         {children}
     </ContextCartG.Provider>
   )

@@ -53,8 +53,9 @@ gap: 1rem;
 
 const CartDiv = styled.div`
 width: 100%;
-min-height: 250px;
+height: 250px;
 background:yellow;
+display: flex;
 `
 
 const Cart = () => {
