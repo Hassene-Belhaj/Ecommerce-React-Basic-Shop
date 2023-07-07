@@ -5,6 +5,7 @@ import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
 import { styled } from 'styled-components'
 import { Link as Linked} from 'react-router-dom'
 import {motion } from 'framer-motion'
+import { useContextCart } from '../Context/ContextCart'
 
 const Container = styled.div`
 width : 100% ;
@@ -51,7 +52,7 @@ position: relative;
 background: transparent;
 border: none;
 margin-left: 1rem;
-padding:.5rem 1rem;
+padding:.3rem .6rem;
 font-size: 14px;
 font-weight : 700;
 border-radius :5px; 
@@ -60,7 +61,7 @@ transition:all 0.3s ease-in-out;
 cursor: pointer;
 
 &:hover{
-background :rgba(239, 239, 239,0.3);
+background :rgba(108, 122, 137,0.2);
 transition:all 0.3s ease-in-out;  
 }
 `
@@ -70,6 +71,7 @@ position: absolute;
 top : 50% ;
 right : 2rem ;
 transform: translateY(-50%);
+cursor: pointer;
 `
 
 const Quantity = styled.span`
@@ -107,6 +109,7 @@ const AsideMenu = styled.div`
 position : fixed ;
 top : 0;
 bottom :0;
+left : ${({$toggle})=>$toggle ? 0 :'-100%'};
 width: 40%;
 height: 100%;
 transition: all 0.3s ease-in-out;
@@ -127,7 +130,7 @@ display: none;
 display:block; 
 position  :absolute ;
 top: 50%;
-left : 1rem;
+left : 2rem;
 transform: translateY(-40%);
 transition: all 0.3s ease-in-out;
 z-index: 999;
@@ -151,9 +154,7 @@ display: flex;
 flex-direction : column ;
 justify-content: center;
 align-items: center;
-
 `
-
 
 const LinkItem = styled.span`
 width : auto;
@@ -163,17 +164,20 @@ cursor:pointer;
 `
 const Link = styled(Linked)`
 text-decoration: none;
-border-bottom: ${({border})=>border ? 'solid 1px #000' : 'none'} ;
 color : ${({theme})=>theme.color} ;
 font-size: ${({size})=>size};
 padding: .5rem;
+transition: all 0.3s ease;
 &:hover{
-  opacity : 0.8;
+border-bottom: ${({$border})=>$border ? '1px solid' : 'none'} ;
+opacity : 0.8;
 transition: all 0.3s ease;
 }
 `
 
 const Navbar = ({Navigation}) => {
+  const {isopen,handleClickCart} = useContextCart()
+
   const [toggle,setToggle] = useState(false)
   const [chevron,setChevron] = useState(false)
   const handleClick = () => setToggle(!toggle)
@@ -196,13 +200,14 @@ const Navbar = ({Navigation}) => {
         </Links>
 
        <Bag>
-        <BsFillBagFill size={25}/>
+        <BsFillBagFill size={25} onClick={handleClickCart}/>
          <Quantity>1</Quantity>
        </Bag>
     </Nav>
     
   
-    <AsideMenu style={{left: toggle ? 0 : '-100%' }} >
+    {/* <AsideMenu style={{left: toggle ? 0 : '-100%' }} > */}
+    <AsideMenu $toggle={toggle} >
        <Heading>
         <h2>React Shopping </h2> 
             <AiOutlineClose style={{cursor:'pointer'}} color={`${({theme})=>theme.color}`} size={'15'} onClick={handleClick} />
@@ -210,12 +215,10 @@ const Navbar = ({Navigation}) => {
 
         <FlexContainerSm>
            {Navigation.map((item,index)=>{
-             return ( 
-           
-                        <LinkItem  key={index}>
-                            <Link style={{borderBottom:'1px solid #000'}} size={'1.5rem'}>{item.title}</Link> 
+             return (
+                       <LinkItem  key={index} >           
+                            <Link  $border='true' size={'1.5rem'}>{item.title}</Link> 
                         </LinkItem>
-              
              )
            })}
         

@@ -7,9 +7,9 @@ const DarkLightDiv = styled.div`
 width : 100% ;
 height : auto;
 display : flex ;
-justify-content: end;
+justify-content: start;
 align-items :center; 
-padding-right : 2rem ;
+padding-left : 2rem ;
 margin-top:6px;
 margin-bottom: 6px;
 button{
@@ -18,10 +18,10 @@ button{
     border: none;
     padding :4px;
     border-radius:3px;
-    background:transparent;
+    background :rgba(108, 122, 137,0.2);
     cursor:pointer;
     &:hover{
-     background :rgba(237, 233, 157,0.2);
+
     }
 }
 ` 

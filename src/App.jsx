@@ -9,6 +9,7 @@ import Products from './components/Products'
 import { Cat } from '../public/Data/Cat'
 import { Navigation } from './utils/Const'
 import { BrowserRouter as Router ,Routes , Route } from 'react-router-dom'
+import Cart from './components/Cart'
 
 const Container = styled.div`
 width : 100% ;
@@ -44,6 +45,7 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
             <Hero />
             <Main Cat={Cat} />
             <Products/>
+            <Cart/>
         </Container>
       </ThemeProvider>
     </Router>
