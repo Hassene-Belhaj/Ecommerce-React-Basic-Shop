@@ -30,7 +30,7 @@ const DarkLight = ({theme,toggleTheme}) => {
     <DarkLightDiv>
     {theme==='dark' ? 
     <button onClick={toggleTheme}>
-       <ToggleOn size={20} color='#000' />
+       <ToggleOn size={20} color='#030712' />
      </button> 
     : 
     <button onClick={toggleTheme}> 

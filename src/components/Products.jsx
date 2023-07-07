@@ -40,7 +40,6 @@ border-radius: 10px;
 const Products = () => {
 
   const [data] =   useContextData()
-  console.log(data);
 
   return (
     <Container>

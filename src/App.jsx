@@ -8,7 +8,7 @@ import Main from './components/Main'
 import Products from './components/Products'
 import { Cat } from '../public/Data/Cat'
 import { Navigation } from './utils/Const'
-
+import { BrowserRouter as Router ,Routes , Route } from 'react-router-dom'
 
 const Container = styled.div`
 width : 100% ;
@@ -16,13 +16,13 @@ height : 100% ;
 `
 
 const dark = {
-  background : '#000' ,
+  background : '#030712' ,
   color : '#fff' ,
 }
 
 const light = {
   background : '#fff' ,
-  color : '#000' ,
+  color : '#030712' ,
 }
 
 
@@ -34,17 +34,19 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
 }
 
   return (
-    <ThemeProvider theme={theme ==='dark' ? light : dark}>
-    <GlobalStyle />
-       <Container >
-        {/* {theme==='dark' ? <button onClick={toggleTheme}><ToggleOn/></button> : <button onClick={toggleTheme}><ToggleOf/></button> } */}
-       <Navbar Navigation={Navigation} />
-        <DarkLight theme={theme} toggleTheme={toggleTheme}/>
-         <Hero />
-         <Main Cat={Cat} />
-         <Products/>
-      </Container>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme ==='dark' ? light : dark}>
+      <GlobalStyle />
+          <Container >
+          {/* {theme==='dark' ? <button onClick={toggleTheme}><ToggleOn/></button> : <button onClick={toggleTheme}><ToggleOf/></button> } */}
+          <Navbar Navigation={Navigation} />
+          <DarkLight theme={theme} toggleTheme={toggleTheme}/>
+            <Hero />
+            <Main Cat={Cat} />
+            <Products/>
+        </Container>
+      </ThemeProvider>
+    </Router>
 
 
     )

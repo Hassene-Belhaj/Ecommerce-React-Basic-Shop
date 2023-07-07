@@ -22,20 +22,6 @@ import { styled } from 'styled-components';
  align-items : center;
  margin : auto ;
  gap : 2rem ;
- button{
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(153,95,156,1) 0%, rgba(108,129,185,1) 100%, rgba(0,212,255,1) 100%);
-  color :#fff ;
-  border:none;
-  padding:10px;
-  border-radius: 5px;
-  font-weight: 600;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  &:hover{
-    transform:scale(1.15);
-    transition: all 0.2s ease-in-out;
-  }
-}
 z-index: 101;
 `
  const Div = styled.div`
@@ -105,7 +91,7 @@ const Main = ({Cat}) => {
    <FlexCat>
    {Cat.map((cat,index)=>{
      return (
-      <Div>
+      <Div key={index}>
        <CategoryDiv>
          <img src={cat.image} alt="" />
          <Contraste>

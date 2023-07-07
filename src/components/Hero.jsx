@@ -37,24 +37,20 @@ h3{
     font-weight: 100;;
 }
 @media screen and (max-width : 768px) {
-padding-top:8rem ;
+padding-top:1rem ;
 display:block;
-width : 100%; 
+width : 80%; 
 height:100%;  
 h2{
-font-size: 3rem;
+font-size: 2.5rem;
 font-weight: 900;
-
 }    
 h3{
+font-size    :1.5rem ;
 margin: auto;
 } 
 }
-@media screen and (max-width : 768px) {
-h2{
-font-size: 1.5rem;
-}    
-}
+
 `
 
 const Hero = () => {

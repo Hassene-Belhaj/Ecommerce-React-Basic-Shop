@@ -2,9 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import { BsFillBagFill } from 'react-icons/bs'
 import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
-import { BiSolidChevronDown, BiSolidChevronUp } from 'react-icons/bi'
 import { styled } from 'styled-components'
-import { AnimatePresence, motion } from 'framer-motion'
+import { Link as Linked} from 'react-router-dom'
+import {motion } from 'framer-motion'
 
 const Container = styled.div`
 width : 100% ;
@@ -18,7 +18,6 @@ const Nav = styled.nav`
 position: relative;
 width:100%;
 height:60px;
-/* background: #f3f5f9; */
 display: flex;
 align-items: center;
 box-shadow: 1px 0px 0.8px ${({theme})=>theme.color};
@@ -52,43 +51,19 @@ position: relative;
 background: transparent;
 border: none;
 margin-left: 1rem;
-padding-right :1.2rem;
-padding-top : .3rem ;
-padding-bottom : .3rem ;
-padding-left: .3rem;
+padding:.5rem 1rem;
 font-size: 14px;
 font-weight : 700;
 border-radius :5px; 
 color: ${({theme})=>theme.color};
 transition:all 0.3s ease-in-out;
 cursor: pointer;
-span{
-  position: absolute;
-  right:2px;
-  top:8px;
- transition:all 0.2s ease;  
-}
-:last-child{
-transition:all 0.6s ease-in-out;  
-}
+
 &:hover{
-background :rgba(239, 239, 239,0.4);
+background :rgba(239, 239, 239,0.3);
 transition:all 0.3s ease-in-out;  
-span{
-  transform : rotate(180deg);
-  transition:all 0.2s ease;  
-}
-:last-child{
-display: block;
-transition:all 0.6s ease-in-out;  
-}
-
 }
 `
-const ChevronDown = styled(BiSolidChevronDown)`
-cursor: pointer;
-`
-
 
 const Bag = styled.div`
 position: absolute;
@@ -132,7 +107,6 @@ const AsideMenu = styled.div`
 position : fixed ;
 top : 0;
 bottom :0;
-left: ${({show})=>show ? 0 : "-100%"};
 width: 40%;
 height: 100%;
 transition: all 0.3s ease-in-out;
@@ -142,6 +116,9 @@ color :${({theme})=>theme.color} ;
 box-shadow :0px 0px 2px ${({theme})=>theme.color} ;
 @media screen and (min-width : 768px){
 display: none;
+}
+@media screen and (max-width : 768px){
+width: 100%;
 }
 `
 const IconMenu = styled.span`
@@ -166,63 +143,41 @@ h2{
   font-size: 16px;
 }
 `
-const SubMenu = styled.div`
-display :none;
-position: absolute;
-top:30px;
-left:4px;
-width: 500px;
-height: 200px;
-transition: all 2s ease-in-out;
-background: ${({theme})=>theme.background};
-color : ${({theme})=>theme.color};
-box-shadow :0px 0px 2px ${({theme})=>theme.color} ;
-border-radius:10px;
+
+const FlexContainerSm = styled.div`
+width : 100% ;
+height : 70% ;
+display: flex;
+flex-direction : column ;
+justify-content: center;
+align-items: center;
+
 `
-const LinksSmDiv = styled.div`
-width : 90% ;
-height : 80% ;
-margin: 2rem 0;
-`
+
+
 const LinkItem = styled.span`
-width : 100%;
+width : auto;
 height: auto;
-display:flex;
-justify-content: space-between;
-margin: 1rem 1rem;
-position: relative;
+margin: 2rem 1rem;
+cursor:pointer;
 `
-const LinkItemDiv  = styled.div`
-width:100% ;
-height : auto;
-
-`
-
-const DropDown = styled.div`
-display :${({chevron})=>chevron ? 'flex' : 'none'};
-flex-direction: column;
-width: 100%;
-height: auto;
-margin:1rem 1rem;
-background :#f3f5f9 ;
-p{
-  margin-bottom :.6rem; 
+const Link = styled(Linked)`
+text-decoration: none;
+border-bottom: ${({border})=>border ? 'solid 1px #000' : 'none'} ;
+color : ${({theme})=>theme.color} ;
+font-size: ${({size})=>size};
+padding: .5rem;
+&:hover{
+  opacity : 0.8;
+transition: all 0.3s ease;
 }
 `
 
 const Navbar = ({Navigation}) => {
-  const [show,setShow] = useState(false)
+  const [toggle,setToggle] = useState(false)
   const [chevron,setChevron] = useState(false)
-  const [mouse,setMouse] = useState(false)
-  const handleClick = () => setShow(!show)
-  const handleChevron = () => {
-  if(mouse) {
-    setChevron(!chevron)
-
-  }
-
-
-  }
+  const handleClick = () => setToggle(!toggle)
+  const handleChevron = () =>setChevron(!chevron)
 
 
   return (
@@ -232,22 +187,10 @@ const Navbar = ({Navigation}) => {
      <Links>
        {Navigation.map((item,index)=>{
         return (
-          <>
            <Button key={index}  onClick={handleChevron} onMouseEnter={()=>setChevron(true)}>
-            {item.title}
-            <span> 
-                <ChevronDown />
-            </span>
-       
-         {chevron ?  
-
-         <SubMenu> 
-              <h4>{item.id}</h4>
-           </SubMenu>
-           : ''}     
+            <Link size={'0.9rem'}>{item.title}</Link>
           </Button>
-          </>
-          )
+            )
         })}
         
         </Links>
@@ -259,37 +202,29 @@ const Navbar = ({Navigation}) => {
     </Nav>
     
   
-    <AsideMenu show={show}>
+    <AsideMenu style={{left: toggle ? 0 : '-100%' }} >
        <Heading>
         <h2>React Shopping </h2> 
             <AiOutlineClose style={{cursor:'pointer'}} color={`${({theme})=>theme.color}`} size={'15'} onClick={handleClick} />
        </Heading>
 
-        <LinksSmDiv>
-
-
-            <LinkItemDiv>
-              <LinkItem>
-                <span>lorem</span>
-                <BiSolidChevronDown onClick={handleChevron} onMouseEnter={()=>setMouse(true)} /> 
-                </LinkItem>
-              <DropDown chevron={chevron}>
-                  <p>lorem</p>
-                  <p>lorem</p>
-                  <p>lorem</p>
-                  <p>lorem</p>
-              </DropDown> 
-        </LinkItemDiv>  
-        
-              
+        <FlexContainerSm>
+           {Navigation.map((item,index)=>{
+             return ( 
            
-
-        </LinksSmDiv>
+                        <LinkItem  key={index}>
+                            <Link style={{borderBottom:'1px solid #000'}} size={'1.5rem'}>{item.title}</Link> 
+                        </LinkItem>
+              
+             )
+           })}
+        
+        </FlexContainerSm>
                 
       </AsideMenu>
 
  
-    {show ?  
+    {toggle ?  
       <Contraste></Contraste>
     : 
     <IconMenu>
