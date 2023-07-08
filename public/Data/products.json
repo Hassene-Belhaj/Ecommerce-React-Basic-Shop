@@ -8,7 +8,7 @@
         "ratings": 24089,
         "price": 110.00,
         "oldPrice": 220.00,
-        "categorie": "shoes"
+        "category": "Shoes"
 },
 { 
         "id" : 2,
@@ -19,7 +19,7 @@
         "ratings": 5632,
         "price": 130.00,
         "oldPrice": 160.00,
-        "categorie": "shoes"
+        "category":"Shoes"
 },
 { 
         "id" : 3,
@@ -30,7 +30,7 @@
         "ratings": 5632,
         "price": 130.00,
         "oldPrice": 160.00,
-        "categorie": "shoes"
+        "category": "Shoes"
 },
 { 
         "id" : 4,
@@ -41,7 +41,7 @@
         "ratings": 5632,
         "price": 130.00,
         "oldPrice": 160.00,
-        "categorie": "shoes"
+        "category": "Shoes"
 },
 { 
         "id" : 5,
@@ -52,7 +52,7 @@
         "ratings": 5632,
         "price": 130.00,
         "oldPrice": 160.00,
-        "categorie": "Tshirt"
+        "category": "Tshirt"
 },
 { 
         "id" : 6,
@@ -63,7 +63,7 @@
         "ratings": 5632,
         "price": 130.00,
         "oldPrice": 160.00,
-        "categorie": "Tshirt"
+        "category": "Tshirt"
 },
 { 
         "id" : 7,
@@ -74,7 +74,7 @@
         "ratings": 5632,
         "price": 130.00,
         "oldPrice": 160.00,
-        "categorie": "Tshirt"
+        "category": "Tshirt"
 },
 { 
         "id" : 8,
@@ -85,7 +85,7 @@
         "ratings": 5632,
         "price": 130.00,
         "oldPrice": 160.00,
-        "categorie": "Tshirt"
+        "category": "Tshirt"
 },
 { 
     "id" : 9,
@@ -96,7 +96,7 @@
     "ratings": 5632,
     "price": 130.00,
     "oldPrice": 160.00,
-    "categorie": "Bag"
+    "category": "Bag"
 },
 { 
     "id" : 10,
@@ -107,7 +107,7 @@
     "ratings": 5632,
     "price": 130.00,
     "oldPrice": 160.00,
-    "categorie": "Bag"
+    "category": "Bag"
 },
 { 
     "id" : 11,
@@ -118,7 +118,7 @@
     "ratings": 5632,
     "price": 130.00,
     "oldPrice": 160.00,
-    "categorie": "Bag"
+    "category": "Bag"
 }
 ]
 

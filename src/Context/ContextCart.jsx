@@ -21,7 +21,7 @@ const sum = cart.reduce((accu,curr)=>{
    return accu + curr.price * curr.quantity
 },0)
 
-setTotal(sum)
+setTotal(sum.toFixed(2))
 },[cart])
 
 

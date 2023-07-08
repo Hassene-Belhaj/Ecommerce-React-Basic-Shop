@@ -4,7 +4,7 @@ import { GlobalStyle} from './components/Global'
 import Navbar from './components/Navbar'
 import DarkLight from './components/DarkLight'
 import Hero from './components/Hero'
-import Main from './components/Main'
+import Main from './components/Category'
 import Products from './components/Products'
 import { Cat } from '../public/Data/Cat'
 import { Navigation } from './utils/Const'
@@ -43,7 +43,6 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
           <Navbar Navigation={Navigation} />
           <DarkLight theme={theme} toggleTheme={toggleTheme}/>
             <Hero />
-            <Main Cat={Cat} />
             <Products/>
             <Cart/>
         </Container>

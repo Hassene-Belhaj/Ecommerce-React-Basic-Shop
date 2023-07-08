@@ -9,7 +9,7 @@ import { BsTrash3 } from 'react-icons/bs'
 const Container = styled.div`
 position: fixed;
 top: 0;
-right:${({$isopen})=>$isopen ? '-100%' : 0};
+right:${({$isopen})=>$isopen ?  0 : '-100%'};
 transition: all 0.5s ease-in-out;
 bottom: 0;
 width: 30%;
@@ -116,6 +116,7 @@ button{
 const Cart = () => {
     const {isopen,cart,handleClickCart,deleteCart,total} = useContextCart()
 
+
   return (
     <Container $isopen={isopen}>
       <Headline>   
@@ -133,7 +134,7 @@ const Cart = () => {
         </FlexCart> 
        <Bottom>
           <BottomDiv>
-                    <h4>Total : $ {total.toFixed(2)}</h4>
+                    <h4>Total : $ {total}</h4>
                     <CleanCart>
                          <button><IconTrash onClick={deleteCart}  size={25} /></button>   
                 </CleanCart>

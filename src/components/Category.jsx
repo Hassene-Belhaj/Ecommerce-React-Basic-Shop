@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { styled } from 'styled-components';
+import { useContextData } from '../Context/ContextData';
+import { Cat } from '../../public/Data/Cat';
 
- const Container = styled.div`
+ const CatContainer = styled.div`
  width: 70%;
  height: 100%;
  margin: auto;
@@ -81,16 +83,36 @@ import { styled } from 'styled-components';
   font-weight: 800;
   cursor: pointer;
  }
+ button{
+  padding  : 1rem;
+  font-weight: 800;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  }
 
  `
 
-const Main = ({Cat}) => {
+const Category = () => {
+const [data] = useContextData()
+const [newdata,setNewData] = useState([])
 
 
+const filtercat = (id,category) =>{
+
+  data.filter((element)=>element.category === category) 
+  if(id === 0 ){
+  setNewData(data)
+  } else {
+  setNewData(filtercat)  
+  }
+}  
 
 
   return (
-  <Container>
+  <CatContainer>
    <h3>Categories</h3>
    <FlexCat>
    {Cat.map((cat,index)=>{
@@ -99,7 +121,7 @@ const Main = ({Cat}) => {
        <CategoryDiv>
          <img src={cat.image} alt="" />
          <Contraste>
-         <h4>{cat.category}</h4>
+         <button onClick={()=>filtercat(cat.id,cat.category)}>{cat.category}</button>
          </Contraste>
        </CategoryDiv>
       </Div>
@@ -107,8 +129,8 @@ const Main = ({Cat}) => {
      
     })}
     </FlexCat>
-  </Container>
+  </CatContainer>
     )
 }
 
-export default Main
+export default Category
