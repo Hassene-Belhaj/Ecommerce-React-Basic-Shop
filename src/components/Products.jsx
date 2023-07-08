@@ -5,6 +5,7 @@ import Product from './Product'
 import Category from './Category'
 import { Cat } from '../../public/Data/Cat'
 import { useEffect } from 'react'
+import {AnimatePresence,motion } from 'framer-motion'
 
 
 const Container = styled.div`
@@ -72,6 +73,7 @@ overflow: hidden;
 display: flex;
 border-radius: 10px;
 z-index: 101;
+cursor: pointer;
 
 `
 
@@ -112,8 +114,8 @@ transition: all 0.4s ease-in-out;
  background: rgba(0,0,0,0.5);
  transition: all 0.4s ease-in-out;
 }
-h4{
- font-size: 2rem;
+h3{
+ font-size: 1.2rem;
  font-weight: 800;
  cursor: pointer;
 }
@@ -162,11 +164,11 @@ const Products = () => {
    <FlexCat>
    {Cat.map((item,index)=>{
      return (
-      <Div key={index}>
+      <Div key={index} onClick={()=>Filter(item.id,item.cat)}>
        <CategoryDiv>
          <img src={item.image} alt="" />
          <Contraste>
-         <button onClick={()=>Filter(item.id,item.cat)}>{item.cat}</button>
+         <h3>{item.cat}</h3>
          </Contraste>
        </CategoryDiv>
       </Div>
@@ -179,9 +181,22 @@ const Products = () => {
         <Grid>
          {newdata.map((product,index)=>{
             return (
-                <ProductsDiv key={index} >
+              <AnimatePresence>
+               <motion.div 
+               layout
+               key={product.id}
+               initial={{opacity : 0}}
+               animate={{opacity : 1}}
+               exit={{opacity : 0}}
+               transition={{
+                duration : 0.3
+               }}
+               >
+                <ProductsDiv  >
                         <Product product={product} />
                 </ProductsDiv>
+               </motion.div>
+              </AnimatePresence>
             )
          })}
         </Grid>
