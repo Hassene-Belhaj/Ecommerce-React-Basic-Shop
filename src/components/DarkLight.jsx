@@ -19,7 +19,7 @@ button{
     padding :4px;
     border-radius:3px;
     background :rgba(108, 122, 137,0.2);
-    cursor:pointer;
+    cursor:crosshair;
     &:hover{
 
     }
@@ -29,11 +29,11 @@ const DarkLight = ({theme,toggleTheme}) => {
   return (
     <DarkLightDiv>
     {theme==='dark' ? 
-    <button onClick={toggleTheme}>
+    <button onClick={toggleTheme} onMouseEnter={toggleTheme}>
        <ToggleOn size={20} color='#030712' />
      </button> 
     : 
-    <button onClick={toggleTheme}> 
+    <button onClick={toggleTheme} onMouseEnter={toggleTheme}> 
      <ToggleOf size={20} color='#fff' /> </button> }
 </DarkLightDiv>
   )

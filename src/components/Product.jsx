@@ -30,6 +30,7 @@ button{
   border: none;
   border-radius: 5px;
   color: ${({theme})=>theme.color};
+  font-weight: 800;
   &:hover{
 background :rgba(108, 122, 137,0.1);
 transition:all 0.3s ease-in-out;  
@@ -41,13 +42,12 @@ transition:all 0.3s ease-in-out;
 
 const Product = ({product}) => {
   const {cart,addtoCart} = useContextCart() 
-  console.log(cart);
   const {id,title,description,image,price,category} = product
   return (
     <ProductDiv>
       <img src={image} alt="" />
        <h3>{title}</h3>
-       <button  onClick={()=>addtoCart(product,id)}>${price}</button>
+       <button  onClick={()=>addtoCart(product,id)}>${price.toFixed(2)}</button>
      </ProductDiv>
   )
 }

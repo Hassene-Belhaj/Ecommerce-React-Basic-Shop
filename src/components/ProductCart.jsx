@@ -5,67 +5,102 @@ import { HiChevronUp,HiChevronDown } from 'react-icons/hi'
 import { useContextCart } from '../Context/ContextCart'
 
 
+const ProductCartDiv = styled.div`
+width: 100%;
+height: 100%;
+display: flex;
+`
+
 
 const LeftColumn = styled.div`
 width: 30%;
 height: 100%;
 display: flex;
 img{
-    max-width: 100%;
+    min-width: 100%;
+    object-fit:cover ;
 }
 `
-
+const RightColum = styled.div`
+width: 70%;
+height: 100%;
+`
 const Headline = styled.div`
-width: 60%;
+width: 90%;
 height: 2rem;
 display: flex;
 justify-content: space-between;
+margin:1rem auto;
 `
 const MiddleDiv = styled.div`
-width: 60%;
-height: auto;
-background: red;
+width: 90%;
+height: 2rem;
 display: flex;
+button{
+    width: 2rem;
+    font-weight: 800;
+    margin-left: 1rem;
+    border-radius: 3px; 
+    border: none;
+    background: none;
+    color: ${({theme})=>theme.color};
+ &:hover{
+background :rgba(108, 122, 137,0.2);
+transition:all 0.3s ease-in-out;  
+}
+}
 `
 const ChevronBtn = styled.div`
-width: 2rem;
+width: auto;
 height: auto;
 display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
+button{
+cursor: pointer;
+}
 `
 const Price = styled.div`
-width: 60%;
-height: auto;
+width: 100%;
 display: flex;
 justify-content: space-between;
-margin: auto;
+margin: auto .5rem;
 `
 const ProductCart = ({product}) => {
-   const {deleteProduct} = useContextCart()
+   const {deleteProduct,decreaseQuantity,increaseQuantity} = useContextCart()
  const {id,title,image,price,quantity} =  product
+
+
+  const priceQuantity = quantity * price
+
   return (
 
-   <>
-         <LeftColumn>
-            <img src={image} alt="" />
-        </LeftColumn>   
-        <Headline>
-                <h3>{title}</h3>
-                <span><AiOutlineClose onClick={()=>deleteProduct(id)} /></span>
-        </Headline>
+   <ProductCartDiv>
+     <LeftColumn>
+        <img src={image} alt="" />
+     </LeftColumn>
+
+     <RightColum>
+         <Headline>
+            <h4>{title}</h4>
+            <span><AiOutlineClose style={{cursor:'pointer'}} onClick={()=>deleteProduct(id)}/></span>
+         </Headline>
          <MiddleDiv>
-              <button style={{padding:'.5rem'}}>{quantity}</button>
-              <ChevronBtn>
-                <button> <HiChevronUp /> </button>
-                <button> <HiChevronDown /> </button>
-             
-              </ChevronBtn>   
-              <Price>
-                  <h3>{price}</h3>
-                  <h3>{price}</h3>
-                </Price>
+                        <button style={{border:'none'}}>{quantity}</button>
+                <ChevronBtn>
+                    <button><HiChevronUp onClick={()=>increaseQuantity(id,product)} size={15} /> </button>
+                    <button><HiChevronDown onClick={()=>decreaseQuantity(id)} size={15} /> </button>
+                </ChevronBtn>
+                    <Price>
+                    <span><h4>${price.toFixed(2)}</h4></span>   
+                    <span><h4>${priceQuantity.toFixed(2)}</h4></span>   
+                    </Price>
          </MiddleDiv>
-   </>
+     </RightColum>
+
+   </ProductCartDiv>
+ 
    
 
   )

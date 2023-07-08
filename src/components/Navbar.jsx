@@ -79,8 +79,8 @@ position:absolute;
 bottom: 0;
 right:0;
 transform :translate(25%,25%);
-width : 1rem;
-height: 1rem;
+width : 1.2rem;
+height: 1.2rem;
 background: red;
 border-radius: 50%;
 font-size: 0.8rem;
@@ -177,7 +177,7 @@ transition: all 0.3s ease;
 `
 
 const Navbar = ({Navigation}) => {
-  const {isopen,setIsOpen,handleClickCart} = useContextCart()
+  const {isopen,setIsOpen,handleClickCart,bag} = useContextCart()
 
   const [toggle,setToggle] = useState(false)
   const [chevron,setChevron] = useState(false)
@@ -202,7 +202,7 @@ const Navbar = ({Navigation}) => {
 
        <Bag>
         <BsFillBagFill size={25} onClick={handleClickCart} onMouseEnter={handleClickCart}/>
-         <Quantity>1</Quantity>
+         <Quantity>{bag}</Quantity>
        </Bag>
     </Nav>
     
@@ -211,7 +211,7 @@ const Navbar = ({Navigation}) => {
     <AsideMenu $toggle={toggle} >
        <Heading>
         <h2>React Shopping </h2> 
-            <AiOutlineClose style={{cursor:'pointer'}} color={`${({theme})=>theme.color}`} size={'15'} onClick={handleClick} />
+            <AiOutlineClose style={{cursor:'pointer'}}  size={'15'} onClick={handleClick} />
        </Heading>
 
         <FlexContainerSm>
