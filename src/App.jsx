@@ -10,6 +10,7 @@ import { Cat } from '../public/Data/Cat'
 import { Navigation } from './utils/Const'
 import { BrowserRouter as Router ,Routes , Route } from 'react-router-dom'
 import Cart from './components/Cart'
+import Modal from './components/Modal'
 
 const Container = styled.div`
 width : 100% ;
@@ -39,6 +40,7 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
       <ThemeProvider theme={theme ==='dark' ? light : dark}>
       <GlobalStyle />
           <Container >
+            <Modal />
           {/* {theme==='dark' ? <button onClick={toggleTheme}><ToggleOn/></button> : <button onClick={toggleTheme}><ToggleOf/></button> } */}
           <Navbar Navigation={Navigation} />
           <DarkLight theme={theme} toggleTheme={toggleTheme}/>
