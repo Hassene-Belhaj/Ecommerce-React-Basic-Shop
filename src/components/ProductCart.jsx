@@ -70,7 +70,7 @@ margin: auto .5rem;
 const ProductCart = ({product}) => {
    const {deleteProduct,decreaseQuantity,increaseQuantity} = useContextCart()
  const {id,title,image,price,quantity} =  product
-
+ 
 
   const priceQuantity = quantity * price
 

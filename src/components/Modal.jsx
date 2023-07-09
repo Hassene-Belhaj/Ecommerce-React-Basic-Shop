@@ -14,15 +14,15 @@ bottom: 0;
 left: 0;
 bottom: 0;
 z-index: 5000;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,.5);
 transition: all 0.1s ease-in-out;
 `
 const ModalDiv = styled.div`
 position: absolute;
 top: 5rem;
 right:${({$modal})=>$modal ?  '2rem' : '-100%' };
-transition: all 0.3s ease-in-out;
-width: 400px;
+transition: all 0.4s ease-in-out;
+width: 300px;
 height: 100px;
 margin: auto;
 background:#fff;
@@ -50,7 +50,7 @@ display: flex;
 button{
     margin: auto;
     cursor: pointer;
-    width: 60%;
+    width: 80%;
     height: 2rem;
     border: none;
     border-radius: 7px;
@@ -67,12 +67,14 @@ button{
 
 
 const Modal = () => {
-  const {bag,addtoCart} =  useContextCart()
+  const {bag,addtoCart,isopen,setIsOpen} =  useContextCart()
   const [modal,setModal] = useState(false)
  
   useEffect(()=>{
-    if(bag){
+    if(bag && !isopen){
       setModal(true)
+    } else if (bag === 0) {
+        setModal(false)
     }
     
   },[bag])

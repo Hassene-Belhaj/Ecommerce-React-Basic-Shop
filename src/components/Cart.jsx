@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
 import { styled } from 'styled-components'
 import { useContextCart } from '../Context/ContextCart'
 import { AiOutlineClose } from 'react-icons/ai'
 import ProductCart from './ProductCart'
 import { BsTrash3 } from 'react-icons/bs'
+import { motion } from 'framer-motion'
 
 const Container = styled.div`
 position: fixed;
@@ -36,7 +37,6 @@ bottom: 0;
 width: 30%;
 height: 15%;
 background: ${({theme})=>theme.background};
-
 `
 
 const Headline = styled.div`
@@ -62,6 +62,7 @@ gap: 1rem;
 const CartDiv = styled.div`
 width: 100%;
 height: 250px;
+border: 1px solid #f3f5f9;
 `
 const CleanCart = styled.span`
 height: auto;
@@ -116,9 +117,19 @@ button{
 const Cart = () => {
     const {isopen,cart,handleClickCart,deleteCart,total} = useContextCart()
 
+    const bottomdiv = useRef(null)
 
+    const scrollToBottom = () => {
+        bottomdiv.current?.scrollIntoView({behavior: "smooth", block: "start", inline: "end"});
+      }
+    
+      useEffect(() => {
+        scrollToBottom()
+      }, [cart]);
+
+ 
   return (
-    <Container $isopen={isopen}>
+    <Container $isopen={isopen}   >
       <Headline>   
          <h2>SHOPPING BAG</h2>
         <AiOutlineClose onClick={handleClickCart} onMouseEnter={handleClickCart} size={20} />
@@ -126,8 +137,19 @@ const Cart = () => {
        <FlexCart  >
         {cart.map((product,index)=>{
             return (
-                <CartDiv key={index}>
-                    <ProductCart product={product} />
+
+                <CartDiv key={index} ref={bottomdiv} >
+                    <motion.div  
+                    initial={{opacity : 0 , x : 400}}
+                    animate={{opacity : 1 , x : 0}}
+                    transition={{
+                        duration : 0.2 ,
+                        type : 'spring' ,
+                        bounce : 0.2
+                    }}>
+                        <ProductCart  product={product} />
+
+                    </motion.div>
                 </CartDiv>
                 )
             })}
