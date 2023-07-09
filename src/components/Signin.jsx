@@ -34,12 +34,16 @@ height : auto ;
 top: 1rem;
 right: 2rem;
 z-index: 8000;
+
 `
 
 const FlexContainer = styled.div`
 width: 100%;
 height: 100%;
 display: flex;
+@media screen and (max-width : 768px) {
+justify-content: center;
+}
 `
 const RightCol = styled.div`
 width: 50%;
@@ -51,12 +55,19 @@ img{
     object-fit: cover;
 }
 display: relative;
+@media screen and (max-width : 768px) {
+width    :100% ;
+}
 ` 
 const Contraste = styled.div`
 position: absolute;
 inset: 0;
 background : rgba(0,0,0,0.5); 
 width: 50%;
+@media screen and (max-width : 768px) {
+width    :100% ;
+background : rgba(0,0,0,0.85); 
+}
 `
 const LeftCol = styled.div`
 width: 50%;
@@ -65,13 +76,17 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+@media screen and (max-width : 768px) {
+width    :60% ;
+position: absolute;
+}
 `
 const Form = styled.form`
 width: 500px;
 height: auto;
 border: solid 1px #fff;
 border-radius: 15px;
-padding: 2rem;
+padding: 1rem;
 h3{
     font-size: 1.5rem;
 }
@@ -96,6 +111,12 @@ color : #fff;
 padding-left:1rem ;
 }
 }
+@media screen and (max-width : 1054px) {
+width: 360px;
+}
+@media screen and (max-width : 768px) {
+width: 360px;
+}
 `
 const Btn = styled.div`
 width: 100%;
@@ -103,9 +124,9 @@ height: auto;
 display: flex;
 justify-content: center;
 align-items: center;
-gap: 1rem;
+gap: .6rem;
 button{
-    width: 8.5rem;
+    width: 100rem;
     height: 2.5rem;
     border-radius: 7px;
     border: solid 1px gray ;
@@ -182,15 +203,15 @@ const Signin = () => {
                     <p>Choose your preferred sign in method</p>
                     <Btn>
                     <button>
-                      <BsGoogle style={{marginRight:'.5rem'}} size={15}/>
+                      <BsGoogle style={{marginRight:'.5rem'}} size={13}/>
                        Google
                     </button>
                      <button>
-                        <FaFacebookF style={{marginRight:'.5rem'}} size={15}  />
+                        <FaFacebookF style={{marginRight:'.5rem'}} size={13}  />
                         Facebook
                     </button>
                      <button>
-                     <RiDiscordFill style={{marginRight:'.5rem'}} size={15} color='#fff'/>   
+                     <RiDiscordFill style={{marginRight:'.5rem'}} size={13} color='#fff'/>   
                      Discord 
                     </button>    
                     </Btn> 
