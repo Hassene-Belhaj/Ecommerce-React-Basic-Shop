@@ -6,6 +6,7 @@ import { styled } from 'styled-components'
 import { Link as Linked} from 'react-router-dom'
 import {motion } from 'framer-motion'
 import { useContextCart } from '../Context/ContextCart'
+import { useContextAuth } from '../Context/ContextAuth'
 
 const Container = styled.div`
 width : 100% ;
@@ -69,10 +70,33 @@ transition:all 0.3s ease-in-out;
 const Bag = styled.div`
 position: absolute;
 top : 50% ;
-right : 2rem ;
+right : 7rem ;
 transform: translateY(-50%);
 cursor: pointer;
 `
+const SignBtn = styled.div`
+position: absolute;
+top: 50% ;
+right : 2rem ;
+transform : translateY(-50%) ;
+button{
+  cursor: pointer;
+  width: 4rem;
+  height: 2rem;
+  border: none;
+  border-radius: 8px;
+  background: ${({theme})=>theme.color};
+  color :${({theme})=>theme.background}; 
+  font-weight: 700;
+  transition: all .3s ease-in-out;
+  font-size: .8rem;
+  &:hover{
+    transition: all .3s ease-in-out;
+    opacity : 0.9 ;
+  }
+}
+`
+
 
 const Quantity = styled.span`
 position:absolute;
@@ -178,10 +202,12 @@ transition: all 0.3s ease;
 
 const Navbar = ({Navigation}) => {
   const {isopen,setIsOpen,handleClickCart,bag} = useContextCart()
+  const {signin,handleSign} =   useContextAuth()
 
   const [toggle,setToggle] = useState(false)
   const [chevron,setChevron] = useState(false)
   const handleClick = () => setToggle(!toggle)
+
   const handleChevron = () =>setChevron(!chevron)
 
 
@@ -204,6 +230,9 @@ const Navbar = ({Navigation}) => {
         <BsFillBagFill size={25} onClick={handleClickCart} onMouseEnter={handleClickCart}/>
          <Quantity>{bag}</Quantity>
        </Bag>
+       <SignBtn>
+        <button onClick={handleSign}>Sign in</button>
+       </SignBtn>
     </Nav>
     
   

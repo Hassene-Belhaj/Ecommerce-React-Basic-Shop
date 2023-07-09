@@ -17,8 +17,8 @@ img{
     border-radius: 10px;
 }
 h3{
-  font-size: 1.2rem;
-  margin-top: .5rem;
+  font-size: .9rem;
+  margin-top: 1rem;
   text-transform: capitalize;
 }
 p{

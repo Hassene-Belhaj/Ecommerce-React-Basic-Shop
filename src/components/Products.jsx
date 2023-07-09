@@ -14,7 +14,7 @@ height: 100%;
 margin-top: 4rem;
 text-align: center;
  h3{
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 800;
   margin-bottom: 1rem;
  }
@@ -44,11 +44,7 @@ margin: auto;
 padding-bottom: 3rem;
 text-align: center;
 z-index: 100;
-h3{
- font-size: 1.5rem;
- font-weight: 800;
- margin-bottom: 1rem;
-}
+
 @media screen and (max-width : 768px){
  width : 100%
 }
@@ -67,7 +63,7 @@ z-index: 101;
 `
 const Div = styled.div`
 width: 300px;
-height:150px;
+height:400px;
 margin: auto;
 overflow: hidden;
 display: flex;
@@ -80,7 +76,7 @@ cursor: pointer;
 const CategoryDiv = styled.div`
 position: relative;
 width: 300px;
-height:150px;
+height:400px;
 margin: auto;
 display: flex;
 border-radius: 10px;
