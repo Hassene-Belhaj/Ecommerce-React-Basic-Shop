@@ -15,7 +15,8 @@ const ContextCart = ({children}) => {
   const [total,setTotal] = useState()
   const handleClickCart = () => setIsOpen(!isopen)
 
-
+ 
+  
 useEffect(()=>{
 const sum = cart.reduce((accu,curr)=>{
    return accu + curr.price * curr.quantity

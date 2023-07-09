@@ -181,7 +181,7 @@ const Products = () => {
         <Grid>
          {newdata.map((product,index)=>{
             return (
-              <AnimatePresence>
+              <AnimatePresence key={index}>
                <motion.div 
                layout
                key={product.id}
