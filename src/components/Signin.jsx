@@ -226,8 +226,8 @@ const Signin = () => {
                    <h4>Password</h4>
                    <input type="password" placeholder='*********' />
                     <Button>Sign in</Button> 
-                    <Span>Dont have an account yet ? </Span>
-                    <Span style={{borderBottom:'1px solid'}}>Sign Up</Span>
+                    <Span>Don't you have an account yet ? </Span>
+                    <Span><h3 style={{fontSize:'1rem',paddingBottom:'.6rem', borderBottom:'solid 1px'}}>Sign Up</h3></Span>
                   </Form>
               </LeftCol>
           </FlexContainer>

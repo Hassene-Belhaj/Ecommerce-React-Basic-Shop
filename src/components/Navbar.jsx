@@ -70,7 +70,7 @@ transition:all 0.3s ease-in-out;
 const Bag = styled.div`
 position: absolute;
 top : 50% ;
-right : 7rem ;
+right : 108px ;
 transform: translateY(-50%);
 cursor: pointer;
 `

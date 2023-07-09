@@ -12,6 +12,7 @@ import { BrowserRouter as Router ,Routes , Route } from 'react-router-dom'
 import Cart from './components/Cart'
 import Modal from './components/Modal'
 import Signin from './components/Signin'
+import Footer from './components/Footer'
 
 const Container = styled.div`
 width : 100% ;
@@ -49,6 +50,7 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
             <Products/>
             <Cart/>
             <Signin />
+            <Footer />
         </Container>
       </ThemeProvider>
     </Router>

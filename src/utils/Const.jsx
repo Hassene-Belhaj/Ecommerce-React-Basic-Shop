@@ -6,3 +6,9 @@ export const Navigation = [
     {id: 3 ,title : 'Our Products'},
     {id: 4 ,title : 'Contact'},
 ]
+
+
+export const FooterData = [
+    {id: 1 ,title : 'lorem' , subtitle : 'ipsum'}
+
+]
