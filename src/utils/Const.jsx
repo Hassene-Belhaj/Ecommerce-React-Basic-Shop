@@ -9,6 +9,45 @@ export const Navigation = [
 
 
 export const FooterData = [
-    {id: 1 ,title : 'lorem' , subtitle : 'ipsum'}
+     {id : 1 ,
+     title : 'lorem' ,
+     subtitle : [
+       {id : 1 , title : 'ipsum'} ,
+       {id : 2 , title : 'ipsum'} ,
+       {id : 3 , title : 'ipsum'} ,
+       {id : 4 , title : 'ipsum'} ,
+       {id : 5 , title : 'ipsum'} ,
+     ]
+    } ,
+    {id : 2 ,
+        title : 'lorem' ,
+        subtitle : [
+          {id : 1 , title : 'ipsum'} ,
+          {id : 2 , title : 'ipsum'} ,
+          {id : 3 , title : 'ipsum'} ,
+          {id : 4 , title : 'ipsum'} ,
+          {id : 5 , title : 'ipsum'} ,
+        ]
+       } ,
+       {id : 3 ,
+        title : 'lorem' ,
+        subtitle : [
+          {id : 1 , title : 'ipsum'} ,
+          {id : 2 , title : 'ipsum'} ,
+          {id : 3 , title : 'ipsum'} ,
+          {id : 4 , title : 'ipsum'} ,
+          {id : 5 , title : 'ipsum'} ,
+        ]
+       } ,   
+       {id : 4 ,
+        title : 'lorem' ,
+        subtitle : [
+          {id : 1 , title : 'ipsum'} ,
+          {id : 2 , title : 'ipsum'} ,
+          {id : 3 , title : 'ipsum'} ,
+          {id : 4 , title : 'ipsum'} ,
+          {id : 5 , title : 'ipsum'} ,
+        ]
+       } ,
 
 ]

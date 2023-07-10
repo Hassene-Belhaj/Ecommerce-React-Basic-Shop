@@ -4,10 +4,8 @@ import { GlobalStyle} from './components/Global'
 import Navbar from './components/Navbar'
 import DarkLight from './components/DarkLight'
 import Hero from './components/Hero'
-import Main from './components/Category'
 import Products from './components/Products'
-import { Cat } from '../public/Data/Cat'
-import { Navigation } from './utils/Const'
+import { FooterData, Navigation } from './utils/Const'
 import { BrowserRouter as Router ,Routes , Route } from 'react-router-dom'
 import Cart from './components/Cart'
 import Modal from './components/Modal'
@@ -50,7 +48,7 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
             <Products/>
             <Cart/>
             <Signin />
-            <Footer />
+            <Footer FooterData={FooterData}/>
         </Container>
       </ThemeProvider>
     </Router>
