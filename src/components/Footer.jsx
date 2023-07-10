@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsSend } from 'react-icons/bs'
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 
 
 const Container = styled.div`
@@ -25,9 +25,9 @@ span{
 
 
 @media screen and (max-width : 768px) {
-   span{
-    grid-column: span 2 / 3;
-    }
+span{
+grid-column: span 2 / 3;
+}
 @media screen and (max-width : 872px) {
     grid-template-columns: 1fr 1fr;
 

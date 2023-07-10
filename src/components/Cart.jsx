@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
-import { styled } from 'styled-components'
+import styled  from 'styled-components'
 import { useContextCart } from '../Context/ContextCart'
 import { AiOutlineClose } from 'react-icons/ai'
 import ProductCart from './ProductCart'

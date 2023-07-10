@@ -2,11 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import { BsFillBagFill } from 'react-icons/bs'
 import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
-import { styled } from 'styled-components'
 import { Link as Linked} from 'react-router-dom'
 import {motion } from 'framer-motion'
 import { useContextCart } from '../Context/ContextCart'
 import { useContextAuth } from '../Context/ContextAuth'
+import styled from 'styled-components'
 
 const Container = styled.div`
 width : 100% ;

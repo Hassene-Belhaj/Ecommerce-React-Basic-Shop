@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from 'styled-components'
+import styled  from 'styled-components'
 import { MdDone } from 'react-icons/md'
 import { useContextCart } from '../Context/ContextCart'
 import { useEffect } from 'react'

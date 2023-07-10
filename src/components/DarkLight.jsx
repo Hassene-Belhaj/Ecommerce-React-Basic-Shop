@@ -1,6 +1,6 @@
 import React from 'react'
-import { styled } from 'styled-components'
 import { ToggleOf, ToggleOn } from './Global'
+import styled from 'styled-components'
 
 
 const DarkLightDiv = styled.div`

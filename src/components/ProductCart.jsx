@@ -1,6 +1,6 @@
 import React from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
-import { styled } from 'styled-components'
+import  styled  from 'styled-components'
 import { HiChevronUp,HiChevronDown } from 'react-icons/hi'
 import { useContextCart } from '../Context/ContextCart'
 

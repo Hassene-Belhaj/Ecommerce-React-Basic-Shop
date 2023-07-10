@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {ThemeProvider, styled } from 'styled-components'
+import styled , {ThemeProvider, } from 'styled-components'
 import { GlobalStyle} from './components/Global'
 import Navbar from './components/Navbar'
 import DarkLight from './components/DarkLight'
@@ -11,6 +11,7 @@ import Cart from './components/Cart'
 import Modal from './components/Modal'
 import Signin from './components/Signin'
 import Footer from './components/Footer'
+import ContextAuth from './Context/ContextAuth'
 
 const Container = styled.div`
 width : 100% ;
@@ -37,20 +38,21 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
 
   return (
     <Router>
-      <ThemeProvider theme={theme ==='dark' ? light : dark}>
-      <GlobalStyle />
-          <Container >
-            <Modal />
-          {/* {theme==='dark' ? <button onClick={toggleTheme}><ToggleOn/></button> : <button onClick={toggleTheme}><ToggleOf/></button> } */}
-          <Navbar Navigation={Navigation} />
-          <DarkLight theme={theme} toggleTheme={toggleTheme}/>
-            <Hero />
-            <Products/>
-            <Cart/>
-            <Signin />
-            <Footer FooterData={FooterData}/>
-        </Container>
-      </ThemeProvider>
+      <ContextAuth>
+          <ThemeProvider theme={theme ==='dark' ? light : dark}>
+          <GlobalStyle />
+              <Container >
+                <Modal />
+               <Navbar Navigation={Navigation} />
+                <DarkLight theme={theme} toggleTheme={toggleTheme}/>
+                <Hero />
+                <Products/>
+                <Cart/>
+                <Signin />
+                <Footer FooterData={FooterData}/>
+            </Container>
+          </ThemeProvider>
+      </ContextAuth>
     </Router>
 
 

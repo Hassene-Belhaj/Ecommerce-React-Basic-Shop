@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from 'styled-components'
+import styled  from 'styled-components'
 import { useContextCart } from '../Context/ContextCart'
 
 

@@ -1,4 +1,4 @@
-import {createGlobalStyle, styled } from 'styled-components'
+import styled, { createGlobalStyle} from 'styled-components'
 import { BsFillMoonFill,BsFillSunFill } from 'react-icons/bs'
 
 

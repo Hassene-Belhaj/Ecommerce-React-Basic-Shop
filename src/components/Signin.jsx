@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { styled } from 'styled-components'
+import  styled  from 'styled-components'
 import { useContextAuth } from '../Context/ContextAuth'
 import { BsGoogle } from 'react-icons/bs'
 import { FaFacebookF } from 'react-icons/fa'

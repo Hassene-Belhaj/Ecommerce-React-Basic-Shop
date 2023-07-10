@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 import { useContextData } from '../Context/ContextData'
 import Product from './Product'
 import Category from './Category'
