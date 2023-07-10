@@ -20,7 +20,7 @@ transition: all 0.1s ease-in-out;
 const ModalDiv = styled.div`
 position: absolute;
 top: 5rem;
-right:${({$modal})=>$modal ?  '2rem' : '-100%' };
+right:${({$modal})=>$modal ?  '2rem' : '-200%' };
 transition: all 0.4s ease-in-out;
 width: 300px;
 height: 100px;

@@ -5,27 +5,31 @@ import { styled } from 'styled-components'
 
 const Container = styled.div`
 width: 100%;
-height: 800px;
+height: auto;
 background: ${({theme})=>theme.background};
 color: ${({theme})=>theme.color};
 padding: 2rem 0;
+border-top: 1px solid rgba(0,0,0,0.2);
 `
 
 const Grid = styled.div`
 padding-top:2rem ;
 width: 90%;
 display: grid;
-grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
 margin: auto;
-justify-content: center;
-
 gap: 3rem;
 span{
     text-align: center;
 }
+
+
 @media screen and (max-width : 768px) {
    span{
     grid-column: span 2 / 3;
+    }
+@media screen and (max-width : 872px) {
+    grid-template-columns: 1fr 1fr;
 
 }
 }
@@ -100,11 +104,11 @@ const Footer = ({FooterData}) => {
           <span><h3>React Shopping</h3></span>
         {FooterData.map((element,index)=>{
             return (
-                <FooterCol>
+                <FooterCol key={index}>
                  <h4>{element.title}</h4>   
                  {element.subtitle.map((element,index)=>{
                     return (
-                        <p style={{color:'gray'}}>{element.title}</p>
+                        <p key={index} style={{color:'gray'}}>{element.title}</p>
                     )
                  })}
                 </FooterCol>

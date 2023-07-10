@@ -51,7 +51,8 @@ height: 100%;
 display: flex;
 overflow: hidden;
 img{
-    min-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: cover;
 }
 display: relative;
@@ -77,13 +78,14 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 @media screen and (max-width : 768px) {
-width    :60% ;
-position: absolute;
+    width    :60% ;
+    position: absolute;
 }
 `
 const Form = styled.form`
+background:#000;
 width: 500px;
-height: auto;
+height: 560px;
 border: solid 1px #fff;
 border-radius: 15px;
 padding: 1rem;
@@ -221,7 +223,7 @@ const Signin = () => {
                         <BorderRight></BorderRight>
                         </Span>
                    
-                  <h4>Email</h4>
+                   <h4>Email</h4>
                    <input type="email" placeholder='reactshopping@react.com' />
                    <h4>Password</h4>
                    <input type="password" placeholder='*********' />

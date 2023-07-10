@@ -18,6 +18,7 @@ height: 100%;
 display: flex;
 img{
     min-width: 100%;
+    max-height: 100%;
     object-fit:cover ;
 }
 `
