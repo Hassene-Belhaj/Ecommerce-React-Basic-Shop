@@ -9,7 +9,7 @@ height: auto;
 background: ${({theme})=>theme.background};
 color: ${({theme})=>theme.color};
 padding: 2rem 0;
-border-top: 1px solid rgba(0,0,0,0.2);
+border-top: .1px solid rgba(180,180,180,0.5);
 `
 
 const Grid = styled.div`

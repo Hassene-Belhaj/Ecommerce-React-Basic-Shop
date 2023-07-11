@@ -21,12 +21,10 @@ z-index: 10000;
 box-shadow: 1px 1px 5px ${({theme})=>theme.color};
 @media screen and (max-width : 768px){
     width: 60%;
-    height: 100%;
 }
 
 @media screen and (max-width : 440px){
     width: 100%;
-    height: 100%;
 }
 overflow: scroll;
 `
@@ -37,6 +35,12 @@ bottom: 0;
 width: 30%;
 height: 15%;
 background: ${({theme})=>theme.background};
+@media screen and (max-width : 768px){
+    width: 60%;
+}
+@media screen and (max-width : 440px){
+    width: 100%;
+}
 `
 
 const Headline = styled.div`

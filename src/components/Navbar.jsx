@@ -21,7 +21,7 @@ width:100%;
 height:60px;
 display: flex;
 align-items: center;
-box-shadow: 1px 0px 0.8px ${({theme})=>theme.color};
+border-bottom: .1px solid rgba(180,180,180,0.5);
 h2{
     width: 10%;
     font-size : 1.1rem;
@@ -201,7 +201,7 @@ transition: all 0.3s ease;
 
 const Navbar = ({Navigation}) => {
   const {isopen,setIsOpen,handleClickCart,bag} = useContextCart()
-  const {signin,handleSign} =   useContextAuth()
+  const {signin,handleSign,user} =   useContextAuth()
 
   const [toggle,setToggle] = useState(false)
   const [chevron,setChevron] = useState(false)
@@ -230,7 +230,10 @@ const Navbar = ({Navigation}) => {
          <Quantity>{bag}</Quantity>
        </Bag>
        <SignBtn>
-        <button onClick={handleSign}>Sign in</button>
+         {user?.dipsplayName ? <button>log out</button> :  <button onClick={handleSign}>Sign in</button>}
+        
+
+      
        </SignBtn>
     </Nav>
     
