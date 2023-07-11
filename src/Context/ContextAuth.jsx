@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import { GoogleAuthProvider , signInWithPopup } from 'firebase/auth'
+import { GoogleAuthProvider,signInWithPopup} from 'firebase/auth'
+import { auth } from "../Firebase";
 
 const ContextAuthG =  createContext()
 
@@ -8,22 +9,17 @@ const ContextAuth = ({children}) => {
 
   const [signin,setSignIn] = useState(false)
   const handleSign = () => setSignIn(!signin)
-    
   
-  const GoogleSignIn = () => {
-    const provider = new GoogleAuthProvider()
-    signInWithPopup(auth,provider)
-
+  
+  const googleSignIn = () => {
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(auth,provider)
   }
 
-
-  const Value = {
-    signin,setSignIn,handleSign,GoogleSignIn
-  }
-
+    
     return (
-     <ContextAuthG.Provider value={Value} >
-       {children}
+     <ContextAuthG.Provider value={{signin,setSignIn,handleSign,googleSignIn}} >
+       {children}  
      </ContextAuthG.Provider>
     )
 }

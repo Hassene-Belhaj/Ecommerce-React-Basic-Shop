@@ -11,7 +11,6 @@ import Cart from './components/Cart'
 import Modal from './components/Modal'
 import Signin from './components/Signin'
 import Footer from './components/Footer'
-import ContextAuth from './Context/ContextAuth'
 
 const Container = styled.div`
 width : 100% ;
@@ -38,7 +37,6 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
 
   return (
     <Router>
-      <ContextAuth>
           <ThemeProvider theme={theme ==='dark' ? light : dark}>
           <GlobalStyle />
               <Container >
@@ -52,7 +50,6 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
                 <Footer FooterData={FooterData}/>
             </Container>
           </ThemeProvider>
-      </ContextAuth>
     </Router>
 
 

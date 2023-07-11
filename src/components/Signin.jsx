@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import  styled  from 'styled-components'
-import { useContextAuth } from '../Context/ContextAuth'
 import { BsGoogle } from 'react-icons/bs'
 import { FaFacebookF } from 'react-icons/fa'
 import { RiDiscordFill } from 'react-icons/ri'
 import { AiOutlineClose } from 'react-icons/ai'
+import { useContextAuth } from '../Context/ContextAuth'
 
 const Container = styled.div`
 display: ${({$signin})=>$signin ? 'block': 'none' };
@@ -183,8 +183,18 @@ cursor: pointer;
 `
 
 const Signin = () => {
-  const {signin,handleSign} =   useContextAuth()
+  const {signin,handleSign,googleSignIn} = useContextAuth()
   console.log(signin);
+
+const handlegoogleSignIN = async () => {
+try {
+  await googleSignIn()
+} catch (error) {
+  console.log(error);
+}  
+}
+
+
 
   return (
         <Container $signin={signin}> 
@@ -204,7 +214,7 @@ const Signin = () => {
                     <h3>Sign in</h3>
                     <p>Choose your preferred sign in method</p>
                     <Btn>
-                    <button>
+                    <button onClick={handlegoogleSignIN}  >
                       <BsGoogle style={{marginRight:'.5rem'}} size={13}/>
                        Google
                     </button>
