@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { BsFillBagFill } from 'react-icons/bs'
 import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
-import { Link as Linked} from 'react-router-dom'
+import { Link as Linked, useNavigate} from 'react-router-dom'
 import { useContextCart } from '../Context/ContextCart'
 import { useContextAuth } from '../Context/ContextAuth'
 import styled from 'styled-components'
@@ -201,7 +201,8 @@ transition: all 0.3s ease;
 
 const Navbar = ({Navigation}) => {
   const {isopen,setIsOpen,handleClickCart,bag} = useContextCart()
-  const {signin,handleSign,user} =   useContextAuth()
+  const {signin,handleSign,user } =   useContextAuth()
+
 
   const [toggle,setToggle] = useState(false)
   const [chevron,setChevron] = useState(false)

@@ -11,7 +11,7 @@ const ContextData = ({children}) => {
     
 
     const FetchProducts  = () => {
-      callAPI(`Data/products.json`)
+      callAPI(`/Data/products.json`)
       .then((data)=>{
       setData(data)
       })
@@ -22,7 +22,6 @@ FetchProducts()
 },[])
     
     
-
 
 
   return (

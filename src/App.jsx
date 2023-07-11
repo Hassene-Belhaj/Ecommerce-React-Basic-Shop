@@ -11,6 +11,7 @@ import Cart from './components/Cart'
 import Modal from './components/Modal'
 import Signin from './components/Signin'
 import Footer from './components/Footer'
+import ProductPage from './components/Page/ProductPage'
 
 const Container = styled.div`
 width : 100% ;
@@ -40,13 +41,15 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
           <ThemeProvider theme={theme ==='dark' ? light : dark}>
           <GlobalStyle />
               <Container >
-                <Modal />
                <Navbar Navigation={Navigation} />
                 <DarkLight theme={theme} toggleTheme={toggleTheme}/>
-                <Hero />
-                <Products/>
+               <Routes>
+                 <Route path='/' element={ <Products/> } />                 
+                 <Route path='/product/:id' element={ <ProductPage/> } />                             
+               </Routes> 
                 <Cart/>
                 <Signin />
+                <Modal />
                 <Footer FooterData={FooterData}/>
             </Container>
           </ThemeProvider>

@@ -9,6 +9,7 @@ const ProductCartDiv = styled.div`
 width: 100%;
 height: 100%;
 display: flex;
+border: 1px solid rgba(180,180,180,0.3);
 `
 
 
@@ -18,7 +19,6 @@ height: 100%;
 display: flex;
 img{
     min-width: 100%;
-    max-height: 100%;
     object-fit:cover ;
 }
 `

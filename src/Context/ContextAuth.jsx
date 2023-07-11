@@ -1,12 +1,13 @@
 import { createContext, useContext, useState ,useEffect } from "react";
 import { GoogleAuthProvider,onAuthStateChanged,signInWithPopup,signOut} from 'firebase/auth'
 import { auth } from "../Firebase";
+import { useNavigate } from "react-router";
 
 const ContextAuthG =  createContext()
 
 
 const ContextAuth = ({children}) => {
-
+  // const navigate = useNavigate()
   const [signin,setSignIn] = useState(false)
   const [user,setUser] =useState({})
 
@@ -18,15 +19,15 @@ const ContextAuth = ({children}) => {
   signInWithPopup(auth,provider)
   }
 
-  const logout = () => {
+  const googleLogOut = () => {
    signOut(auth) 
   }
  
   useEffect(()=>{
   const unsubscribe = onAuthStateChanged(auth , (currUser)=> {
-    console.log(currUser);
     setUser(currUser)
-    setSignIn(false)
+
+    
   }) 
   return () => {
     unsubscribe() 
@@ -35,7 +36,7 @@ const ContextAuth = ({children}) => {
   },[])
 
     return (
-     <ContextAuthG.Provider value={{signin,setSignIn,handleSign,googleSignIn,logout}} >
+     <ContextAuthG.Provider value={{signin,setSignIn,handleSign,googleSignIn,googleLogOut}} >
        {children}  
      </ContextAuthG.Provider>
     )

@@ -5,6 +5,7 @@ import { FaFacebookF } from 'react-icons/fa'
 import { RiDiscordFill } from 'react-icons/ri'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useContextAuth } from '../Context/ContextAuth'
+import { useNavigate } from 'react-router'
 
 const Container = styled.div`
 display: ${({$signin})=>$signin ? 'block': 'none' };
@@ -183,8 +184,7 @@ cursor: pointer;
 `
 
 const Signin = () => {
-  const {signin,handleSign,googleSignIn} = useContextAuth()
-  console.log(signin);
+  const {signin,handleSign,googleSignIn,googleLogOut} = useContextAuth()
 
 const handlegoogleSignIN = async () => {
 try {
@@ -214,7 +214,7 @@ try {
                     <h3>Sign in</h3>
                     <p>Choose your preferred sign in method</p>
                     <Btn>
-                    <button onClick={handlegoogleSignIN}  >
+                    <button onClick={handlegoogleSignIN} >
                       <BsGoogle style={{marginRight:'.5rem'}} size={13}/>
                        Google
                     </button>

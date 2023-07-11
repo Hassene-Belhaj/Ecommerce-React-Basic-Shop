@@ -66,7 +66,6 @@ gap: 1rem;
 const CartDiv = styled.div`
 width: 100%;
 height: 250px;
-border: 1px solid #f3f5f9;
 `
 const CleanCart = styled.span`
 height: auto;

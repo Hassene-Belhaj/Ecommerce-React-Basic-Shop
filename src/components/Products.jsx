@@ -6,23 +6,24 @@ import Category from './Category'
 import { Cat } from '../../public/Data/Cat'
 import { useEffect } from 'react'
 import {AnimatePresence,motion } from 'framer-motion'
+import Hero from './Hero'
 
 
 const Container = styled.div`
 width: 100%;
 height: 100%;
-margin-top: 4rem;
 text-align: center;
- h3{
+h3{
   font-size: 1.1rem;
   font-weight: 800;
   margin-bottom: 1rem;
- }
+}
 `
 
 const Grid = styled.div`
 width: 80%;
 height : 100%;
+margin-top: 4rem;
 display: grid;
 grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
 justify-content: center;
@@ -155,6 +156,7 @@ const Products = () => {
 
   return (
     <Container>
+        <Hero />
         <CatContainer>
    <h3>Categories</h3>
    <FlexCat>
