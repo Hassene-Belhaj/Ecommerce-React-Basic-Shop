@@ -8,10 +8,10 @@ import ProductCarousel from './ProductCarousel'
 
 const Container = styled.div`
 width: 90%;
-height: 100vh;
+height: 90vh;
 display: flex;
 justify-content: center;
-margin-top: 2rem;
+margin-top: 1rem;
 margin-bottom: 4rem;
 margin-left: auto;
 margin-right: auto;
@@ -37,7 +37,7 @@ const ProductPage = () => {
     
 
 
-    const product = data.find((item)=>item.id === parseInt(id))
+    const product = data?.find((item)=>item.id === parseInt(id))
 
   
 

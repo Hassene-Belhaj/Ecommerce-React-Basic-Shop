@@ -190,7 +190,7 @@ cursor:pointer;
 const Linked= styled(Link)`
 text-decoration: none;
 color : ${({theme})=>theme.color} ;
-font-size: ${({$size})=>$size};
+font-size: ${({size})=>size};
 padding: .5rem;
 transition: all 0.3s ease;
 &:hover{
@@ -253,7 +253,7 @@ const Navbar = ({Navigation}) => {
            {Navigation.map((item,index)=>{
              return (
                        <LinkItem  key={index} >           
-                            <Link  $border='true' size={'1.5rem'}>{item.title}</Link> 
+                            <Link  border='true' size={'1.5rem'}>{item.title}</Link> 
                         </LinkItem>
              )
            })}
