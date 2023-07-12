@@ -158,9 +158,9 @@ const Products = () => {
     <Container>
         <Hero />
         <CatContainer>
-   <h3>Categories</h3>
-   <FlexCat>
-   {Cat.map((item,index)=>{
+      <h3>Categories</h3>
+       <FlexCat>
+      {Cat.map((item,index)=>{
      return (
       <Div key={index} onClick={()=>Filter(item.id,item.cat)}>
        <CategoryDiv>

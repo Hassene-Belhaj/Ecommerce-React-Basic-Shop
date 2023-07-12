@@ -1,6 +1,7 @@
 import React from 'react'
 import styled  from 'styled-components'
 import { useContextCart } from '../Context/ContextCart'
+import { Link } from 'react-router-dom'
 
 
 const ProductDiv = styled.div`
@@ -45,7 +46,9 @@ const Product = ({product}) => {
   const {id,title,description,image,price,category} = product
   return (
     <ProductDiv>
+      <Link to={`product/${id}`}>
       <img src={image} alt="" />
+      </Link>
        <h3>{title}</h3>
        <button  onClick={()=>addtoCart(product,id)}>${price.toFixed(2)}</button>
      </ProductDiv>

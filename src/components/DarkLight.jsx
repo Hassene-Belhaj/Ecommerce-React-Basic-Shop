@@ -10,8 +10,8 @@ display : flex ;
 justify-content: start;
 align-items :center; 
 padding-left : 2rem ;
-margin-top:6px;
-margin-bottom: 6px;
+margin-top:10px;
+margin-bottom: 10px;
 button{
     display:flex;
     justify-content: center;
@@ -21,7 +21,7 @@ button{
     background :rgba(108, 122, 137,0.2);
     cursor:crosshair;
     &:hover{
-
+    /* background :rgba(108, 122, 137,0.2); */
     }
 }
 ` 

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const Container = styled.div`
 width: 100%;
-height: auto;
+height: 520px;
 background: ${({theme})=>theme.background};
 color: ${({theme})=>theme.color};
 padding: 2rem 0;
@@ -13,7 +13,7 @@ border-top: .1px solid rgba(180,180,180,0.5);
 `
 
 const Grid = styled.div`
-padding-top:2rem ;
+padding-top:4rem ;
 width: 90%;
 display: grid;
 grid-template-columns: repeat(auto-fit,minmax(220px,1fr));

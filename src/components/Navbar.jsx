@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { BsFillBagFill } from 'react-icons/bs'
 import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
-import { Link as Linked, useNavigate} from 'react-router-dom'
+import { Link , useNavigate} from 'react-router-dom'
 import { useContextCart } from '../Context/ContextCart'
 import { useContextAuth } from '../Context/ContextAuth'
 import styled from 'styled-components'
@@ -24,7 +24,7 @@ align-items: center;
 border-bottom: .1px solid rgba(180,180,180,0.5);
 h2{
     width: 10%;
-    font-size : 1.1rem;
+    font-size : 1rem;
     margin-left: 2rem;
 }
 @media screen and (max-width : 768px) {
@@ -32,6 +32,7 @@ h2{
   display: none;
 }  
 }
+
 `
 const Links = styled.div`
 position: relative;
@@ -186,10 +187,10 @@ height: auto;
 margin: 2rem 1rem;
 cursor:pointer;
 `
-const Link = styled(Linked)`
+const Linked= styled(Link)`
 text-decoration: none;
 color : ${({theme})=>theme.color} ;
-font-size: ${({size})=>size};
+font-size: ${({$size})=>$size};
 padding: .5rem;
 transition: all 0.3s ease;
 &:hover{
@@ -214,12 +215,14 @@ const Navbar = ({Navigation}) => {
   return (
 <Container>
     <Nav>
-     <h2>React Shopping </h2> 
+    <Link to={'/'}  style={{textDecoration:'none',marginLeft:'2rem'}}>            
+       React Shopping
+      </Link>
      <Links>
        {Navigation.map((item,index)=>{
         return (
            <Button key={index}  onClick={handleChevron} onMouseEnter={()=>setChevron(true)}>
-            <Link size={'0.9rem'}>{item.title}</Link>
+            <Linked size={'0.9rem'}>{item.title}</Linked>
           </Button>
             )
         })}
