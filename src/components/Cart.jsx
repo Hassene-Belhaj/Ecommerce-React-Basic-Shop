@@ -5,7 +5,7 @@ import { useContextCart } from '../Context/ContextCart'
 import { AiOutlineClose } from 'react-icons/ai'
 import ProductCart from './ProductCart'
 import { BsTrash3 } from 'react-icons/bs'
-import { motion } from 'framer-motion'
+import { motion ,useScroll } from 'framer-motion'
 
 const Container = styled.div`
 position: fixed;
@@ -27,6 +27,14 @@ box-shadow: 1px 1px 5px ${({theme})=>theme.color};
     width: 100%;
 }
 overflow: scroll;
+`
+
+const Barprogress = styled(motion.span)`
+position: absolute;
+inset: 0;
+width: 1rem;
+height: 8px;
+background: red;
 `
 
 const Bottom = styled.div`
@@ -120,6 +128,13 @@ button{
 const Cart = () => {
     const {isopen,cart,handleClickCart,deleteCart,total} = useContextCart()
 
+    const { scrollYProgress } = useScroll();
+      const ref = useRef(null)
+
+
+
+    // scroll to new added product in cart
+
     const bottomdiv = useRef(null)
 
     const scrollToBottom = () => {
@@ -132,7 +147,8 @@ const Cart = () => {
 
  
   return (
-    <Container $isopen={isopen}   >
+    <Container $isopen={isopen} >
+        {/* <Barprogress  style={{scaleX : scrollYProgress}}></Barprogress> */}
       <Headline>   
          <h2>SHOPPING BAG</h2>
         <AiOutlineClose onClick={handleClickCart} onMouseEnter={handleClickCart} size={20} />

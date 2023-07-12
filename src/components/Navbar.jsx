@@ -17,22 +17,26 @@ position : relative ;
 
 const Nav = styled.nav`
 position: relative;
-width:100%;
+width:80%;
+margin: 0 auto;
 height:60px;
 display: flex;
 align-items: center;
-border-bottom: .1px solid rgba(180,180,180,0.5);
 h2{
-    width: 10%;
-    font-size : 1rem;
-    margin-left: 2rem;
+  width: 10%;
+  font-size : 1rem;
+  margin-left: 2rem;
 }
 @media screen and (max-width : 768px) {
-h2{
-  display: none;
-}  
+  h2{
+    display: none;
+  }  
 }
-
+`
+const BorderNav = styled.span`
+display: block;
+width: 100%;
+border-top: .1px solid rgba(180,180,180,0.5);
 `
 const Links = styled.div`
 position: relative;
@@ -199,6 +203,16 @@ opacity : 0.8;
 transition: all 0.3s ease;
 }
 `
+const Linklogo= styled(Link)`
+text-decoration: none;
+color : ${({theme})=>theme.color} ;
+font-weight: 700;
+@media screen and (max-width : 768px) {
+  display: none;
+}
+
+`
+
 
 const Navbar = ({Navigation}) => {
   const {isopen,setIsOpen,handleClickCart,bag} = useContextCart()
@@ -215,17 +229,17 @@ const Navbar = ({Navigation}) => {
   return (
 <Container>
     <Nav>
-    <Link to={'/'}  style={{textDecoration:'none',marginLeft:'2rem'}}>            
+    <Linklogo to={'/'}  style={{textDecoration:'none',marginLeft:'2rem'}}>            
        React Shopping
-      </Link>
+      </Linklogo>
      <Links>
        {Navigation.map((item,index)=>{
-        return (
+         return (
            <Button key={index}  onClick={handleChevron} onMouseEnter={()=>setChevron(true)}>
             <Linked size={'0.9rem'}>{item.title}</Linked>
           </Button>
             )
-        })}
+          })}
         
         </Links>
 
@@ -240,6 +254,8 @@ const Navbar = ({Navigation}) => {
       
        </SignBtn>
     </Nav>
+      
+      <BorderNav></BorderNav>
     
   
     {/* <AsideMenu style={{left: toggle ? 0 : '-100%' }} > */}
