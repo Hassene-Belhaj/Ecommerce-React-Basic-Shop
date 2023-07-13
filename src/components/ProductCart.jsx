@@ -72,22 +72,23 @@ margin: auto .5rem;
 const ProductCart = ({product}) => {
    const {deleteProduct,decreaseQuantity,increaseQuantity,cart} = useContextCart()
    const {id,title,image,price,quantity} =  product
-   const [ img, setImg ] = useState({});
+  //  const [img,setImg] = useState({src : null});
  
 
   const priceQuantity = quantity * price
  
-useEffect(()=>{
-setImg({src : image})
-},[])
+// useEffect(()=>{
+// setImg({src:image})
+// },[cart])
 
+// console.log(img);
 
-if (!product?.image) return ( <h4 className='text-center text-5xl font-semibold mt-4'>loading image...</h4> )
+  //  if (img.src === null) return ( <h4 className='text-center text-5xl font-semibold mt-4'>loading image...</h4> )
 
   return (
     <ProductCartDiv>
      <LeftColumn>
-        <img src={img} alt={image} />
+        <img src={image}/>
      </LeftColumn>
 
      <RightColum>

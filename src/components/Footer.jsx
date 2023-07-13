@@ -1,9 +1,12 @@
 import React from 'react'
 import { BsSend } from 'react-icons/bs'
 import styled from 'styled-components'
+import { motion ,useAnimation } from 'framer-motion'
+import { useInView} from 'react-intersection-observer'
+import { useEffect } from 'react'
 
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 width: 100%;
 height: 520px;
 background: ${({theme})=>theme.background};
@@ -98,8 +101,36 @@ border-radius: 3px;
 
 
 const Footer = ({FooterData}) => {
+
+const {ref,inView} = useInView()
+const animation = useAnimation()
+
+
+useEffect(()=>{
+if(inView){
+    animation.start('visible')
+} else {
+    animation.start('hidden')
+}    
+
+},[inView])
+
   return (
-    <Container>
+    <Container ref={ref}
+    variants={{
+     hidden : {opacity : 0.3 , x : -100} ,
+     visible : {opacity : 1 , x : 0 }   
+    }}
+    initial='hidden'
+    animate={animation}
+    transition={{
+         delay : 0.2 ,
+        duration : 1.5 ,
+        type : 'spring' ,
+        bouce : 0.2
+
+    }}
+     >
       <Grid>
           <span><h3>React Shopping</h3></span>
         {FooterData.map((element,index)=>{

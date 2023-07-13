@@ -127,11 +127,6 @@ button{
 const Cart = () => {
     const {isopen,cart,handleClickCart,deleteCart,total} = useContextCart()
 
-  
-console.log(cart);
-    
-
-
     // scroll to new added product in cart
 
     const bottomdiv = useRef(null)
@@ -141,6 +136,7 @@ console.log(cart);
       }
     
       useEffect(() => {
+      if(cart.length >= 3)
         scrollToBottom()
       }, [cart]);
 

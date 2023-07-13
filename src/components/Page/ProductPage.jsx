@@ -72,14 +72,15 @@ height: 100%;
 const ProductPage = () => {
     const {id} = useParams()
     const [data] = useContextData()
-    const {addtoCart} = useContextCart()
+    const {addtoCart,cart} = useContextCart()
 
-
-    
+  console.log(cart);
 
 
 
     const product = data.find((item)=>item.id === parseInt(id))
+
+    
      
     
     if (!product?.title) return ( <h4 style={{textAlign:'center',margin:'2rem auto',textTransform:'capitalize'}}>loading page...</h4> )
@@ -92,7 +93,7 @@ const ProductPage = () => {
       <RightCol>
         <h3>{product.title}</h3>
         <p>{product.description}</p>
-         <button onClick={()=>addtoCart(product,product.id)}>Add To Cart</button>
+         <button onClick={()=>addtoCart(product,product?.id)}>Add To Cart</button>
       </RightCol> 
 
     </Container>

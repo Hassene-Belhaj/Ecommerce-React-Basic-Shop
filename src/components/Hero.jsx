@@ -1,7 +1,9 @@
 import React from 'react'
 import { Button } from './Global'
 import styled from 'styled-components'
-
+import { useInView } from 'react-intersection-observer'
+import {motion , useAnimation} from 'framer-motion'
+import { useEffect } from 'react'
 
 const Container = styled.div`
 width: 100%;
@@ -15,7 +17,7 @@ margin-bottom:1rem;
 `
 
 
-const HeroDiv = styled.div`
+const HeroDiv = styled(motion.div)`
 width : 50% ;
 height : 100%;
 display: flex;
@@ -54,18 +56,45 @@ margin: auto;
 `
 
 const Hero = () => {
+
+const {ref,inView} = useInView()
+const animation = useAnimation()
+
+
+useEffect(()=>{
+if(inView){
+    animation.start('visible')
+} else {
+    animation.start('hidden')
+}
+},[inView])
+
+
   return (
-  <Container>
-    <HeroDiv>
+  <Container ref={ref}>
+    <HeroDiv 
+      variants={{
+        hidden : {opacity : 0.3 , x : -50} ,
+        visible : {opacity : 1 , x : 0 }   
+       }}
+       initial='hidden'
+       animate={animation}
+       transition={{
+            delay : 0.2 ,
+           duration : 1.5 ,
+           type : 'spring' ,
+           bouce : 0.2
+   
+       }}
+    
+    
+    >
         {/* <img src='/hero.jpg' alt="" /> */}
         <h2>An e-Commerce ipsum dolor sit amet consectetur adipisicing elit</h2>
         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae repellendus, 
             quasi soluta deleniti maxime velit neque beatae cupiditate</h3>
 
-   
-       
-    
- 
+
     </HeroDiv>
    </Container>
 

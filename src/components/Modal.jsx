@@ -4,6 +4,8 @@ import { MdDone } from 'react-icons/md'
 import { useContextCart } from '../Context/ContextCart'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Cart from './Cart'
 
 const Container = styled.div`
 position: fixed;
@@ -14,7 +16,6 @@ bottom: 0;
 left: 0;
 bottom: 0;
 z-index: 5000;
-background:rgba(0,0,0,.5);
 /* transition: all 0.1s ease-in-out; */
 `
 const ModalDiv = styled.div`
@@ -23,11 +24,12 @@ top: 5rem;
 right:${({$modal})=>$modal ?  '2rem' : '-200%' };
 transition: all 0.4s ease-in-out;
 width: 300px;
-height: 100px;
+height: 150px;
 margin: auto;
 background:#fff;
 color: #000;
 border-radius: 8px;
+box-shadow: 1px 1px 4px rgba(180,180,180,5);
 h3{
     text-transform: capitalize;
     font-size: 1rem;
@@ -47,13 +49,15 @@ margin-top: .7rem;
 const ButtonDiv = styled.div`
 width: 100%;
 display: flex;
+flex-direction: column;
 button{
-    margin: auto;
+    margin: .3rem auto;
     cursor: pointer;
     width: 80%;
     height: 2rem;
     border: none;
     border-radius: 7px;
+    font-size:.8rem;
     font-weight: 800;
     background: #000;
     color: #fff;
@@ -67,7 +71,7 @@ button{
 
 
 const Modal = () => {
-  const {bag,addtoCart,isopen,setIsOpen} =  useContextCart()
+  const {bag,addtoCart,isopen,setIsOpen,handleClickCart} =  useContextCart()
   const [modal,setModal] = useState(false)
  
   useEffect(()=>{
@@ -75,6 +79,8 @@ const Modal = () => {
       setModal(true)
     } else if (bag === 0) {
         setModal(false)
+    } else if(handleClickCart){
+      setModal(false)
     }
     
   },[bag])
@@ -102,7 +108,8 @@ const Modal = () => {
            </FlexDiv>
 
           <ButtonDiv>
-            <button>Go To Cart</button>
+               <button onClick={()=>setModal(false)}>Continue</button>
+               <button onClick={handleClickCart}>Go To Cart</button>
          </ButtonDiv>
 
         </ModalDiv>

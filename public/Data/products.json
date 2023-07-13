@@ -2,7 +2,7 @@
 { 
         "id" : 1,
         "title": "product 1",
-        "image": "./product1/product1 (1).jpg",
+        "image": "/product1/product1 (1).jpg",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 4,
         "ratings": 24089,
@@ -13,7 +13,7 @@
 { 
         "id" : 2,
         "title": "product 2",
-        "image": "./product2/product2 (1).jpg",
+        "image": "/product2/product2 (1).jpg",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
@@ -24,7 +24,7 @@
 { 
         "id" : 3,
         "title": "product 3",
-        "image": "./product3/product3 (1).jpg",
+        "image": "/product3/product3 (1).jpg",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
@@ -35,7 +35,7 @@
 { 
         "id" : 4,
         "title": "product 4",
-        "image": "./product4/product4 (1).jpg",
+        "image": "/product4/product4 (1).jpg",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
@@ -46,7 +46,7 @@
 { 
         "id" : 5,
         "title": "product 5",
-        "image": "./product5/product5 (1).jpg",
+        "image": "/product5/product5 (1).jpg",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
@@ -57,7 +57,7 @@
 { 
         "id" : 6,
         "title": "product 6",
-        "image": "./product6/product6 (1).jpg",
+        "image": "/product6/product6 (1).jpg",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
@@ -68,7 +68,7 @@
 { 
         "id" : 7,
         "title": "product 7",
-        "image": "./product7/product7 (1).jpg",
+        "image": "/product7/product7 (1).jpg",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
@@ -79,7 +79,7 @@
 { 
         "id" : 8,
         "title": "product 8",
-        "image": "./product8/product8 (1).jpg",
+        "image": "/product8/product8 (1).jpg",
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
@@ -90,7 +90,7 @@
 { 
     "id" : 9,
     "title": "product 9",
-    "image": "./product9/product9 (1).jpg",
+    "image": "/product9/product9 (1).jpg",
     "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
     "avgRating": 5,
     "ratings": 5632,
@@ -101,7 +101,7 @@
 { 
     "id" : 10,
     "title": "product 10",
-    "image": "./product10/product10 (1).jpg",
+    "image": "/product10/product10 (1).jpg",
     "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
     "avgRating": 5,
     "ratings": 5632,
@@ -112,7 +112,7 @@
 { 
     "id" : 11,
     "title": "product 11",
-    "image": "./product11/product11 (1).jpg",
+    "image": "/product11/product11 (1).jpg",
     "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
     "avgRating": 5,
     "ratings": 5632,

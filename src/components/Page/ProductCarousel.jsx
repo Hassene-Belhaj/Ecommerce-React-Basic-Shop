@@ -79,7 +79,6 @@ fill: rgba(180,180,180,1);
 `
 const ProductCarousel = ({id}) => {
     const [index,setIndex] = useState(0)
-   console.log(id);
 
     const Images = [
     {img : `/product${id}/product${id} (1).jpg`},
