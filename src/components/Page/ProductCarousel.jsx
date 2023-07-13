@@ -8,6 +8,12 @@ const Container = styled.div`
 width: 100%;
 height: 100%;
 display: flex;
+@media screen and (max-width : 768px){
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/* overflow: hidden; */
 `
 
 
@@ -25,20 +31,31 @@ img{
     object-fit: cover;
 }
 position: relative;
+@media screen and (max-width : 768px){
+width : 100%;
+}
 `
 const AsideImages = styled.div`
 width: 20%;
 height: 100%;
 display: flex;
 flex-direction: column;
-gap: 1rem   ;
+justify-content: start;
+gap: .4rem   ;
 img{
-    margin-left:2rem;
+    margin-left:1rem;
     border:.5px solid rgba(180,180,180,0.5) ;
     max-width: 8rem;
-    height: 12rem;
+    height: 8rem;
     object-fit: cover;
     cursor: pointer;
+}
+@media screen and (max-width : 768px){
+width    : 100%;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+margin-top: 1rem;
 }
 `
 
@@ -51,14 +68,14 @@ position:absolute;
 top: 50%;
 transform:translateY(-50%);
 right: .2rem;
-fill: rgba(180,180,180,0.8);
+fill: rgba(180,180,180,1);
 `
 const LeftChevron = styled(BiChevronLeft)`
 position:absolute;
 top: 50%;
 transform:translateY(-50%);
 left: .2rem;
-fill: rgba(180,180,180,0.8);
+fill: rgba(180,180,180,1);
 `
 const ProductCarousel = ({id}) => {
     const [index,setIndex] = useState(0)
@@ -84,17 +101,17 @@ setIndex(curr ? Images.length - 1 : index - 1)
 }
 
 
-
     return (
         <Container>
         <Carousel>
-        <motion.img 
-        initial={{opacity : 0 , x : 500}}
+        <motion.img
+        initial={{opacity : 0 , x : -500}}
         animate={{opacity : 1 , x : 0}}
         transition={{
-            duration : 0.5 ,
+            duration : 1,
             type : 'spring' ,
-            bounce : 0.3
+            bounce : 0.3 ,
+            
         }}
         exit={{opcity : 0}}
         key={Images[index].img}
@@ -108,7 +125,7 @@ setIndex(curr ? Images.length - 1 : index - 1)
     <AsideImages>
          {Images.map((item,i)=>{
             return (
-                <img src={item.img} onClick={()=>setIndex(i)} />
+                <img key={i} src={item.img} onClick={()=>setIndex(i)} />
             )
          })}
 

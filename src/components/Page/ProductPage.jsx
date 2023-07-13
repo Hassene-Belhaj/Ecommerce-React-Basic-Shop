@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import { useContextData } from '../../Context/ContextData'
 import styled from 'styled-components'
 import ProductCarousel from './ProductCarousel'
+import { useContextCart } from '../../Context/ContextCart'
 
 
 
@@ -26,6 +27,8 @@ text-transform: capitalize;
 const RightCol = styled.div`
 width: 40%;
 height: 100%;
+display: flex;
+flex-direction: column;
 padding: 1rem;
 border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
@@ -33,6 +36,25 @@ border-bottom-right-radius: 10px;
   display: block;
   width: 100%;
   height: 100%;
+}
+h3{
+  font-size: 20px;
+  text-align: center;
+  margin: 1rem auto;
+}
+p{
+  padding-top: 5rem;
+}
+button{
+  margin: 20rem 0;
+  padding: 1rem;
+  width: 30%;
+  border-radius: 10px;
+  border:.5px solid;
+  background: ${({theme})=>theme.color};
+  color:${({theme})=>theme.background};
+  font-size: .9rem;
+  font-weight: 700;
 }
 `
 const LeftCol = styled.div`
@@ -43,18 +65,24 @@ height: 100%;
   width: 100%;
   height: 100%;
 }
-
 `
 
+
+
 const ProductPage = () => {
-    const [data] = useContextData()
     const {id} = useParams()
+    const [data] = useContextData()
+    const {addtoCart} = useContextCart()
+
+
     
 
 
-    const product = data?.find((item)=>item.id === parseInt(id))
 
-  
+    const product = data.find((item)=>item.id === parseInt(id))
+     
+    
+    if (!product?.title) return ( <h4 style={{textAlign:'center',margin:'2rem auto',textTransform:'capitalize'}}>loading page...</h4> )
 
   return (
     <Container>
@@ -62,8 +90,11 @@ const ProductPage = () => {
         <ProductCarousel product={product} id={id}/>
       </LeftCol>
       <RightCol>
-        <h3>{product?.title}</h3>
+        <h3>{product.title}</h3>
+        <p>{product.description}</p>
+         <button onClick={()=>addtoCart(product,product.id)}>Add To Cart</button>
       </RightCol> 
+
     </Container>
 
   )

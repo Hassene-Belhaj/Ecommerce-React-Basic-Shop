@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import  styled  from 'styled-components'
 import { HiChevronUp,HiChevronDown } from 'react-icons/hi'
@@ -19,6 +19,7 @@ height: 100%;
 display: flex;
 img{
     min-width: 100%;
+    max-height: 100%;
     object-fit:cover ;
 }
 `
@@ -69,17 +70,24 @@ justify-content: space-between;
 margin: auto .5rem;
 `
 const ProductCart = ({product}) => {
-   const {deleteProduct,decreaseQuantity,increaseQuantity} = useContextCart()
- const {id,title,image,price,quantity} =  product
+   const {deleteProduct,decreaseQuantity,increaseQuantity,cart} = useContextCart()
+   const {id,title,image,price,quantity} =  product
+   const [ img, setImg ] = useState({});
  
 
   const priceQuantity = quantity * price
+ 
+useEffect(()=>{
+setImg({src : image})
+},[])
+
+
+if (!product?.image) return ( <h4 className='text-center text-5xl font-semibold mt-4'>loading image...</h4> )
 
   return (
-
-   <ProductCartDiv>
+    <ProductCartDiv>
      <LeftColumn>
-        <img src={image} alt="" />
+        <img src={img} alt={image} />
      </LeftColumn>
 
      <RightColum>
@@ -94,8 +102,8 @@ const ProductCart = ({product}) => {
                     <button><HiChevronDown onClick={()=>decreaseQuantity(id)} size={15} /> </button>
                 </ChevronBtn>
                     <Price>
-                    <span><h4>${price.toFixed(2)}</h4></span>   
-                    <span><h4>${priceQuantity.toFixed(2)}</h4></span>   
+                    <span><h4>${price}</h4></span>   
+                    <span><h4>${priceQuantity}</h4></span>   
                     </Price>
          </MiddleDiv>
      </RightColum>

@@ -1,17 +1,16 @@
 import React, { useEffect, useRef } from 'react'
-import { useState } from 'react'
 import styled  from 'styled-components'
 import { useContextCart } from '../Context/ContextCart'
 import { AiOutlineClose } from 'react-icons/ai'
 import ProductCart from './ProductCart'
 import { BsTrash3 } from 'react-icons/bs'
-import { motion ,useScroll } from 'framer-motion'
+import { motion} from 'framer-motion'
 
 const Container = styled.div`
 position: fixed;
 top: 0;
 right:${({$isopen})=>$isopen ?  0 : '-100%'};
-transition: all 0.5s ease-in-out;
+transition: all 0.3s ease-in-out;
 bottom: 0;
 width: 30%;
 height: 85%;
@@ -128,9 +127,9 @@ button{
 const Cart = () => {
     const {isopen,cart,handleClickCart,deleteCart,total} = useContextCart()
 
-    const { scrollYProgress } = useScroll();
-      const ref = useRef(null)
-
+  
+console.log(cart);
+    
 
 
     // scroll to new added product in cart
@@ -145,13 +144,12 @@ const Cart = () => {
         scrollToBottom()
       }, [cart]);
 
- 
+
   return (
     <Container $isopen={isopen} >
-        {/* <Barprogress  style={{scaleX : scrollYProgress}}></Barprogress> */}
       <Headline>   
          <h2>SHOPPING BAG</h2>
-        <AiOutlineClose onClick={handleClickCart} onMouseEnter={handleClickCart} size={20} />
+        <AiOutlineClose onClick={handleClickCart} size={20} />
        </Headline>
        <FlexCart  >
         {cart.map((product,index)=>{

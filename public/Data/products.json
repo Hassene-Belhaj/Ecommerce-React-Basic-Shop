@@ -6,7 +6,7 @@
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 4,
         "ratings": 24089,
-        "price": 110.00,
+        "price": 80.00,
         "oldPrice": 220.00,
         "category": "Shoes"
 },
@@ -28,7 +28,7 @@
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
-        "price": 130.00,
+        "price": 90.00,
         "oldPrice": 160.00,
         "category": "Shoes"
 },
@@ -39,7 +39,7 @@
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
-        "price": 130.00,
+        "price": 133.00,
         "oldPrice": 160.00,
         "category": "Shoes"
 },
@@ -50,7 +50,7 @@
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
-        "price": 130.00,
+        "price": 145.00,
         "oldPrice": 160.00,
         "category": "Tshirt"
 },
@@ -61,7 +61,7 @@
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
-        "price": 130.00,
+        "price": 97.00,
         "oldPrice": 160.00,
         "category": "Tshirt"
 },
@@ -72,7 +72,7 @@
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
-        "price": 130.00,
+        "price": 73.00,
         "oldPrice": 160.00,
         "category": "Tshirt"
 },
@@ -83,7 +83,7 @@
         "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
         "avgRating": 5,
         "ratings": 5632,
-        "price": 130.00,
+        "price": 96.00,
         "oldPrice": 160.00,
         "category": "Tshirt"
 },
@@ -94,7 +94,7 @@
     "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
     "avgRating": 5,
     "ratings": 5632,
-    "price": 130.00,
+    "price": 65.00,
     "oldPrice": 160.00,
     "category": "Bag"
 },
@@ -105,7 +105,7 @@
     "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
     "avgRating": 5,
     "ratings": 5632,
-    "price": 130.00,
+    "price": 42.00,
     "oldPrice": 160.00,
     "category": "Bag"
 },
@@ -116,7 +116,7 @@
     "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt est repellendus reprehenderit sequi ullam delectus!",
     "avgRating": 5,
     "ratings": 5632,
-    "price": 130.00,
+    "price": 100.00,
     "oldPrice": 160.00,
     "category": "Bag"
 }

@@ -17,6 +17,8 @@ const ContextCart = ({children}) => {
 
  
   
+
+
 useEffect(()=>{
 const sum = cart.reduce((accu,curr)=>{
    return accu + curr.price * curr.quantity

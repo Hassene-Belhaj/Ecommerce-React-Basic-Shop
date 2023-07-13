@@ -15,7 +15,7 @@ left: 0;
 bottom: 0;
 z-index: 5000;
 background:rgba(0,0,0,.5);
-transition: all 0.1s ease-in-out;
+/* transition: all 0.1s ease-in-out; */
 `
 const ModalDiv = styled.div`
 position: absolute;

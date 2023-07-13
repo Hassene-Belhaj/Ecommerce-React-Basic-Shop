@@ -30,13 +30,16 @@ export const ToggleOf =styled(BsFillSunFill)`
 `
 
 export const Button = styled.button`
+display: ${({display})=>display};
 width : ${({width})=>width} ;
 height : ${({height})=>height} ;
 border : 1px solid ${({theme})=>theme.color} ;
+padding: ${({padding})=>padding};
 background : ${({theme})=>theme.color};
 color : ${({theme})=>theme.background};
 border-radius : 3px ;
 text-align: center;
+
 &:hover{
     opacity : 0.8 ;
 }

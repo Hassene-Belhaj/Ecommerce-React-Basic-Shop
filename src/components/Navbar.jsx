@@ -243,8 +243,8 @@ const Navbar = ({Navigation}) => {
         
         </Links>
 
-       <Bag>
-        <BsFillBagFill size={25} onClick={handleClickCart} onMouseEnter={handleClickCart}/>
+       <Bag onClick={handleClickCart} >
+        <BsFillBagFill size={25} />
          <Quantity>{bag}</Quantity>
        </Bag>
        <SignBtn>
