@@ -17,7 +17,7 @@ position : relative ;
 
 const Nav = styled.nav`
 position: relative;
-width:80%;
+width:100%;
 margin: 0 auto;
 height:60px;
 display: flex;
@@ -28,6 +28,7 @@ h2{
   margin-left: 2rem;
 }
 @media screen and (max-width : 768px) {
+  width: 100%;
   h2{
     display: none;
   }  
@@ -236,7 +237,8 @@ const Navbar = ({Navigation}) => {
        {Navigation.map((item,index)=>{
          return (
            <Button key={index}  onClick={handleChevron} onMouseEnter={()=>setChevron(true)}>
-            <Linked size={'0.9rem'}>{item.title}</Linked>
+            <Linked to={item.url} size={'0.9rem'}>{item.title}</Linked>
+         
           </Button>
             )
           })}

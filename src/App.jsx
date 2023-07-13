@@ -12,6 +12,7 @@ import Modal from './components/Modal'
 import Signin from './components/Signin'
 import Footer from './components/Footer'
 import ProductPage from './components/Page/ProductPage'
+import Contact from './components/Contact'
 
 const Container = styled.div`
 width : 100% ;
@@ -47,6 +48,7 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
                <Routes>
                  <Route path='/' element={ <Products/> } />                 
                  <Route path='/product/:id' element={ <ProductPage/> } />                             
+                 <Route path='/contact' element={ <Contact/> } />                             
                </Routes> 
                 <Cart/>
                 <Signin />

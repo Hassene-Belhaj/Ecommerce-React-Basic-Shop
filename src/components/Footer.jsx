@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 
 const Container = styled(motion.div)`
 width: 100%;
-height: 520px;
+height: auto;
 background: ${({theme})=>theme.background};
 color: ${({theme})=>theme.color};
 padding: 2rem 0;
@@ -16,7 +16,7 @@ border-top: .1px solid rgba(180,180,180,0.5);
 `
 
 const Grid = styled.div`
-padding-top:4rem ;
+padding-top:2rem ;
 width: 90%;
 display: grid;
 grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
@@ -118,7 +118,7 @@ if(inView){
   return (
     <Container ref={ref}
     variants={{
-     hidden : {opacity : 0.3 , x : -100} ,
+     hidden : {opacity : 1, x : -100} ,
      visible : {opacity : 1 , x : 0 }   
     }}
     initial='hidden'
