@@ -1,23 +1,21 @@
 import React from 'react'
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
-import { Link } from 'react-router-dom'
+import { Link , Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
 display: flex;
 flex-direction: column;
-width: auto;
+width: 50%;
 height: 100%;
-margin: .5rem 1rem;
+margin:2rem auto;
 line-height: 2rem;
 h2,h3{
     margin-bottom: .5rem;
-    text-align: center;
 }
 p{
     padding-bottom    :1rem ;
     border-bottom : 1px solid rgba(180,180,180,0.5);
-    text-align: center;
 }
 `
 const ContactInformation = styled.div`
@@ -33,13 +31,12 @@ li{
 }
 `
 const BottomDiv = styled.div`
-padding-bottom: 2rem;
-width: 500px;
-margin: auto;
-height: auto;
 display: flex;
-justify-content:space-between;
-align-items:center;
+flex-direction: row;
+justify-content: space-between;
+width: 100%;
+padding-bottom: 2rem;
+margin: auto;
 a{
     text-decoration: none;
     color: inherit;
@@ -47,7 +44,7 @@ a{
     transition :all 0.2s ease-in-out ; 
 &:hover{
     transition :all 0.2s ease-in-out ; 
-    color: indigo;
+    opacity: 0.8;
 }    
 }
 `
@@ -80,10 +77,11 @@ const Contact = () => {
       <Link>
        <Span><BiChevronLeft />About</Span>       
       </Link>
-      <Link>
+      <Link to={'/policy'}>
        <Span>Privacy Policy<BiChevronRight /></Span>       
       </Link>
     </BottomDiv>
+    {/* <Outlet /> */}
    </Container>
   )
 }

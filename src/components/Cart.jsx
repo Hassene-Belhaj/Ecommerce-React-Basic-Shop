@@ -136,7 +136,7 @@ const Cart = () => {
       }
     
       useEffect(() => {
-      if(cart.length >= 3)
+      if(cart.length > 3)
         scrollToBottom()
       }, [cart]);
 
