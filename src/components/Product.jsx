@@ -32,10 +32,24 @@ button{
   border-radius: 5px;
   color: ${({theme})=>theme.color};
   font-weight: 800;
+  font-size: 1rem;
   &:hover{
-background :rgba(108, 122, 137,0.1);
-transition:all 0.3s ease-in-out;  
+  background: rgba(180,180,180,0.2);
+  transition:all 0.3s ease-in-out;  
 }
+cursor: pointer;
+}
+`
+const PriceFlex =styled.div`
+width: 50%;
+margin: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+span{
+  text-decoration: line-through solid 2px;
+  font-size: 1rem;
+  font-weight: 800;
 }
 `
 
@@ -43,14 +57,17 @@ transition:all 0.3s ease-in-out;
 
 const Product = ({product}) => {
   const {cart,addtoCart} = useContextCart() 
-  const {id,title,description,image,price,category} = product
+  const {id,title,image,oldPrice,price} = product
   return (
     <ProductDiv>
       <Link to={`product/${id}`}>
       <img src={image} alt="" />
       </Link>
        <h3>{title}</h3>
-       <button  onClick={()=>addtoCart(product,id)}>${price.toFixed(2)}</button>
+       <PriceFlex>
+        <span>${oldPrice.toFixed(2)}</span>  
+        <button  onClick={()=>addtoCart(product,id)}>${price.toFixed(2)}</button>
+       </PriceFlex>
      </ProductDiv>
   )
 }

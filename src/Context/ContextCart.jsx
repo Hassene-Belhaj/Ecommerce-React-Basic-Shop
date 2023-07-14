@@ -16,7 +16,11 @@ const ContextCart = ({children}) => {
   const handleClickCart = () => setIsOpen(!isopen)
 
  
-  
+useEffect(()=>{
+if(cart.length === 0){
+  setIsOpen(false)
+}
+},[cart.length])  
 
 
 useEffect(()=>{

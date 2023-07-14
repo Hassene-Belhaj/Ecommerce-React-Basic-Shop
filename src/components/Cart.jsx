@@ -138,7 +138,7 @@ const Cart = () => {
       useEffect(() => {
       if(cart.length > 3)
         scrollToBottom()
-      }, [cart]);
+      }, [cart.length]);
 
 
   return (
