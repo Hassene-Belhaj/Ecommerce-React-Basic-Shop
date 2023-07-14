@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {BiChevronLeft,BiChevronRight } from 'react-icons/bi'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -24,11 +24,9 @@ display: flex;
 overflow: hidden;
 /* border-radius: 10px; */
 img{
-    /* border-radius: 10px; */
     min-width: 100%;
-    max-height:100%;
-    object-position: center;
-    object-fit: cover;
+    min-height: 100%;
+    object-fit:cover;
 }
 position: relative;
 @media screen and (max-width : 768px){
@@ -41,14 +39,16 @@ height: 100%;
 display: flex;
 flex-direction: column;
 justify-content: start;
-gap: .4rem   ;
+gap: .7rem   ;
 img{
     margin-left:1rem;
-    border:.5px solid rgba(180,180,180,0.5) ;
     max-width: 8rem;
     height: 8rem;
     object-fit: cover;
     cursor: pointer;
+    &:hover{
+        border-bottom:1px solid rgba(0,0,0,0.8) ;   
+    }
 }
 @media screen and (max-width : 768px){
 width    : 100%;
@@ -88,6 +88,8 @@ const ProductCarousel = ({id}) => {
     ]
 
 
+
+
 const nextSlide = () => {
 const curr = index === Images.length - 1 
 setIndex(curr ? 0 : index + 1)
@@ -96,8 +98,9 @@ setIndex(curr ? 0 : index + 1)
 const PrevSlide = () => {
 const curr = index === 0
 setIndex(curr ? Images.length - 1 : index - 1)
-
 }
+
+
 
 
     return (

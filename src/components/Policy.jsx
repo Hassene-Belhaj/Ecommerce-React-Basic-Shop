@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Container = styled.div`
 width: 50%;
 height: 100%;
-margin: 2rem  auto;
+margin: auto;
 display: flex;
 flex-direction: column;
 align-items: start;
@@ -30,7 +30,7 @@ flex-direction: row;
 justify-content: space-between;
 width: 100%;
 padding-bottom: 2rem;
-margin: auto;
+margin:2rem auto;
 a{
     text-decoration: none;
     color: inherit;

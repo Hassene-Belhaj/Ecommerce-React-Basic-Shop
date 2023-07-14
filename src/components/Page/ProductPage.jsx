@@ -4,6 +4,7 @@ import { useContextData } from '../../Context/ContextData'
 import styled from 'styled-components'
 import ProductCarousel from './ProductCarousel'
 import { useContextCart } from '../../Context/ContextCart'
+import AvgRating from '../AvgRating'
 
 
 
@@ -74,7 +75,6 @@ const ProductPage = () => {
     const [data] = useContextData()
     const {addtoCart,cart} = useContextCart()
 
-  console.log(cart);
 
 
 
@@ -92,6 +92,7 @@ const ProductPage = () => {
       </LeftCol>
       <RightCol>
         <h3>{product.title}</h3>
+         <AvgRating  product={product}/>
         <p>{product.description}</p>
          <button onClick={()=>addtoCart(product,product?.id)}>Add To Cart</button>
       </RightCol> 

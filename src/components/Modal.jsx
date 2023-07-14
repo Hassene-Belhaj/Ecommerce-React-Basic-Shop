@@ -29,7 +29,7 @@ margin: auto;
 background:#fff;
 color: #000;
 border-radius: 8px;
-box-shadow: 1px 1px 4px rgba(180,180,180,5);
+box-shadow: 1px 1px 1px rgba(180,180,180,0.9);
 h3{
     text-transform: capitalize;
     font-size: 1rem;
