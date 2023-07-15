@@ -26,6 +26,7 @@ box-shadow: 1px 1px 5px ${({theme})=>theme.color};
     width: 100%;
 }
 overflow: scroll;
+overflow-x: hidden;
 `
 
 const Barprogress = styled(motion.span)`
@@ -38,6 +39,8 @@ background: red;
 
 const Bottom = styled.div`
 position: fixed;
+border-top: 1px solid rgba(180,180,180,0.5);
+
 bottom: 0;
 width: 30%;
 height: 15%;

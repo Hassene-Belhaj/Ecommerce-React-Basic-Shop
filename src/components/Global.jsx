@@ -8,6 +8,22 @@ import { BsFillMoonFill,BsFillSunFill } from 'react-icons/bs'
     margin: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+::-webkit-scrollbar {
+width: 14px;
+padding-right: 2px;
+}
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+::-webkit-scrollbar-button {
+    /* background-color: #f3f5f9; */
+    display: none;
+}
+::-webkit-scrollbar-thumb {
+    background:#000;
+    border-radius: 10px;
+    border: 4px solid #fff ;
+}    
 }
 
 html{

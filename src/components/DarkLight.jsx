@@ -29,11 +29,11 @@ const DarkLight = ({theme,toggleTheme}) => {
   return (
     <DarkLightDiv>
     {theme==='dark' ? 
-    <button onClick={toggleTheme} onMouseEnter={toggleTheme}>
+    <button onClick={toggleTheme}>
        <ToggleOn size={20} color='#030712' />
      </button> 
     : 
-    <button onClick={toggleTheme} onMouseEnter={toggleTheme}> 
+    <button onClick={toggleTheme}> 
      <ToggleOf size={20} color='#fff' /> </button> }
 </DarkLightDiv>
   )

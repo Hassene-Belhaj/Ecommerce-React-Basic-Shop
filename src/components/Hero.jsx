@@ -34,9 +34,8 @@ h2{
     margin-bottom: 2rem;
     font-weight: 900;
 }
-h3{
-    width : 80%;
-    font-weight: 100;;
+p{
+    font-size: 1.2rem;
 }
 @media screen and (max-width : 768px) {
 padding-top:4rem ;
@@ -91,8 +90,8 @@ if(inView){
     >
         {/* <img src='/hero.jpg' alt="" /> */}
         <h2>An e-Commerce ipsum dolor sit amet consectetur adipisicing elit</h2>
-        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae repellendus, 
-            quasi soluta deleniti maxime velit neque beatae cupiditate</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae repellendus, 
+            quasi soluta deleniti maxime velit neque beatae cupiditate</p>
 
 
     </HeroDiv>

@@ -13,11 +13,6 @@ const Container = styled.div`
 width: 100%;
 height: 100%;
 text-align: center;
-h3{
-  font-size: 1.1rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-}
 `
 
 const Grid = styled.div`
@@ -38,13 +33,21 @@ overflow: hidden;
 border-radius: 10px;
 `
 
-const CatContainer = styled.div`
+const CatContainer = styled(motion.div)`
 width: 90%;
 height: 100%;
 margin: auto;
 padding-bottom: 3rem;
 text-align: center;
 z-index: 100;
+h3{
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+p{
+  font-size: 1.2rem;
+}
 
 @media screen and (max-width : 768px){
  width : 100%
@@ -157,8 +160,9 @@ const Products = () => {
   return (
     <Container>
         <Hero />
-        <CatContainer>
+        <CatContainer> 
       <h3>Categories</h3>
+      <p>Explore our categories and find the best products for you</p>
        <FlexCat>
       {Cat.map((item,index)=>{
      return (
