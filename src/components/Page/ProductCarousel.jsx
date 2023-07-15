@@ -79,6 +79,7 @@ fill: rgba(180,180,180,1);
 `
 const ProductCarousel = ({id}) => {
     const [index,setIndex] = useState(0)
+    const [active,setActive] = useState()
 
     const Images = [
     {img : `/product${id}/product${id} (1).jpg`},
@@ -100,7 +101,7 @@ const curr = index === 0
 setIndex(curr ? Images.length - 1 : index - 1)
 }
 
-
+console.log(active);
 
 
     return (
@@ -118,7 +119,8 @@ setIndex(curr ? Images.length - 1 : index - 1)
         exit={{opcity : 0}}
         key={Images[index].img}
         src={Images[index].img}
-        alt="" /> 
+        alt="" 
+        /> 
         <ChevronDiv>
         <RightChevron onClick={nextSlide}  size={60}   />
         <LeftChevron  onClick={PrevSlide} size={60} />

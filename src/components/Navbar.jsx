@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { BsFillBagFill } from 'react-icons/bs'
 import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
-import { Link , useNavigate} from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 import { useContextCart } from '../Context/ContextCart'
 import { useContextAuth } from '../Context/ContextAuth'
 import styled from 'styled-components'
@@ -163,7 +163,7 @@ left : 2rem;
 transform: translateY(-40%);
 transition: all 0.3s ease-in-out;
 z-index: 999;
-cursor: crosshair;
+cursor: pointer;
 }
 `
 const Heading = styled.div`
@@ -192,9 +192,9 @@ height: auto;
 margin: 2rem 1rem;
 cursor:pointer;
 `
-const Linked= styled(Link)`
+const Link= styled(NavLink)`
 text-decoration: none;
-color : ${({theme})=>theme.color} ;
+color : ${({isActive})=>isActive ? 'red' : 'gray'} ;
 font-size: ${({size})=>size};
 padding: .5rem;
 transition: all 0.3s ease;
@@ -221,23 +221,22 @@ const Navbar = ({Navigation}) => {
 
 
   const [toggle,setToggle] = useState(false)
-  const [chevron,setChevron] = useState(false)
-  const handleClick = () => setToggle(!toggle)
+  const [active,setActive] = useState()
 
-  const handleChevron = () =>setChevron(!chevron)
+  const handleClick = () => setToggle(!toggle)
 
 
   return (
 <Container>
     <Nav>
-    <Linklogo to={'/'}  style={{textDecoration:'none',marginLeft:'2rem'}}>            
+    <Linklogo  to={'/'}  style={{textDecoration:'none',marginLeft:'2rem'}}>            
        React Shopping
       </Linklogo>
      <Links>
        {Navigation.map((item,index)=>{
          return (
-           <Button key={index}  onClick={handleChevron} onMouseEnter={()=>setChevron(true)}>
-            <Linked to={item.url} size={'0.9rem'}>{item.title}</Linked>
+           <Button key={index} >
+            <Link to={item.url} size={'0.9rem'}>{item.title}</Link>
          
           </Button>
             )
@@ -250,7 +249,7 @@ const Navbar = ({Navigation}) => {
          <Quantity>{bag}</Quantity>
        </Bag>
        <SignBtn>
-         {user?.dipsplayName ? <button>log out</button> :  <button onClick={handleSign}>Sign in</button>}
+         {/* {user?.dipsplayName ? <button>log out</button> :  <button onClick={handleSign}>Sign in</button>} */}
         
 
       
@@ -285,7 +284,7 @@ const Navbar = ({Navigation}) => {
       <Contraste></Contraste>
     : 
     <IconMenu>
-          <AiOutlineMenu onMouseEnter={handleClick} size={'20'} color={`${({theme})=>theme.color}`} onClick={handleClick}/>
+          <AiOutlineMenu size={'20'} color={`${({theme})=>theme.color}`} onClick={handleClick}/>
     </IconMenu> }
             
          

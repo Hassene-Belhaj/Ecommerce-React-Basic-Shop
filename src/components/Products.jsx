@@ -86,7 +86,7 @@ display: flex;
 border-radius: 10px;
 transition: all 0.2s ease-in-out;
 &:hover{
-  transform :scale(1.1);
+  transform :scale(1.2);
   transition: all 0.2s ease-in-out;
  }
  
@@ -111,11 +111,11 @@ align-items: center;
 color : #fff;
 transition: all 0.4s ease-in-out;
 &:hover{
- background: rgba(0,0,0,0.5);
+ background: rgba(0,0,0,0.6);
  transition: all 0.4s ease-in-out;
 }
 h3{
- font-size: 1.2rem;
+ font-size: 2.5rem;
  font-weight: 800;
  cursor: pointer;
 }

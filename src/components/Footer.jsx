@@ -118,9 +118,9 @@ if(inView){
   return (
     <Container ref={ref}
     variants={{
-     hidden : {opacity : 1, x : -100} ,
-     visible : {opacity : 1 , x : 0 }   
-    }}
+        hidden : {opacity : 0.8 , x : -50} ,
+        visible : {opacity : 1 , x : 0 }   
+       }}
     initial='hidden'
     animate={animation}
     transition={{
