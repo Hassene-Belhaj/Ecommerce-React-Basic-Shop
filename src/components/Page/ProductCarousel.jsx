@@ -33,29 +33,39 @@ position: relative;
 width : 100%;
 }
 `
+
 const AsideImages = styled.div`
 width: 20%;
 height: 100%;
 display: flex;
 flex-direction: column;
-justify-content: start;
-gap: .7rem   ;
-img{
-    margin-left:1rem;
-    max-width: 8rem;
-    height: 8rem;
-    object-fit: cover;
-    cursor: pointer;
-    border-bottom:${({isSelected})=>isSelected ?  '1px solid rgba(0,0,0,1)' : null}  
-    
-}
+margin-left: 2rem;
+gap: 3rem;
 @media screen and (max-width : 768px){
 width    : 100%;
 flex-direction: row;
 justify-content: center;
 align-items: center;
-margin-top: 1rem;
+margin: 1rem auto;
+gap: .4rem;
+margin-left: 0;
 }
+`
+
+
+const ImgFlex = styled.div`
+display: flex;
+flex-direction: column;
+img{
+    max-width: 8rem;
+    max-height: 8rem;
+    object-fit: cover;
+    border-bottom:${({active})=>active? '2px solid rgba(0,0,0,1)':'none'}; 
+    cursor: pointer;
+}
+@media screen and (max-width : 768px){
+}
+
 `
 
 const ChevronDiv = styled.div`
@@ -78,14 +88,14 @@ fill: rgba(180,180,180,1);
 `
 const ProductCarousel = ({id}) => {
     const [index,setIndex] = useState(0)
-    const [isSelected,setIsSelected] = useState([])
-   
+    const [active,setActive] = useState(true)
+
 
     const Images = [
-    {id: 1 ,img : `/product${id}/product${id} (1).jpg`},
-    {id : 2  , img : `/product${id}/product${id} (2).jpg`},
-    {id : 3 , img : `/product${id}/product${id} (3).jpg`},
-    {id : 4 , img : `/product${id}/product${id} (4).jpg`}
+    {id : 0 ,img : `/product${id}/product${id} (1).jpg`},
+    {id : 1 ,img : `/product${id}/product${id} (2).jpg`},
+    {id : 2 , img : `/product${id}/product${id} (3).jpg`},
+    {id : 3 , img : `/product${id}/product${id} (4).jpg`},
     ]
 
 
@@ -104,7 +114,6 @@ setIndex(curr ? Images.length - 1 : index - 1)
 
 const handleClick = (i) => {
     setIndex(i)
-    setIsSelected(i)
 }
 
 
@@ -130,13 +139,21 @@ const handleClick = (i) => {
         <LeftChevron  onClick={PrevSlide} size={60} />
         </ChevronDiv>
     </Carousel>
-    <AsideImages>
+    <AsideImages active={active? 1 : 0} >
          {Images.map((item,i)=>{
             return (
-                <img key={i} src={item.img} onClick={()=>handleClick(i)} />
+                     <ImgFlex>
+                            <img  src={item.img} onClick={()=>handleClick(i)}/>
+                     
+                     </ImgFlex>
+           
+                   
+  
+    
+           
+                
             )
          })}
-
         </AsideImages>
         </Container>
   )

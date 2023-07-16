@@ -94,6 +94,7 @@ const ProductPage = () => {
         <h3>{product.title}</h3>
          <AvgRating  product={product}/>
         <p>{product.description}</p>
+    
          <button onClick={()=>addtoCart(product,product?.id)}>Add To Cart</button>
       </RightCol> 
 
