@@ -22,11 +22,15 @@ width: 80%;
 height: 100%;
 display: flex;
 overflow: hidden;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
 /* border-radius: 10px; */
 img{
     min-width: 100%;
     min-height: 100%;
     object-fit:cover;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
 }
 position: relative;
 @media screen and (max-width : 768px){
@@ -40,30 +44,37 @@ height: 100%;
 display: flex;
 flex-direction: column;
 margin-left: 2rem;
-gap: 3rem;
+gap: 2rem;
 @media screen and (max-width : 768px){
-width    : 100%;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-margin: 1rem auto;
-gap: .4rem;
-margin-left: 0;
+    width    : 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    gap: .4rem;
+    margin-left: 0;
 }
 `
 
 
 const ImgFlex = styled.div`
+width: 100%;
+height: 100%;
 display: flex;
 flex-direction: column;
+justify-content: center;
 img{
-    max-width: 8rem;
-    max-height: 8rem;
+    border-bottom:${({active})=>active? '3px solid':'none'}; 
+    padding-bottom:.6rem;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    max-width: 100%;
+    max-height: 10rem;
     object-fit: cover;
-    border-bottom:${({active})=>active? '2px solid rgba(0,0,0,1)':'none'}; 
     cursor: pointer;
 }
 @media screen and (max-width : 768px){
+    padding-bottom: .5rem;
 }
 
 `
@@ -88,14 +99,14 @@ fill: rgba(180,180,180,1);
 `
 const ProductCarousel = ({id}) => {
     const [index,setIndex] = useState(0)
-    const [active,setActive] = useState(true)
-
+    const [active,setActive] = useState(false)
+    console.log(active);
 
     const Images = [
     {id : 0 ,img : `/product${id}/product${id} (1).jpg`},
     {id : 1 ,img : `/product${id}/product${id} (2).jpg`},
-    {id : 2 , img : `/product${id}/product${id} (3).jpg`},
-    {id : 3 , img : `/product${id}/product${id} (4).jpg`},
+    {id : 2 ,img : `/product${id}/product${id} (3).jpg`},
+    {id : 3 ,img : `/product${id}/product${id} (4).jpg`},
     ]
 
 
@@ -113,8 +124,14 @@ setIndex(curr ? Images.length - 1 : index - 1)
 
 
 const handleClick = (i) => {
-    setIndex(i)
+    setIndex(i)  
+if(index === id) {
+    setActive(true)
+} else{
+    setActive(false)
+}   
 }
+
 
 
     return (
@@ -139,12 +156,11 @@ const handleClick = (i) => {
         <LeftChevron  onClick={PrevSlide} size={60} />
         </ChevronDiv>
     </Carousel>
-    <AsideImages active={active? 1 : 0} >
+    <AsideImages  >
          {Images.map((item,i)=>{
             return (
-                     <ImgFlex>
-                            <img  src={item.img} onClick={()=>handleClick(i)}/>
-                     
+                     <ImgFlex key={i} active={index === i ? 1 : 0} onClick={()=>handleClick(i)}>
+                            <img  src={item.img}  />
                      </ImgFlex>
            
                    

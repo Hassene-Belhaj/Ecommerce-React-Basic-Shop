@@ -10,11 +10,11 @@ import AvgRating from '../AvgRating'
 
 const Container = styled.div`
 width: 90%;
-height: 90vh;
+height: 80vh;
 display: flex;
 justify-content: center;
 margin-top: 1rem;
-margin-bottom: 4rem;
+margin-bottom: 6rem;
 margin-left: auto;
 margin-right: auto;
 text-transform: capitalize;
@@ -22,14 +22,16 @@ text-transform: capitalize;
   display: block;
   width: 100%;
   height: 100%;
+  margin-bottom:0 ;
 }
 `
 
 const RightCol = styled.div`
-width: 40%;
+width: 35%;
 height: 100%;
 display: flex;
 flex-direction: column;
+margin: auto;
 padding: 1rem;
 border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
@@ -59,7 +61,7 @@ button{
 }
 `
 const LeftCol = styled.div`
-width: 60%;
+width: 45%;
 height: 100%;
 @media screen and (max-width : 768px) {
   display: block;
