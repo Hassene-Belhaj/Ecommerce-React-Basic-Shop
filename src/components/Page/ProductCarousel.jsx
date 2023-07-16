@@ -99,8 +99,6 @@ fill: rgba(180,180,180,1);
 `
 const ProductCarousel = ({id}) => {
     const [index,setIndex] = useState(0)
-    const [active,setActive] = useState(false)
-    console.log(active);
 
     const Images = [
     {id : 0 ,img : `/product${id}/product${id} (1).jpg`},
@@ -124,12 +122,8 @@ setIndex(curr ? Images.length - 1 : index - 1)
 
 
 const handleClick = (i) => {
-    setIndex(i)  
-if(index === id) {
-    setActive(true)
-} else{
-    setActive(false)
-}   
+setIndex(i)  
+ 
 }
 
 
