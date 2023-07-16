@@ -23,7 +23,7 @@ display: grid;
 grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
 justify-content: center;
 align-items: center;
-gap : 2rem;
+gap : 1rem;
 margin: 5rem auto;
 `
 const ProductsDiv = styled.div`
@@ -34,7 +34,7 @@ border-radius: 10px;
 `
 
 const CatContainer = styled(motion.div)`
-width: 90%;
+width:80%;
 height: 100%;
 margin: auto;
 padding-bottom: 3rem;
@@ -50,20 +50,22 @@ p{
 }
 
 @media screen and (max-width : 768px){
- width : 100%
+  width : 100% ;
+  flex-wrap: wrap;
+
 }
 `
 const FlexCat = styled.div`
 padding-top: 2rem ;
-width: 80%;
+width: 90%;
 height :100%;
 display:flex;
 flex-wrap: wrap;
 justify-content: center;
 align-items : center;
 margin :auto ;
-gap : 2rem ;
 z-index: 101;
+gap: 2rem;
 `
 const Div = styled.div`
 width: 300px;
@@ -74,7 +76,6 @@ display: flex;
 border-radius: 10px;
 z-index: 101;
 cursor: pointer;
-
 `
 
 const CategoryDiv = styled.div`
@@ -115,7 +116,7 @@ transition: all 0.4s ease-in-out;
  transition: all 0.4s ease-in-out;
 }
 h3{
- font-size: 2.5rem;
+ font-size: 1.6rem;
  font-weight: 800;
  cursor: pointer;
 }
@@ -179,7 +180,7 @@ const Products = () => {
     })}
     </FlexCat>
   </CatContainer>
-        <h3>Products</h3>
+        <h3 style={{fontSize:'2rem' , fontWeight:'900'}}>Products</h3>
         <Grid>
          {newdata.map((product,index)=>{
             return (

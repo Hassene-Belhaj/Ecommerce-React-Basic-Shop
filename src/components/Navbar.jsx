@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { BsFillBagFill } from 'react-icons/bs'
 import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
-import { NavLink} from 'react-router-dom'
+import { NavLink,Link} from 'react-router-dom'
 import { useContextCart } from '../Context/ContextCart'
 import { useContextAuth } from '../Context/ContextAuth'
 import styled from 'styled-components'
@@ -192,16 +192,19 @@ height: auto;
 margin: 2rem 1rem;
 cursor:pointer;
 `
-const Link= styled(NavLink)`
+const LinkStyle= styled(NavLink)`
 text-decoration: none;
-color : ${({isActive})=>isActive ? 'red' : 'gray'} ;
+color : ${({theme})=>theme.color} ;
 font-size: ${({size})=>size};
 padding: .5rem;
 transition: all 0.3s ease;
 &:hover{
-border-bottom: ${({$border})=>$border ? '1px solid' : 'none'} ;
 opacity : 0.8;
 transition: all 0.3s ease;
+}
+// navlink style now is activated 
+&.active{
+  border-bottom :solid 1px ${({theme})=>theme.color};
 }
 `
 const Linklogo= styled(Link)`
@@ -221,23 +224,22 @@ const Navbar = ({Navigation}) => {
 
 
   const [toggle,setToggle] = useState(false)
-  const [active,setActive] = useState()
 
   const handleClick = () => setToggle(!toggle)
+
 
 
   return (
 <Container>
     <Nav>
-    <Linklogo  to={'/'}  style={{textDecoration:'none',marginLeft:'2rem'}}>            
+    <Linklogo to={'/'}  style={{textDecoration:'none',marginLeft:'2rem'}}>            
        React Shopping
       </Linklogo>
      <Links>
        {Navigation.map((item,index)=>{
          return (
-           <Button key={index} >
-            <Link to={item.url} size={'0.9rem'}>{item.title}</Link>
-         
+           <Button key={index}  >
+            <LinkStyle to={item.url} size={'0.9rem'}>{item.title}</LinkStyle>  
           </Button>
             )
           })}
@@ -249,7 +251,7 @@ const Navbar = ({Navigation}) => {
          <Quantity>{bag}</Quantity>
        </Bag>
        <SignBtn>
-         {/* {user?.dipsplayName ? <button>log out</button> :  <button onClick={handleSign}>Sign in</button>} */}
+         {user?.dipsplayName ? <button>log out</button> :  <button onClick={handleSign}>Sign in</button>}
         
 
       
@@ -270,7 +272,7 @@ const Navbar = ({Navigation}) => {
            {Navigation.map((item,index)=>{
              return (
                        <LinkItem  key={index} >           
-                            <Link  border='true' size={'1.5rem'}>{item.title}</Link> 
+                            <LinkStyle to={item.url}  onClick={()=>setToggle(false)} size={'1.5rem'}>{item.title}</LinkStyle> 
                         </LinkItem>
              )
            })}

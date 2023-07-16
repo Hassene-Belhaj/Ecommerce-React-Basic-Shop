@@ -46,9 +46,8 @@ img{
     height: 8rem;
     object-fit: cover;
     cursor: pointer;
-    &:hover{
-        border-bottom:1px solid rgba(0,0,0,0.8) ;   
-    }
+    border-bottom:${({isSelected})=>isSelected ?  '1px solid rgba(0,0,0,1)' : null}  
+    
 }
 @media screen and (max-width : 768px){
 width    : 100%;
@@ -79,13 +78,14 @@ fill: rgba(180,180,180,1);
 `
 const ProductCarousel = ({id}) => {
     const [index,setIndex] = useState(0)
-    const [active,setActive] = useState()
+    const [isSelected,setIsSelected] = useState([])
+   
 
     const Images = [
-    {img : `/product${id}/product${id} (1).jpg`},
-    {img : `/product${id}/product${id} (2).jpg`},
-    {img : `/product${id}/product${id} (3).jpg`},
-    {img : `/product${id}/product${id} (4).jpg`}
+    {id: 1 ,img : `/product${id}/product${id} (1).jpg`},
+    {id : 2  , img : `/product${id}/product${id} (2).jpg`},
+    {id : 3 , img : `/product${id}/product${id} (3).jpg`},
+    {id : 4 , img : `/product${id}/product${id} (4).jpg`}
     ]
 
 
@@ -101,7 +101,11 @@ const curr = index === 0
 setIndex(curr ? Images.length - 1 : index - 1)
 }
 
-console.log(active);
+
+const handleClick = (i) => {
+    setIndex(i)
+    setIsSelected(i)
+}
 
 
     return (
@@ -129,7 +133,7 @@ console.log(active);
     <AsideImages>
          {Images.map((item,i)=>{
             return (
-                <img key={i} src={item.img} onClick={()=>setIndex(i)} />
+                <img key={i} src={item.img} onClick={()=>handleClick(i)} />
             )
          })}
 

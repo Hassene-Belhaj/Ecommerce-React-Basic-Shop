@@ -19,7 +19,7 @@ button{
     padding :4px;
     border-radius:3px;
     background :rgba(108, 122, 137,0.2);
-    cursor:crosshair;
+    cursor:pointer;
     &:hover{
     /* background :rgba(108, 122, 137,0.2); */
     }
