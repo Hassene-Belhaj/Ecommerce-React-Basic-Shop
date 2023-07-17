@@ -64,7 +64,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 img{
-    border-bottom:${({active})=>active? '3px solid':'none'}; 
+    border-bottom:${({active})=>active? '3px solid orange':'none'}; 
     padding-bottom:.6rem;
     border-top-right-radius: 7px;
     border-top-left-radius: 7px;
