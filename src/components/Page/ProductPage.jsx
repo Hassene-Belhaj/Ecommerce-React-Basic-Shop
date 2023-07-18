@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import { useLocation, useParams } from 'react-router'
 import { useContextData } from '../../Context/ContextData'
 import styled from 'styled-components'
 import ProductCarousel from './ProductCarousel'
@@ -76,8 +76,8 @@ const ProductPage = () => {
     const {id} = useParams()
     const [data] = useContextData()
     const {addtoCart,cart} = useContextCart()
-
-
+    const location = useLocation();
+    console.log('pathname', location.pathname);
 
 
     const product = data.find((item)=>item.id === parseInt(id))
@@ -90,6 +90,7 @@ const ProductPage = () => {
   return (
     <Container>
       <LeftCol>
+      <h4 style={{marginBottom:'.5rem'}}>{location.pathname}</h4>
         <ProductCarousel product={product} id={id}/>
       </LeftCol>
       <RightCol>

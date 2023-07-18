@@ -112,8 +112,7 @@ const SearchBarNav = () => {
     const [toggle,setToggle] = useState(false)
     const [searchTerm , setSearchTerm] = useState('')
     const [data] = useContextData()
-    console.log(data);
-    console.log(searchTerm);
+
     
     const searchToggle = () => {
       setToggle(!toggle) 
