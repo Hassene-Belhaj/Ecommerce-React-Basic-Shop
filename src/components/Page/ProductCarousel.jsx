@@ -123,7 +123,6 @@ setIndex(curr ? Images.length - 1 : index - 1)
 
 const handleClick = (i) => {
 setIndex(i)  
- 
 }
 
 

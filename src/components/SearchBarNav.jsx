@@ -99,9 +99,9 @@ margin-left:4rem;
 
 
 const SearchIcon = styled(AiOutlineSearch)`
-position: ${({position})=>position} ;
+position: absolute ;
 top: ${({top})=>top};
-transform: ${({transform})=>transform? 'translateY(-50%)' : null};
+transform: translateY(-50%);
 left: ${({left})=>left};
 fill: ${({theme})=>theme.color};
 `
@@ -126,7 +126,7 @@ const SearchBarNav = () => {
   {toggle ?  
   <Container>
      <FlexContainer>
-       <AiOutlineClose style={{position:'absolute',top:'0',right:'0',margin:'1rem'}} onClick={searchToggle} color='#fff' />
+       <AiOutlineClose style={{top:'0',right:'0',margin:'1rem'}} onClick={searchToggle} color='#fff' />
 
        <InputContainer searchTerm={searchTerm? 1 : 0}>
         <motion.div
@@ -140,7 +140,7 @@ const SearchBarNav = () => {
          }}
          >
           <input type="text" value={searchTerm} onChange={e=>setSearchTerm(e.target.value)} placeholder='Search products'  />
-       <SearchIcon position={'absolute'} top={'50%'} left={'.4rem'} transform='true' color='#000' />
+       <SearchIcon top={'50%'} left={'.4rem'} transform='true' color='#000' />
           </motion.div>
           
           <ResultDiv searchTerm={searchTerm? 1 : 0}>
@@ -153,17 +153,13 @@ const SearchBarNav = () => {
                 } 
               }).map((item,index)=>{
                 return (
-                    <ResultItem>
-                      <h4 key={index}>
+                    <ResultItem key={index}>
+                      <h4 >
                         <Link to={`/product/${item.id}/`} onClick={searchToggle} style={{textDecoration:'none',color:'#000' ,cursor:'pointer'}} >
                           {item.title}
                         </Link>
                         </h4>
                     </ResultItem>
-
-                     
-                     
-                     
                      ) 
                     })} 
         </ResultDiv>
@@ -175,7 +171,8 @@ const SearchBarNav = () => {
   :   
   <SearchBar >
       <input type="text" placeholder='Search products' onFocus={searchToggle} />
-       <SearchIcon position={'absolute'} top={'50%'} left={'.4rem'} transform='true'/>
+      <SearchIcon position={'absolute'} top={'50%'} left={'.4rem'}  color='#000' />
+
   </SearchBar>}
 
   

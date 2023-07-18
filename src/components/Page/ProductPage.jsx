@@ -76,13 +76,14 @@ const ProductPage = () => {
     const {id} = useParams()
     const [data] = useContextData()
     const {addtoCart,cart} = useContextCart()
+
     const location = useLocation();
     console.log('pathname', location.pathname);
 
 
     const product = data.find((item)=>item.id === parseInt(id))
 
-    
+    console.log(id);
      
     
     if (!product?.title) return ( <h4 style={{textAlign:'center',margin:'2rem auto',textTransform:'capitalize'}}>loading page...</h4> )
@@ -90,7 +91,7 @@ const ProductPage = () => {
   return (
     <Container>
       <LeftCol>
-      <h4 style={{marginBottom:'.5rem'}}>{location.pathname}</h4>
+      <h4 style={{marginBottom:'1rem'}}>{location.pathname}</h4>
         <ProductCarousel product={product} id={id}/>
       </LeftCol>
       <RightCol>
