@@ -2,6 +2,7 @@ import React from 'react'
 import styled  from 'styled-components'
 import { useContextCart } from '../Context/ContextCart'
 import { Link } from 'react-router-dom'
+import { useContextData } from '../Context/ContextData'
 
 
 const ProductDiv = styled.div`
@@ -56,11 +57,15 @@ span{
 
 
 const Product = ({product}) => {
-  const {cart,addtoCart} = useContextCart() 
-  const {id,title,image,oldPrice,price} = product
+  const [data,setData] = useContextData()
+  const {cart,setCart,addtoCart,productPage} = useContextCart() 
+  const {id,title,image,oldPrice,price,quantity} = product
+  
+
+
   return (
     <ProductDiv>
-      <Link to={`/product/${id}`}>
+      <Link to={`/product/${id}`} onClick={()=>productPage(id)} >
       <img src={image} alt="" />
       </Link>
        <h3>{title}</h3>

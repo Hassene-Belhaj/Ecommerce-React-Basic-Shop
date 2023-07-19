@@ -74,6 +74,7 @@ const ProductCart = ({product}) => {
    const {id,title,image,price,quantity} =  product
   //  const [img,setImg] = useState({src : null});
  
+  console.log(product); 
 
   const priceQuantity = quantity * price
  

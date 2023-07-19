@@ -42,6 +42,8 @@ setBag(quantity)
 
 
 
+
+
 const addtoCart = (product,id) => {
 const initialQuantity = {...product , quantity : 1}
 const productinCart = cart.find((element)=>element.id === id)
@@ -53,9 +55,11 @@ if(productinCart) {
         return element
     }
   })  
-  setCart(newCart)
+     setCart(newCart)
 } else {
-  setCart([...cart,initialQuantity])  
+
+    setCart([...cart,initialQuantity])  
+
 }
 
 }
@@ -92,7 +96,8 @@ addtoCart(productinCart,id)
 }
 
   return (
-    <ContextCartG.Provider value={{isopen,setIsOpen,handleClickCart,cart,addtoCart,deleteProduct,deleteCart,bag,decreaseQuantity,increaseQuantity,total}}>
+    <ContextCartG.Provider value={{isopen,setIsOpen,handleClickCart,cart,addtoCart,deleteProduct,deleteCart,bag,decreaseQuantity,increaseQuantity,
+    total}}>
         {children}
     </ContextCartG.Provider>
   )

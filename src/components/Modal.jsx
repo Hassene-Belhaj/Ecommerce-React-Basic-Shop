@@ -26,10 +26,10 @@ transition: all 0.4s ease-in-out;
 width: 300px;
 height: 150px;
 margin: auto;
-background:#fff;
-color: #000;
+background:${({theme})=>theme.color};
+color:${({theme})=>theme.background};
 border-radius: 8px;
-box-shadow: 1px 1px 1px rgba(180,180,180,0.9);
+box-shadow: 1px 1px 4px 1px ;
 h3{
     text-transform: capitalize;
     font-size: 1rem;
@@ -59,8 +59,6 @@ button{
     border-radius: 7px;
     font-size:.8rem;
     font-weight: 800;
-    background: #000;
-    color: #fff;
     &:hover{
      opacity:0.9;
      transition:all 0.3s ease-in-out;  

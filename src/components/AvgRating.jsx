@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Ratingdiv = styled.div`
 width: 100%;
-height: 100%;
+height: auto;
 margin: 1rem auto;
 display: flex;
 justify-content: center;

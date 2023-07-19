@@ -48,18 +48,28 @@ h3{
 p{
   padding-top: 5rem;
 }
-button{
-  margin: 20rem 0;
-  padding: 1rem;
-  width: 30%;
-  border-radius: 10px;
-  border:.5px solid;
-  background: ${({theme})=>theme.color};
-  color:${({theme})=>theme.background};
-  font-size: .9rem;
-  font-weight: 700;
+`
+const Button = styled.button`
+display: ${({display})=>display};
+width: ${({width})=>width};
+height: ${({height})=>height};
+padding-left: ${({paddingLeft})=>paddingLeft};
+padding-right: ${({paddingRight})=>paddingRight};
+margin: ${({margin})=>margin};
+background: ${({theme})=>theme.color};
+color: ${({theme})=>theme.background};
+border: solid 1px rgba(180,180,180,0.5);
+border-radius: 7px;
+transition: all 0.15s ease-in-out;
+
+cursor: pointer;
+&:hover{
+  opacity: 0.88;
+  transition: all 0.15s ease-in-out; 
 }
 `
+
+
 const LeftCol = styled.div`
 width: 45%;
 height: 100%;
@@ -69,8 +79,18 @@ height: 100%;
   height: 100%;
 }
 `
-
-
+const QuantityDiv = styled.div`
+width: 100%;
+height:100%;
+h3{
+  margin-top:3rem ;
+  text-align: left;
+  font-size: 1rem;
+}
+`
+const ButtonsDiv = styled.div`
+  
+`
 
 const ProductPage = () => {
     const {id} = useParams()
@@ -78,13 +98,10 @@ const ProductPage = () => {
     const {addtoCart,cart} = useContextCart()
 
     const location = useLocation();
-    console.log('pathname', location.pathname);
 
 
     const product = data.find((item)=>item.id === parseInt(id))
 
-    console.log(id);
-     
     
     if (!product?.title) return ( <h4 style={{textAlign:'center',margin:'2rem auto',textTransform:'capitalize'}}>loading page...</h4> )
 
@@ -98,8 +115,14 @@ const ProductPage = () => {
         <h3>{product.title}</h3>
          <AvgRating  product={product}/>
         <p>{product.description}</p>
-    
-         <button onClick={()=>addtoCart(product,product?.id)}>Add To Cart</button>
+         <h3>{product.quantity}</h3>
+      <QuantityDiv>
+         <h3>Quantity</h3>
+        <ButtonsDiv>
+         <Button width={'10rem'} height={'2rem'} onClick={()=>addtoCart(product,product.id)}>Add To Cart</Button> 
+        </ButtonsDiv>
+      </QuantityDiv>
+         {/* <Button width={'10rem'} height={'2rem'}  onClick={()=>addtoCart(product,product?.id)}>Add To Cart</Button> */}
       </RightCol> 
 
     </Container>

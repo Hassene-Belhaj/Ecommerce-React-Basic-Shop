@@ -99,9 +99,9 @@ margin-left:4rem;
 
 
 const SearchIcon = styled(AiOutlineSearch)`
-position: absolute ;
-top: ${({top})=>top};
-transform: translateY(-50%);
+position: absolute;
+top: 50%;
+transform:translateY(-50%);
 left: ${({left})=>left};
 fill: ${({theme})=>theme.color};
 `
@@ -126,7 +126,7 @@ const SearchBarNav = () => {
   {toggle ?  
   <Container>
      <FlexContainer>
-       <AiOutlineClose style={{top:'0',right:'0',margin:'1rem'}} onClick={searchToggle} color='#fff' />
+       <AiOutlineClose style={{position:'absolute',top:'0',right:'0',margin:'1rem'}} onClick={searchToggle} color='#fff' />
 
        <InputContainer searchTerm={searchTerm? 1 : 0}>
         <motion.div
@@ -140,7 +140,7 @@ const SearchBarNav = () => {
          }}
          >
           <input type="text" value={searchTerm} onChange={e=>setSearchTerm(e.target.value)} placeholder='Search products'  />
-       <SearchIcon top={'50%'} left={'.4rem'} transform='true' color='#000' />
+       <SearchIcon left={'.4rem'} color='#000' />
           </motion.div>
           
           <ResultDiv searchTerm={searchTerm? 1 : 0}>
@@ -171,8 +171,7 @@ const SearchBarNav = () => {
   :   
   <SearchBar >
       <input type="text" placeholder='Search products' onFocus={searchToggle} />
-      <SearchIcon position={'absolute'} top={'50%'} left={'.4rem'}  color='#000' />
-
+       <SearchIcon left={'.4rem'}/>
   </SearchBar>}
 
   
