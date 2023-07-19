@@ -128,7 +128,7 @@ button{
 }
 `
 const Cart = () => {
-    const {isopen,cart,handleClickCart,deleteCart,total} = useContextCart()
+    const {isopen,cart,handleClickCart,deleteCart,total,bag} = useContextCart()
 
     // scroll to new added product in cart
 
@@ -147,7 +147,7 @@ const Cart = () => {
   return (
     <Container $isopen={isopen} >
       <Headline>   
-         <h2>SHOPPING BAG</h2>
+         <h2>CART ({bag})</h2>
         <AiOutlineClose onClick={handleClickCart} size={20} />
        </Headline>
        <FlexCart  >
@@ -179,7 +179,7 @@ const Cart = () => {
 
           </BottomDiv>
           <Checkout>
-            <button>Checkout</button>
+            <button>Proceed To Checkout</button>
           </Checkout>
         </Bottom> 
     </Container> 
