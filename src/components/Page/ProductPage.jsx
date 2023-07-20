@@ -91,14 +91,15 @@ h3{
   font-size: 1rem;
 }
 `
-const ButtonsDiv = styled.div`
-  
+const DisplayHideDiv = styled.div`
 `
 const FlexDiv = styled.div`
 display: flex;
 justify-content: start;
 align-items: center;
 span{
+  display: inline-block;
+  font-weight: 700;
   width: 3rem;
   height: 3rem;
   display: flex;
@@ -123,18 +124,16 @@ align-items: center;
 
 const ProductPage = () => {
     const {id} = useParams()
-    const [data,increaseQuantityData,decreaseQuantityData] = useContextData()
-    const {addtoCart,setCart,cart} = useContextCart()
+    const [data] = useContextData()
+    const {addtoCart,setCart,cart,decreaseQuantity,increaseQuantity} = useContextCart()
 
     const location = useLocation();
 
 
     const product = data.find((item)=>item.id === parseInt(id))
+    const productinCart = cart.find((item)=>item.id === parseInt(id))
     
-  const addproducttoCart = (product,id) => {
-    if(product.quantity > 0)
-      setCart([...cart , product])
-  }
+
     
     if (!product?.title) return ( <h4 style={{textAlign:'center',margin:'2rem auto',textTransform:'capitalize'}}>loading page...</h4> )
 
@@ -150,23 +149,28 @@ const ProductPage = () => {
         <p>{product.description}</p>
 
       <QuantityDiv>
-             <h3>Quantity</h3>    
-        <FlexDiv>
-          <span>
-          {product.quantity}
-          </span>
-         
-       <ChevronDiv>
-        <Button width={'1.5rem'} raduis={'5px'} height={'1.5rem'} onClick={()=>increaseQuantityData(product.id)}  ><BiChevronUp size={20} /></Button>
-        <Button width={'1.5rem'} raduis={'5px'} height={'1.5rem'} onClick={()=>decreaseQuantityData(product.id)}><BiChevronDown size={20}/></Button>
-      </ChevronDiv>  
-        </FlexDiv>
+          {productinCart ?   <DisplayHideDiv>
+          <h3>Quantity</h3>         
+            <FlexDiv>
+              <span>
+    
+                    {productinCart.quantity}  
+
+              </span>
+            
+          <ChevronDiv>
+            <Button width={'1.5rem'} raduis={'5px'} height={'1.5rem'}  onClick={()=>increaseQuantity(product.id)} ><BiChevronUp size={20} /></Button>
+            <Button width={'1.5rem'} raduis={'5px'} height={'1.5rem'} onClick={()=>decreaseQuantity(product.id)}  ><BiChevronDown size={20}/></Button>
+
+          </ChevronDiv>  
+            </FlexDiv> 
+        </DisplayHideDiv> : ''}
+      
+  
   
          
-        <ButtonsDiv>
-         <Button width={'10rem'} height={'2rem'} margin={'4rem 0'} radius={'5px'} onClick={()=>addproducttoCart(product,id)}>Add To Cart</Button> 
+         <Button width={'10rem'} height={'2rem'} margin={'4rem 0'} radius={'5px'} onClick={()=>addtoCart(product,product.id)}>Add To Cart</Button> 
          {/* <Button width={'10rem'} height={'2rem'} margin={'4rem 0'} radius={'5px'} onClick={()=>addtoCart(product,product.id)}>Add To Cart</Button>  */}
-        </ButtonsDiv>
       </QuantityDiv>
          {/* <Button width={'10rem'} height={'2rem'}  onClick={()=>addtoCart(product,product?.id)}>Add To Cart</Button> */}
       </RightCol> 

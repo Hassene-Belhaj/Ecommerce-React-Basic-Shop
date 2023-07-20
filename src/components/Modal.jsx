@@ -4,8 +4,8 @@ import { MdDone } from 'react-icons/md'
 import { useContextCart } from '../Context/ContextCart'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Cart from './Cart'
+import { Link, useLocation, useParams } from 'react-router-dom'
+
 
 const Container = styled.div`
 position: fixed;
@@ -20,7 +20,7 @@ z-index: 5000;
 `
 const ModalDiv = styled.div`
 position: absolute;
-top: 5rem;
+top: 3.8rem;
 right:${({$modal})=>$modal ?  '2rem' : '-200%' };
 transition: all 0.4s ease-in-out;
 width: 300px;
@@ -29,7 +29,7 @@ margin: auto;
 background:${({theme})=>theme.color};
 color:${({theme})=>theme.background};
 border-radius: 8px;
-box-shadow: 1px 1px 4px 1px ;
+box-shadow: 1px 1px 1px ${({theme})=>theme.color} ;
 h3{
     text-transform: capitalize;
     font-size: 1rem;
@@ -69,17 +69,20 @@ button{
 
 
 const Modal = () => {
-  const {bag,addtoCart,isopen,setIsOpen,handleClickCart} =  useContextCart()
+  const {bag,addtoCart,isopen,setIsOpen,handleClickCart,decreaseQuantity,increaseQuantity} =  useContextCart()
   const [modal,setModal] = useState(false)
- 
+
+  const location = useLocation()
+
   useEffect(()=>{
-    if(bag && !isopen){
+    if(bag && !isopen && location.pathname === '/'){
       setModal(true)
     } else if (bag === 0) {
         setModal(false)
     } else if(handleClickCart){
       setModal(false)
-    }
+    } 
+    
     
   },[bag])
   
@@ -88,7 +91,7 @@ const Modal = () => {
   if(modal){
     setModal(false)
   }
-  }, 2800);
+  }, 2000);
   return () => clearTimeout(timeout)
 
   },[modal])

@@ -70,11 +70,10 @@ justify-content: space-between;
 margin: auto .5rem;
 `
 const ProductCart = ({product}) => {
-   const {deleteProduct,decreaseQuantity,increaseQuantity,cart} = useContextCart()
+   const {deleteProduct,decreaseQuantity,increaseQuantity} = useContextCart()
    const {id,title,image,price,quantity} =  product
   //  const [img,setImg] = useState({src : null});
  
-  console.log(product); 
 
   const priceQuantity = quantity * price
  

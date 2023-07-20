@@ -17,7 +17,7 @@ const ContextCart = ({children}) => {
 
  
 useEffect(()=>{
-if(cart.length === 0){
+if(cart.length === 0 ){
   setIsOpen(false)
 }
 },[cart.length])  
@@ -44,10 +44,8 @@ setBag(quantity)
 
 
 
-
-
 const addtoCart = (product,id) => {
-const initialQuantity = {...product , quantity : product.quantity + 1}
+const initialQuantity = {...product , quantity : 1}
 const productinCart = cart.find((element)=>element.id === id)
 if(productinCart) {
   const newCart = cart.map((element)=>{

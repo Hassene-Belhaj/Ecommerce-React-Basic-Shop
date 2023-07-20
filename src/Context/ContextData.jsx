@@ -20,43 +20,12 @@ const ContextData = ({children}) => {
 useEffect(()=>{
 FetchProducts()   
 },[])
-    
-const increaseQuantityData = (id) => {
-const productindata = data.find((item)=>item.id === id)
-if(productindata) {
-  const newdataQuantity = data.map((item)=>{
-    if(item.id === id) {
-      return {...item , quantity : item.quantity + 1}
-    } else {
-      return item
-    }
-  })
-  setData(newdataQuantity)
-} else {
-  setData([...data])
-}
-} 
 
 
-const decreaseQuantityData = (id) => {
-  const productindata = data.find((item)=>item.id === id)
-  if(productindata) {
-    const newdataQuantity = data.map((item)=>{
-      if(item.id === id) {
-        return {...item , quantity : item.quantity - 1}
-      } else {
-        return item
-      }
-    })
-    setData(newdataQuantity)
-  } else {
-    setData([...data])
-  }
-  } 
 
 
   return (
-  <useContextDataG.Provider value={[data,increaseQuantityData,decreaseQuantityData]}>
+  <useContextDataG.Provider value={[data]}>
     {children}
   </useContextDataG.Provider>
     )
