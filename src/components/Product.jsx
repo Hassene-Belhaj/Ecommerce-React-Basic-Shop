@@ -65,7 +65,7 @@ const Product = ({product}) => {
 
   return (
     <ProductDiv>
-      <Link to={`/product/${id}`} onClick={()=>productPage(id)} >
+      <Link to={`/product/${id}`}  >
       <img src={image} alt="" />
       </Link>
        <h3>{title}</h3>

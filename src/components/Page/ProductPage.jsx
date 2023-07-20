@@ -144,9 +144,9 @@ const ProductPage = () => {
         <ProductCarousel product={product} id={id}/>
       </LeftCol>
       <RightCol>
-        <h3>{product.title}</h3>
+        <h3>{product?.title}</h3>
          <AvgRating  product={product}/>
-        <p>{product.description}</p>
+        <p>{product?.description}</p>
 
       <QuantityDiv>
           {productinCart ?   <DisplayHideDiv>
