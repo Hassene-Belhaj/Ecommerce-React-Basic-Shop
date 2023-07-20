@@ -6,7 +6,7 @@ import ProductCarousel from './ProductCarousel'
 import { useContextCart } from '../../Context/ContextCart'
 import AvgRating from '../AvgRating'
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
-
+import { motion } from 'framer-motion'
 
 
 const Container = styled.div`
@@ -79,7 +79,9 @@ height: 100%;
 const QuantityDiv = styled.div`
 width: 100%;
 height:100%;
+margin-top:2rem;
 `
+
 const DisplayHideDiv = styled.div`
 `
 
@@ -125,26 +127,30 @@ width: 100%;
 height: auto;
 border-top: 1px solid rgba(0,0,0,0.1);
 border-bottom: 1px solid rgba(0,0,0,0.1);
-padding-bottom: 4rem;
-padding-top: 4rem;
+padding-bottom: 1.5rem;
+padding-top: 1.5rem;
+transition: all 0.3s ease-in-out;
 `
-const Span = styled.span`
-display: inline-block;
+const Span = styled(motion.span)`
+display:${({show})=>show? 'inline-block ' : 'none'}  ;
+transition: all 0.3s ease-in-out;
 width: 100%;
-height: 0;
-margin: 1rem 0 1rem 0 ;
+height: auto;
+margin: 1rem 0 1rem 0;
 `
+const ChevronIcon = styled(BiChevronDown)`
+transform:${({show})=>show? 'rotate(180deg)' : ''} ;
+transition: all 0.3s ease-in-out;
 
+`
 
 const ProductPage = () => {
     const {id} = useParams()
     const [data] = useContextData()
-    const {addtoCart,setCart,cart,decreaseQuantity,increaseQuantity} = useContextCart()
+    const {addtoCart,cart,decreaseQuantity,increaseQuantity} = useContextCart()
     const [show,setShow] = useState(false)
 
     const location = useLocation();
-
-
     const product = data.find((item)=>item.id === parseInt(id))
     const productinCart = cart.find((item)=>item.id === parseInt(id))
     
@@ -161,11 +167,9 @@ const ProductPage = () => {
         <h3>{product?.title}</h3>
          <AvgRating  product={product}/>
         <span style={{fontWeight:'700'}}>${product.price}</span>
-       
-
       <QuantityDiv>
           {productinCart ? <DisplayHideDiv>
-          <h3>Quantity</h3>         
+          <h4>Quantity</h4>         
         <FlexDiv>
           <button style={{background:'#fff',border:'1px solid #f3f5f9',padding:'1.1rem',borderRadius:'7px',fontWeight:'800'}}> 
           {productinCart.quantity} </button>            
@@ -179,15 +183,15 @@ const ProductPage = () => {
       
          <Button width={'10rem'} height={'2rem'} margin={'4rem 0'} radius={'5px'} onClick={()=>addtoCart(product,product.id)}>Add To Cart</Button> 
         
-                <DescriptionBlock>
-                    <FlexDescription>
-                         <h3 style={{marginBottom:'.5rem'}}>Description</h3>
-                         <BiChevronUp size={20} style={{cursor:'pointer'}}/>
-                    </FlexDescription>
-                    <Span>
-                        <p>{product?.description}</p> 
-                    </Span>
-                </DescriptionBlock>
+        <DescriptionBlock>
+            <FlexDescription>
+                  <h3 style={{marginBottom:'.5rem'}}>Description</h3>
+                <ChevronIcon show={show? 1 :0} onClick={()=>setShow(!show)} size={20} style={{cursor:'pointer'}}/> 
+            </FlexDescription>
+            <Span show={show? 1 :  0}>
+                <p>{product?.description}</p> 
+            </Span>
+        </DescriptionBlock>
                     
      
       
