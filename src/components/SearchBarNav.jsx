@@ -15,7 +15,6 @@ inset: 0;
 background : rgba(0,0,0,0.95);
 backdrop-filter: blur(.4rem);
 z-index: 6000;
-
 `
 const FlexContainer = styled.div`
 width: 100%;
@@ -61,7 +60,7 @@ width: 100%;
 height: auto;
 background: #fff;
 padding:.5rem;
-border-bottom: 1px solid rgba(0,0,0,0.5);
+border-bottom: 1px solid rgba(0,0,0,0.2);
 `
 
 
@@ -142,18 +141,19 @@ const SearchBarNav = () => {
           <input type="text" value={searchTerm} onChange={e=>setSearchTerm(e.target.value)} placeholder='Search products'  />
        <SearchIcon left={'.4rem'} color='#000' />
           </motion.div>
-          
+        
+    
           <ResultDiv searchTerm={searchTerm? 1 : 0}>
 
             {data.filter((item)=>{
-                if(searchTerm == "" ) {
+              if(searchTerm == "" ) {
                   return null
                 } else if(item.title.toLowerCase().includes(searchTerm.toLowerCase())){
                   return item 
                 } 
               }).map((item,index)=>{
                 return (
-                    <ResultItem key={index}>
+                  <ResultItem key={index}>
                       <h4 >
                         <Link to={`/product/${item.id}/`} onClick={searchToggle} style={{textDecoration:'none',color:'#000' ,cursor:'pointer'}} >
                           {item.title}

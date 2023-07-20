@@ -73,7 +73,7 @@ if(inView){
   <Container ref={ref}>
     <HeroDiv 
       variants={{
-        hidden : {opacity : 0.8 , x : -50} ,
+        hidden : {opacity : 0.8 , x : -30} ,
         visible : {opacity : 1 , x : 0 }   
        }}
        initial='hidden'
