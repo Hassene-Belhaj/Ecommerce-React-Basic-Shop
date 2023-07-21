@@ -14,10 +14,7 @@ width: 90%;
 height: 80vh;
 display: flex;
 justify-content: center;
-margin-top: 1rem;
-margin-bottom: 8rem;
-margin-left: auto;
-margin-right: auto;
+margin: 1rem auto 8rem auto;
 text-transform: capitalize;
 @media screen and (max-width : 768px) {
   display: block;
@@ -121,22 +118,33 @@ height: 100%;
 display: flex;
 justify-content: space-between;
 align-items: start;
+h4{
+margin-bottom:.5rem;
+cursor:pointer;
+transition: all 0.3s ease-in-out;
+&:hover{
+  text-decoration: underline;
+  text-underline-offset: .5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+}
 `
 const DescriptionBlock = styled.div`
 width: 100%;
 height: auto;
-border-top: 1px solid rgba(0,0,0,0.1);
-border-bottom: 1px solid rgba(0,0,0,0.1);
+border-top: 1px solid rgba(180,180,180,0.5);
+border-bottom: 1px solid rgba(180,180,180,0.5);
 padding-bottom: 1.5rem;
 padding-top: 1.5rem;
-transition: all 0.3s ease-in-out;
+@media screen and (max-width : 768px){
+  margin-bottom: 10rem;
+}
 `
 const Span = styled(motion.span)`
-display:${({show})=>show? 'inline-block ' : 'none'}  ;
-transition: all 0.3s ease-in-out;
 width: 100%;
-height: auto;
 margin: 1rem 0 1rem 0;
+transition: all .3s ease-in-out;
 `
 const ChevronIcon = styled(BiChevronDown)`
 transform:${({show})=>show? 'rotate(180deg)' : ''} ;
@@ -160,7 +168,11 @@ const ProductPage = () => {
   return (
     <Container>
       <LeftCol>
-      <h4 style={{margin:'1rem'}}>{location.pathname}</h4>
+        <span>
+      <h4 style={{margin:'1rem'}}>
+         <span>/{product.category}</span> {location.pathname}
+      </h4>
+        </span>
         <ProductCarousel product={product} id={id}/>
       </LeftCol>
       <RightCol>
@@ -185,12 +197,24 @@ const ProductPage = () => {
         
         <DescriptionBlock>
             <FlexDescription>
-                  <h3 style={{marginBottom:'.5rem'}}>Description</h3>
+                  <h4 onClick={()=>setShow(!show)}>Description</h4>
                 <ChevronIcon show={show? 1 :0} onClick={()=>setShow(!show)} size={20} style={{cursor:'pointer'}}/> 
             </FlexDescription>
-            <Span show={show? 1 :  0}>
-                <p>{product?.description}</p> 
-            </Span>
+        
+                <Span 
+                    variants={{
+                      hidden : {display : 'none' , opacity : 0 } ,
+                      visible : {display : 'inline-block' , opacity : 1 },
+                    }}
+                    animate={show? 'visible' : 'hidden'} 
+                    exit={'hidden'}
+                    transition={{
+                      delay: 0.2
+                    }}
+                >
+                    <p>{product?.description}</p> 
+                </Span>
+          
         </DescriptionBlock>
                     
      

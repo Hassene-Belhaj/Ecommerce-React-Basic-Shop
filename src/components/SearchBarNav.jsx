@@ -78,7 +78,7 @@ right: 120px;
 input{
   width: 100%;
   border-radius: 5px;
-  border: 2px solid ${({theme})=>theme.color};
+  border: 1.5px solid ${({theme})=>theme.color};
   background: ${({theme})=>theme.background};
   padding-left: 1.5rem;
   outline: none;

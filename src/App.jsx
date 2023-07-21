@@ -22,13 +22,13 @@ overflow: hidden;
 `
 
 const dark = {
-  background : '#030712' ,
+  background : '#1A1A1A' ,
   color : '#fff' ,
 }
 
 const light = {
   background : '#fff' ,
-  color : '#030712' ,
+  color : '#1A1A1A' ,
 }
 
 

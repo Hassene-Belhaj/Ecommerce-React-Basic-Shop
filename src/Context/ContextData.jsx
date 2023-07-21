@@ -11,11 +11,9 @@ const ContextData = ({children}) => {
     const FetchProducts  = () => {
       callAPI(`Data/products.json`)
       .then((data)=>{
-      setData(data.map((item)=>{
-        return {...item,quantity : 0}
-      }))
+      setData(data)
       })
-    }
+  }
     
 useEffect(()=>{
 FetchProducts()   
