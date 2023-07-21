@@ -2,7 +2,6 @@ import React from 'react'
 import styled  from 'styled-components'
 import { useContextCart } from '../Context/ContextCart'
 import { Link } from 'react-router-dom'
-import { useContextData } from '../Context/ContextData'
 
 
 const ProductDiv = styled.div`
@@ -22,6 +21,9 @@ h3{
   font-size: .9rem;
   margin-top: 1rem;
   text-transform: capitalize;
+}
+h4{
+  font-size: .8rem;
 }
 p{
   font-weight: 600;
@@ -57,9 +59,8 @@ span{
 
 
 const Product = ({product}) => {
-  const [data,setData] = useContextData()
-  const {cart,setCart,addtoCart,productPage} = useContextCart() 
-  const {id,title,image,oldPrice,price,quantity} = product
+  const {addtoCart} = useContextCart() 
+  const {id,title,image,oldPrice,price} = product
   
 
 
@@ -70,8 +71,12 @@ const Product = ({product}) => {
       </Link>
        <h3>{title}</h3>
        <PriceFlex>
-        <span>${oldPrice.toFixed(2)}</span>  
-        <button  onClick={()=>addtoCart(product,id)}>${price.toFixed(2)}</button>
+   
+          <h4 style={{textDecoration:'line-through',textDecorationThickness:'.1rem'}}>${oldPrice.toFixed(2)}</h4>
+        
+        <button  onClick={()=>addtoCart(product,id)}>
+          <h4>${price.toFixed(2)}</h4>
+        </button>
        </PriceFlex>
      </ProductDiv>
   )

@@ -186,14 +186,14 @@ const Products = () => {
             return (
               <AnimatePresence key={index}>
                <motion.div 
-               layout
-               key={product.id}
-               initial={{opacity : 0}}
-               animate={{opacity : 1}}
-               exit={{opacity : 0}}
-               transition={{
-                duration : 0.3
-               }}
+                  layout
+                  key={product.id}
+                  initial={{opacity : 0}}
+                  animate={{opacity : 1}}
+                  exit={{opacity : 0}}
+                  transition={{
+                    duration : 0.3
+                  }}
                >
                 <ProductsDiv  >
                         <Product product={product} />

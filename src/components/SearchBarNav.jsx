@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useState } from 'react'
 import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai'
 import styled from 'styled-components'
@@ -6,6 +6,9 @@ import ContextData, { useContextData } from '../Context/ContextData'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
+
+
+
 
 const Container = styled.div`
 width: 100%;
@@ -47,7 +50,7 @@ input{
 `
 const ResultDiv = styled.div`
 width: 100%;
-height: ${({searchTerm})=>searchTerm? '500px' : null};
+height: ${({searchTerm})=>searchTerm? 'auto' : null};
 color: #000;
 background: #fff;
 margin-top: .1rem;
@@ -96,7 +99,6 @@ margin-left:4rem;
 }
 `
 
-
 const SearchIcon = styled(AiOutlineSearch)`
 position: absolute;
 top: 50%;
@@ -105,19 +107,31 @@ left: ${({left})=>left};
 fill: ${({theme})=>theme.color};
 `
 
-
-
 const SearchBarNav = () => {
     const [toggle,setToggle] = useState(false)
     const [searchTerm , setSearchTerm] = useState('')
     const [data] = useContextData()
 
-    
+
     const searchToggle = () => {
       setToggle(!toggle) 
       setSearchTerm('')
     }
     
+  const keypress = useCallback((e)=>{
+  if(e.key === 'Escape') {
+    setToggle(false)
+  }
+
+
+  },[])
+
+  useEffect(()=>{
+  document.addEventListener('keydown' , keypress) ;
+  return () => document.removeEventListener('keydown' , keypress)
+  },[keypress])
+
+
 
 
   return (   
@@ -126,23 +140,20 @@ const SearchBarNav = () => {
   <Container>
      <FlexContainer>
        <AiOutlineClose style={{position:'absolute',top:'0',right:'0',margin:'1rem'}} onClick={searchToggle} color='#fff' />
-
-       <InputContainer searchTerm={searchTerm? 1 : 0}>
-        <motion.div
-         initial={{opacity : 0 , scale : 0}}
-         animate={{opacity : 1 ,scale : 1}}  
-         exit={{opacity : 0 , scale : 0}}       
-         transition={{
-          duration : 0.5 ,
-          type : 'spring' ,
-          bounce : 0.3
-         }}
+        <InputContainer searchTerm={searchTerm? 1 : 0}>
+            <motion.div
+              initial={{opacity : 0 , scale : 0}}
+              animate={{opacity : 1 ,scale : 1}}  
+              exit={{opacity : 0 , scale : 0}}       
+              transition={{
+                duration : 0.5 ,
+                type : 'spring' ,
+                bounce : 0.3
+              }}
          >
-          <input type="text" value={searchTerm} onChange={e=>setSearchTerm(e.target.value)} placeholder='Search products'  />
+          <input type="text" value={searchTerm} onChange={e=>setSearchTerm(e.target.value)} placeholder='Search products'/>
        <SearchIcon left={'.4rem'} color='#000' />
           </motion.div>
-        
-    
           <ResultDiv searchTerm={searchTerm? 1 : 0}>
 
             {data.filter((item)=>{
@@ -173,8 +184,6 @@ const SearchBarNav = () => {
       <input type="text" placeholder='Search products' onFocus={searchToggle} />
        <SearchIcon left={'.4rem'}/>
   </SearchBar>}
-
-  
 
   </>  
   )

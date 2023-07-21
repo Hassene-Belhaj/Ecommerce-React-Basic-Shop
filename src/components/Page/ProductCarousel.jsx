@@ -40,11 +40,11 @@ width : 100%;
 
 const AsideImages = styled.div`
 width: 20%;
-height: 100%;
+max-height: 100%;
 display: flex;
 flex-direction: column;
 margin-left: 2rem;
-gap: 2rem;
+gap: 1rem;
 @media screen and (max-width : 768px){
     width    : 100%;
     flex-direction: row;
@@ -59,7 +59,7 @@ gap: 2rem;
 
 const ImgFlex = styled.div`
 width: 100%;
-height: 100%;
+max-height: 1500px;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -68,8 +68,8 @@ img{
     padding-bottom:.6rem;
     border-top-right-radius: 7px;
     border-top-left-radius: 7px;
-    max-width: 100%;
-    max-height: 10rem;
+    max-width: 10rem;
+    max-height: 9rem;
     object-fit: cover;
     cursor: pointer;
 }
@@ -145,8 +145,8 @@ setIndex(i)
         alt="" 
         /> 
         <ChevronDiv>
-        <RightChevron onClick={nextSlide}  size={60}   />
-        <LeftChevron  onClick={PrevSlide} size={60} />
+             <RightChevron onClick={nextSlide}  size={60}   />
+             <LeftChevron  onClick={PrevSlide} size={60} />
         </ChevronDiv>
     </Carousel>
     <AsideImages  >
