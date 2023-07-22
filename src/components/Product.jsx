@@ -37,7 +37,7 @@ button{
   font-weight: 800;
   font-size: 1rem;
   &:hover{
-  background: rgba(180,180,180,0.2);
+  background: rgba(180,180,180,0.4);
   transition:all 0.3s ease-in-out;  
 }
 cursor: pointer;
@@ -69,12 +69,12 @@ const Product = ({product}) => {
       <Link to={`/product/${id}`} >
       <img src={image} alt="" />
       </Link>
-       <h3>{title}</h3>
+       <h3 style={{textAlign:'center'}}>{title}</h3>
        <PriceFlex>
    
           <h4 style={{textDecoration:'line-through',textDecorationThickness:'.1rem'}}>${oldPrice.toFixed(2)}</h4>
         
-        <button  onClick={()=>addtoCart(product,id)}>
+        <button onClick={()=>addtoCart(product,id)}>
           <h4>${price.toFixed(2)}</h4>
         </button>
        </PriceFlex>

@@ -75,7 +75,7 @@ const Modal = () => {
   const location = useLocation()
 
   useEffect(()=>{
-    if(bag && !isopen && location.pathname === '/'){
+    if(bag && !isopen && location.pathname == '/') {
       setModal(true)
     } else if (bag === 0) {
         setModal(false)
