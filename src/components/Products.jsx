@@ -53,17 +53,16 @@ p{
 @media screen and (max-width : 768px){
   width : 100% ;
   flex-wrap: wrap;
-
+  
 }
 `
 const FlexCat = styled.div`
 padding-top: 2rem ;
+/* background: #000; */
 width: 90%;
 height :100%;
-display:flex;
-flex-wrap: wrap;
-justify-content: center;
-align-items : center;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px , 1fr));
 margin :auto ;
 z-index: 101;
 gap: 2rem;
@@ -185,7 +184,7 @@ const Products = () => {
   </CatContainer>
         <h3 style={{fontSize:'2rem' , fontWeight:'900'}}>Products</h3>
         <Grid>
-         {newdata.map((product,index)=>{
+         {data.map((product,index)=>{
             return (
               <AnimatePresence key={index}>
                <motion.div 

@@ -69,15 +69,16 @@ button{
 
 
 const Modal = () => {
-  const {bag,addtoCart,isopen,setIsOpen,handleClickCart,decreaseQuantity,increaseQuantity} =  useContextCart()
+  const {bag,isopen,handleClickCart} =  useContextCart()
   const [modal,setModal] = useState(false)
 
   const location = useLocation()
 
   useEffect(()=>{
-    if(bag && !isopen && location.pathname == '/') {
+    if(bag && !isopen && location.pathname === '/') {
       setModal(true)
-    } else if (bag === 0) {
+    }
+    else if (bag === 0) {
         setModal(false)
     } else if(handleClickCart){
       setModal(false)
@@ -89,7 +90,7 @@ const Modal = () => {
   useEffect(()=>{
   const timeout = setTimeout(() => {
   if(modal){
-    setModal(false)
+  setModal(false)
   }
   }, 2000);
   return () => clearTimeout(timeout)

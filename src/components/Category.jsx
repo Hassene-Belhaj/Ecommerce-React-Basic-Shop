@@ -40,8 +40,8 @@ if (cat  === 'All'){
 
 console.log(products);
 
-if(products?.title) return ( <Container><h1 style={{textAlign:'center',margin:'2rem 0'}}>... Loading Page</h1></Container>)
-  return (
+if (!products[0]?.title)  return ( <h4 style={{textAlign:'center',margin:'2rem auto',textTransform:'capitalize'}}>loading page...</h4> )
+return (
     <Container>
      <h1 style={{textAlign:'center',fontSize:'1rem'}}>{cat}</h1>
      <Grid>
