@@ -110,6 +110,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+margin: 1rem 0;
 `
 
 const FlexDescription = styled.div`
@@ -183,7 +184,7 @@ const ProductPage = () => {
           {productinCart ? <DisplayHideDiv>
           <h4>Quantity</h4>         
         <FlexDiv>
-          <button style={{background:'#fff',border:'1px solid #f3f5f9',padding:'1.1rem',borderRadius:'7px',fontWeight:'800'}}> 
+          <button style={{background:'#fff',border:'1px solid #f3f5f9',padding:'.8rem',borderRadius:'7px',fontWeight:'800'}}> 
           {productinCart.quantity} </button>            
         <ChevronDiv>
           <Button width={'1.5rem'} raduis={'5px'} height={'1.5rem'}  onClick={()=>increaseQuantity(product.id)} ><BiChevronUp size={20} /></Button>

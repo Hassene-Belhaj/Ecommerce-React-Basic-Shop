@@ -7,6 +7,7 @@ import { Cat } from '../../public/Data/Cat'
 import { useEffect } from 'react'
 import {AnimatePresence,motion } from 'framer-motion'
 import Hero from './Hero'
+import { Link } from 'react-router-dom'
 
 
 const Container = styled.div`
@@ -145,18 +146,18 @@ const Products = () => {
   },[data])
   
   
-  const Filter = (id,cat) => {
-  const categoryData = data.filter((item)=>item.category === cat)
-  if (id === 0) {
-    setNewData(data)
-  } else {
-    setNewData(categoryData)
-  }
-}
+//   const Filter = (id,cat) => {
+//   const categoryData = data.filter((item)=>item.category === cat)
+//   if (id === 0) {
+//     setNewData(data)
+//   } else {
+//     setNewData(categoryData)
+//   }
+// }
 
  
 
-
+// onClick={()=>Filter(item.id,item.cat)}
 
   return (
     <Container>
@@ -167,13 +168,15 @@ const Products = () => {
        <FlexCat>
       {Cat.map((item,index)=>{
      return (
-      <Div key={index} onClick={()=>Filter(item.id,item.cat)}>
+      <Div key={index} >
+        <Link to={`/category/${item.cat}/`}>
        <CategoryDiv>
          <img src={item.image} alt="" />
          <Contraste>
          <h3>{item.cat}</h3>
          </Contraste>
        </CategoryDiv>
+        </Link>
       </Div>
      )
      

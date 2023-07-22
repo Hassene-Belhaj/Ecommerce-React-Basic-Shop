@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import ProductPage from './components/Page/ProductPage'
 import Contact from './components/Contact'
 import Policy from './components/Policy'
+import Category from './components/Category'
 
 const Container = styled.div`
 width : 100% ;
@@ -46,7 +47,8 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
               <Container >
                <Navbar Navigation={Navigation} />
                 <DarkLight theme={theme} toggleTheme={toggleTheme}/>
-               <Routes>
+               <Routes>        
+                 <Route path='/category/:cat/' element={<Category />} />
                  <Route path='/' element={ <Products/> } />                 
                  <Route path='/product/:id' element={ <ProductPage/> } />                             
                  <Route path='/contact' element={ <Contact/> } />
