@@ -13,7 +13,7 @@ const ContextCart = ({children}) => {
   const [cart,setCart] = useState([])
   const [bag,setBag] = useState([])
   const [total,setTotal] = useState()
-  const [display , setDisplay] = useState(false)
+  const [display , setDisplay] = useState(true)
 
   const handleClickCart = () => setIsOpen(!isopen)
   const handleDisplay = () =>setDisplay(!display)

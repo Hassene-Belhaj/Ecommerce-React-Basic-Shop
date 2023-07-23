@@ -2,6 +2,7 @@ import React from 'react'
 import styled  from 'styled-components'
 import { useContextCart } from '../Context/ContextCart'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 
 const ProductDiv = styled.div`
@@ -65,7 +66,7 @@ const Product = ({product}) => {
 
 
   return (
-    <ProductDiv>
+      <ProductDiv>
       <Link to={`/product/${id}`} >
       <img src={image} alt="" />
       </Link>

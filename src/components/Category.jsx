@@ -8,7 +8,8 @@ import { BsFillGridFill } from 'react-icons/bs'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { useContextCart } from '../Context/ContextCart'
 import ProductsList from './ProductsList'
-import { BiSolidGridAlt } from 'react-icons/bi'
+import { BiExit, BiSolidGridAlt } from 'react-icons/bi'
+import { AnimatePresence, motion } from 'framer-motion'
 
 
 const Container = styled.div`
@@ -72,27 +73,52 @@ return (
       <BiSolidGridAlt onClick={()=>setDisplay(true)} style={{marginRight:'1rem',cursor:'pointer'}}  size={25}/>
       <AiOutlineMenu  onClick={()=>setDisplay(false)} size={25} style={{cursor:'pointer'}}/>
      </IconSpan>
+
+
+      
+ 
+      
+
      {display ?  < Grid>
      {products.map((product,index)=>{
        return (
-         <>
+        <AnimatePresence>
+        <motion.div
+        initial={{opacity : 0 , scale : 0}}
+        animate={{opacity : 1 , scale : 1}}
+        transition={{
+          duration : 0.3
+        }}
+        
+        >
         <Product key={index} product={product} /> 
         
-         </>
-         
+        </motion.div>
+        
+        </AnimatePresence>  
          )
         })}
         </Grid> : 
+
       <Flex> {products.map((product,index)=>{
-       return (
-         <>
+        return (
+          <AnimatePresence>
+           <motion.div
+            initial={{opacity : 0 , scale : 0}}
+            animate={{opacity : 1 , scale : 1}}
+            transition={{
+              duration : 0.3
+            }}
+           >
+
          <ProductsList key={index} product={product} /> 
+           </motion.div>
         
-         </>
-         
+          </AnimatePresence>         
          )
         })}</Flex>}
     
+     
     </Container>
   )
 }

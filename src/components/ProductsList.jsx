@@ -12,6 +12,7 @@ margin: 0 auto 4rem auto;
 text-transform: capitalize;
 @media screen and (max-width : 768px){
   font-size: .7rem;
+  margin: 0 auto 2rem auto;
 }
 `
 const FlexDiv = styled.div`
@@ -40,8 +41,12 @@ object-fit: cover;
 border-top-left-radius : 7px ;
 }
 @media screen and (max-width : 768px){
-flex-direction  :column ;
-text-align: center;
+  flex-direction  :column ;
+  text-align: center;
+  img{
+    margin-top: 1rem;
+    border-radius: 7px;
+  }
 }
 `
 
@@ -51,6 +56,15 @@ height: 100%;
 border-top-right-radius : 7px ;
 margin: auto;
 padding-top:1rem ;
+Button{
+  margin-top: 5rem;
+}
+@media screen and (max-width : 768px){
+  Button{
+  margin-top: .5rem;
+  margin-bottom: 2rem;
+}
+}
 `
 
 const ProductsList = ({product}) => {
@@ -68,8 +82,8 @@ const ProductsList = ({product}) => {
        </LeftCol>
        <RightCol>
          <h3>{title}</h3>
-         <h4 style={{margin:'2rem 0'}}>${price}</h4>
-          <p style={{margin :'2rem 0'}}>{description}</p>
+         <h4 style={{margin:'1rem 0'}}>${price}</h4>
+          <p style={{margin :'.5rem 0'}}>{description}</p>
           <Button  width={'10rem'} height={'2rem'} onClick={()=>addtoCart(product,product.id)}>Add To Cart</Button>
        </RightCol>
     </FlexDiv>
