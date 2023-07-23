@@ -13,8 +13,10 @@ const ContextCart = ({children}) => {
   const [cart,setCart] = useState([])
   const [bag,setBag] = useState([])
   const [total,setTotal] = useState()
-  const handleClickCart = () => setIsOpen(!isopen)
+  const [display , setDisplay] = useState(false)
 
+  const handleClickCart = () => setIsOpen(!isopen)
+  const handleDisplay = () =>setDisplay(!display)
  
 useEffect(()=>{
 if(cart.length === 0 ){
@@ -97,7 +99,7 @@ addtoCart(productinCart,id)
 
   return (
     <ContextCartG.Provider value={{isopen,setIsOpen,handleClickCart,cart,setCart,addtoCart,deleteProduct,deleteCart,bag,decreaseQuantity,increaseQuantity,
-    total}}>
+    total,display,setDisplay,handleDisplay}}>
         {children}
     </ContextCartG.Provider>
   )

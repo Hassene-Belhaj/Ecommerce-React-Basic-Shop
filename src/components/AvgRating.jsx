@@ -6,22 +6,28 @@ const Ratingdiv = styled.div`
 width: 100%;
 height: auto;
 margin: 1rem auto;
-display: flex;
-justify-content: start;
+
+
+`
+
+const Customer = styled.div`
+
 `
 
 const RatingFlex = styled.span`
 
 ` 
 const RatingLikes = styled.span`
-
 ` 
 
 
 const AvgRating = ({product}) => {
  const {avgRating,likes} =product
-  return (
-   <Ratingdiv>
+ return (
+     <Ratingdiv>
+        <Customer>
+          <h5 style={{color:'orange',margin:'.5rem 0',fontSize:'.8rem',wordSpacing:'.2rem'}}>Customer Revue</h5>
+        </Customer>
    {Array.from({length : avgRating},(_,index)=>{
     return (
         <RatingFlex key={index}>

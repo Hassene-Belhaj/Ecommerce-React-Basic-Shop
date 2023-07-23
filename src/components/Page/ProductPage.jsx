@@ -45,6 +45,7 @@ h3{
 `
 const Button = styled.button`
 display: ${({display})=>display};
+font-weight:700 ;
 width: ${({width})=>width};
 height: ${({height})=>height};
 padding-left: ${({paddingLeft})=>paddingLeft};
@@ -55,7 +56,6 @@ color: ${({theme})=>theme.background};
 border: solid 1px rgba(180,180,180,0.5);
 border-radius: ${({radius})=>radius};
 transition: all 0.15s ease-in-out;
-
 cursor: pointer;
 &:hover{
   opacity: 0.88;
@@ -171,7 +171,7 @@ const ProductPage = () => {
       <LeftCol>
         <span>
       <h4 style={{margin:'1rem'}}>
-         <span>/{product.category}</span> {location.pathname}
+         <span>/{product.category}</span>{location.pathname}
       </h4>
         </span>
         <ProductCarousel product={product} id={id}/>

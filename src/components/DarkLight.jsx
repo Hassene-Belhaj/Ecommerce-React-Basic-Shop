@@ -9,7 +9,7 @@ height : auto;
 display : flex ;
 justify-content: start;
 align-items :center; 
-padding-left : 2rem ;
+padding-left : 3rem ;
 margin-top:10px;
 margin-bottom: 10px;
 button{
@@ -23,6 +23,9 @@ button{
     &:hover{
     /* background :rgba(108, 122, 137,0.2); */
     }
+}
+@media screen and (max-width : 720px){
+padding-left: 2rem;
 }
 ` 
 const DarkLight = ({theme,toggleTheme}) => {

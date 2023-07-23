@@ -138,11 +138,11 @@ button{
 const Products = () => {
 
   const [data] = useContextData()
-  const [newdata,setNewData] = useState([])
+  // const [newdata,setNewData] = useState([])
   
-  useEffect(()=>{
-  setNewData(data)  
-  },[data])
+  // useEffect(()=>{
+  // setNewData(data)  
+  // },[data])
   
   
 //   const Filter = (id,cat) => {
@@ -186,22 +186,22 @@ const Products = () => {
         <Grid>
          {data.map((product,index)=>{
             return (
-              <AnimatePresence key={index}>
-               <motion.div 
-                  layout
-                  key={product.id}
-                  initial={{opacity : 0}}
-                  animate={{opacity : 1}}
-                  exit={{opacity : 0}}
-                  transition={{
-                    duration : 0.3
-                  }}
-               >
+              // <AnimatePresence key={index}>
+              //  <motion.div 
+              //     layout
+              //     key={product.id}
+              //     initial={{opacity : 0}}
+              //     animate={{opacity : 1}}
+              //     exit={{opacity : 0}}
+              //     transition={{
+              //       duration : 0.3
+              //     }}
+              //  >
                 <ProductsDiv  >
                         <Product product={product} />
                 </ProductsDiv>
-               </motion.div>
-              </AnimatePresence>
+              //  </motion.div>
+              // </AnimatePresence>
             )
          })}
         </Grid>

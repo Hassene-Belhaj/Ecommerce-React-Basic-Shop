@@ -15,6 +15,7 @@ import ProductPage from './components/Page/ProductPage'
 import Contact from './components/Contact'
 import Policy from './components/Policy'
 import Category from './components/Category'
+import Shop from './components/Shop'
 
 const Container = styled.div`
 width : 100% ;
@@ -36,6 +37,7 @@ const light = {
 const App = () => {
 const [theme , setTheme] = useState('dark')
 
+
 const toggleTheme = () => {
 theme === 'dark' ? setTheme('light') : setTheme('dark')
 }
@@ -49,10 +51,11 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
                 <DarkLight theme={theme} toggleTheme={toggleTheme}/>
                <Routes>        
                  <Route path='/category/:cat/' element={<Category />} />
-                 <Route path='/' element={ <Products/> } />                 
-                 <Route path='/product/:id' element={ <ProductPage/> } />                             
+                 <Route path='/' element={ <Products /> } />                 
+                 <Route path='/product/:id' element={ <ProductPage /> } />                             
                  <Route path='/contact' element={ <Contact/> } />
                  <Route path='/policy' element={ <Policy/> } />                                    
+                 <Route path='/shop' element={ <Shop/> } />                                    
                </Routes> 
                 <Cart/>
                 <Signin />

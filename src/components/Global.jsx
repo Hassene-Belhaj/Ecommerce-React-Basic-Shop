@@ -55,9 +55,12 @@ background : ${({theme})=>theme.color};
 color : ${({theme})=>theme.background};
 border-radius : 3px ;
 text-align: center;
+cursor: pointer;
+transition: all 0.3s ease-in-out;
 
 &:hover{
-    opacity : 0.8 ;
+    opacity : 0.95 ;
+    transition: all 0.3s ease-in-out;
 }
 `
 
