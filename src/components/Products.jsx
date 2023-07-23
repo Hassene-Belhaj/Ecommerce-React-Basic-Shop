@@ -21,7 +21,7 @@ width: 80%;
 height : 100%;
 margin-top: 4rem;
 display: grid;
-grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
 justify-content: center;
 align-items: center;
 gap : 1rem;

@@ -171,7 +171,7 @@ const ProductPage = () => {
       <LeftCol>
         <span>
       <h4 style={{margin:'1rem'}}>
-         <span>/{product.category}</span>{location.pathname}
+         <span>{product.category}</span>{location.pathname}
       </h4>
         </span>
         <ProductCarousel product={product} id={id}/>

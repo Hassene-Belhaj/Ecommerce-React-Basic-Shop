@@ -47,6 +47,8 @@ export const ToggleOf =styled(BsFillSunFill)`
 
 export const Button = styled.button`
 display: ${({display})=>display};
+justify-content: ${({justify})=>justify};
+align-items: ${({align})=>align};
 width : ${({width})=>width} ;
 height : ${({height})=>height} ;
 border : 1px solid ${({theme})=>theme.color} ;
