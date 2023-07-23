@@ -17,6 +17,7 @@ import Policy from './components/Policy'
 import Category from './components/Category'
 import Shop from './components/Shop'
 
+
 const Container = styled.div`
 width : 100% ;
 height : 100% ;
