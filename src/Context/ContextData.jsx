@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useReducer, useState } from 'react'
 import { callAPI } from '../utils/CallApi'
-import { useLocation } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 
 const useContextDataG = createContext()
 
@@ -9,6 +9,8 @@ const useContextDataG = createContext()
 const ContextData = ({children}) => {
 
     const [data,setData] = useState([])
+    const [updata,setUpdata] = useState() 
+
 
     const fetchData = async()=>{
     const res = await fetch('Data/products.json',{headers : { 'Content-Type': 'application/json','Accept': 'application/json'}})
@@ -16,10 +18,10 @@ const ContextData = ({children}) => {
     setData(data)
     }
 
-   
+    
   
   useEffect(()=>{
-  fetchData()
+    fetchData()
   },[])    
      
  // const fetchproducts = async () =>{
@@ -45,7 +47,7 @@ const ContextData = ({children}) => {
 
 
   return (
-  <useContextDataG.Provider value={[data]}>
+  <useContextDataG.Provider value={[data,setData]}>
     {children}
   </useContextDataG.Provider>
     )

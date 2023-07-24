@@ -34,7 +34,7 @@ const ContextAuth = ({children}) => {
   },[])
 
     return (
-     <ContextAuthG.Provider value={{signin,setSignIn,handleSign,googleSignIn,googleLogOut}} >
+     <ContextAuthG.Provider value={{signin,setSignIn,user,onAuthStateChanged,handleSign,googleSignIn,googleLogOut}} >
        {children}  
      </ContextAuthG.Provider>
     )

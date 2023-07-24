@@ -197,7 +197,7 @@ const Products = () => {
               //       duration : 0.3
               //     }}
               //  >
-                <ProductsDiv  >
+                <ProductsDiv key={index}  >
                         <Product product={product} />
                 </ProductsDiv>
               //  </motion.div>

@@ -10,6 +10,7 @@ import { useContextCart } from '../Context/ContextCart'
 import ProductsList from './ProductsList'
 import { BiExit, BiSolidGridAlt } from 'react-icons/bi'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect } from 'react'
 
 
 const Container = styled.div`
@@ -42,11 +43,16 @@ const IconSpan = styled.div`
 width: 100%;
 display: flex;
 justify-content: center;
-margin: 2rem 0;
+margin: 4rem 0;
 `
 
 const Category = ({}) => {
- const [data] = useContextData()
+ const [data,setData] = useContextData()
+
+useEffect(()=>{
+setData(data)
+},[])
+
  const {display,setDisplay} = useContextCart()
 
 const {cat} = useParams()
@@ -70,7 +76,7 @@ return (
     <Container>
      <h1 style={{textAlign:'center',fontSize:'1rem'}}>{cat}</h1>
      <IconSpan>
-      <BiSolidGridAlt onClick={()=>setDisplay(true)} style={{marginRight:'1rem',cursor:'pointer'}}  size={25}/>
+      <BiSolidGridAlt onClick={()=>setDisplay(true)} style={{marginRight:'2rem',cursor:'pointer'}}  size={25}/>
       <AiOutlineMenu  onClick={()=>setDisplay(false)} size={25} style={{cursor:'pointer'}}/>
      </IconSpan>
 
@@ -82,7 +88,7 @@ return (
      {display ?  < Grid>
      {products.map((product,index)=>{
        return (
-        <AnimatePresence>
+        <AnimatePresence key={index}>
         <motion.div
         initial={{opacity : 0 , scale : 0}}
         animate={{opacity : 1 , scale : 1}}
@@ -91,7 +97,7 @@ return (
         }}
         
         >
-        <Product key={index} product={product} /> 
+        <Product product={product} /> 
         
         </motion.div>
         
@@ -100,9 +106,9 @@ return (
         })}
         </Grid> : 
 
-      <Flex> {products.map((product,index)=>{
+      <Flex>{products.map((product,index)=>{
         return (
-          <AnimatePresence>
+          <AnimatePresence key={index}>
            <motion.div
             initial={{opacity : 0 , scale : 0}}
             animate={{opacity : 1 , scale : 1}}

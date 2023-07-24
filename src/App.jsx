@@ -50,16 +50,16 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
               <Container >
                <Navbar Navigation={Navigation} />
                 <DarkLight theme={theme} toggleTheme={toggleTheme}/>
-               <Routes>        
+               <Routes>
                  <Route path='/category/:cat/' element={<Category />} />
                  <Route path='/' element={ <Products /> } />                 
                  <Route path='/product/:id' element={ <ProductPage /> } />                             
                  <Route path='/contact' element={ <Contact/> } />
                  <Route path='/policy' element={ <Policy/> } />                                    
                  <Route path='/shop' element={ <Shop/> } />                                    
-               </Routes> 
+                 <Route path='/signin' element={ <Signin/> }/>
+              </Routes>        
                 <Cart/>
-                <Signin />
                 <Modal />
                 <Footer FooterData={FooterData}/>
             </Container>

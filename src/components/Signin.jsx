@@ -5,10 +5,9 @@ import { FaFacebookF } from 'react-icons/fa'
 import { RiDiscordFill } from 'react-icons/ri'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useContextAuth } from '../Context/ContextAuth'
-import { useNavigate } from 'react-router'
+import { Navigate, useNavigate } from 'react-router'
 
 const Container = styled.div`
-display: ${({$signin})=>$signin ? 'block': 'none' };
 position: fixed;
 inset: 0;
 background:#000;
@@ -22,6 +21,7 @@ position: absolute;
 width: auto;
 height : auto ;
 z-index: 8000;
+cursor: pointer;
 h2{
     font-size : 1.1rem;
     margin-left: 2rem;
@@ -185,24 +185,28 @@ cursor: pointer;
 
 const Signin = () => {
   const {signin,handleSign,googleSignIn,googleLogOut} = useContextAuth()
+  const navigate = useNavigate()
 
 const handlegoogleSignIN = async () => {
 try {
   await googleSignIn()
+  if(googleSignIn){
+  navigate('/')
+  }
 } catch (error) {
   console.log(error);
 }  
 }
 
-
-
+   
   return (
+           
         <Container $signin={signin}> 
-          <Logo>
+          <Logo onClick={()=>navigate('/')}>
             <h2>React Shopping</h2>
           </Logo>
-          <Close>
-            <AiOutlineClose onClick={handleSign} size={20}/>
+          <Close onClick={()=>navigate('/')} >
+            <AiOutlineClose size={20}/>
           </Close>
           <FlexContainer>
               <RightCol>

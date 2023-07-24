@@ -265,7 +265,9 @@ const Navbar = ({Navigation}) => {
        </Bag>
 
        <SignBtn>
+             <Link to={'/signin'}>
             <button onClick={handleSign}>Sign in</button>
+            </Link>
             {/* {user?.dipsplayName ? <button>log out</button> :  } */}
        </SignBtn>
              <SearchBarNav />
