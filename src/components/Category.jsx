@@ -47,15 +47,20 @@ margin: 4rem 0;
 `
 
 const Category = ({}) => {
- const [data,setData] = useContextData()
 
-useEffect(()=>{
-setData(data)
-},[])
+ const [data,setData,category,setCategory] = useContextData()
 
+ console.log(category);
+
+
+ 
  const {display,setDisplay} = useContextCart()
 
 const {cat} = useParams()
+
+console.log(category);
+
+
 
 const products = data.filter((item)=>{ 
 if (cat  === 'All'){
@@ -63,9 +68,7 @@ if (cat  === 'All'){
 } else if (item.category === cat){
   return item
 }
-
 })
-
 
 
 console.log(products);

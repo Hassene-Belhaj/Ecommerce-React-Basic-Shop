@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import styled  from 'styled-components'
 import { MdDone } from 'react-icons/md'
 import { useContextCart } from '../Context/ContextCart'
@@ -75,7 +75,7 @@ const Modal = () => {
   const location = useLocation()
 
   useEffect(()=>{
-    if(bag && !isopen && location.pathname === '/') {
+    if(bag && !isopen && location.pathname ==='/') {
       setModal(true)
     }
     else if (bag === 0) {
@@ -88,14 +88,26 @@ const Modal = () => {
   },[bag])
   
   useEffect(()=>{
-  const timeout = setTimeout(() => {
+  const timeout = setInterval(() => {
   if(modal){
   setModal(false)
   }
   }, 2000);
-  return () => clearTimeout(timeout)
+  return () => clearInterval(timeout)
 
   },[modal])
+
+
+const keypress = useCallback((e)=>{
+if(e.key === 'Escape') {
+  setModal(false)
+}
+},[])
+
+useEffect(()=>{
+document.addEventListener('keydown' , keypress)
+return ()=> document.removeEventListener('keydown' , keypress) 
+},[keypress])
 
 
   return (

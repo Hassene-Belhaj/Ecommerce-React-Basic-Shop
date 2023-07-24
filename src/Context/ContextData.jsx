@@ -10,6 +10,7 @@ const ContextData = ({children}) => {
 
     const [data,setData] = useState([])
     const [updata,setUpdata] = useState() 
+    const [category , setCategory] = useState(false)
 
 
     const fetchData = async()=>{
@@ -18,11 +19,14 @@ const ContextData = ({children}) => {
     setData(data)
     }
 
+   useEffect(()=>{
+    fetchData()
+   },[category])
     
   
-  useEffect(()=>{
-    fetchData()
-  },[])    
+
+  
+
      
  // const fetchproducts = async () =>{
     //   const res = await fetch('https://fakestoreapi.com/products')    
@@ -39,15 +43,12 @@ const ContextData = ({children}) => {
 //       })
 //   }
     
-// useEffect(()=>{
-// fetchProducts()   
-// },[])
 
 
 
 
   return (
-  <useContextDataG.Provider value={[data,setData]}>
+  <useContextDataG.Provider value={[data,setData,category,setCategory]}>
     {children}
   </useContextDataG.Provider>
     )
