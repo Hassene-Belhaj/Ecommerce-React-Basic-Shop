@@ -69,21 +69,23 @@ button{
 
 
 const Modal = () => {
-  const {bag,isopen,handleClickCart} =  useContextCart()
+  const {bag,isopen,handleClickCart,decreaseQuantity,increaseQuantity} =  useContextCart()
   const [modal,setModal] = useState(false)
 
-  const location = useLocation()
+  const location =useLocation()
 
+  
   useEffect(()=>{
-    if(bag && !isopen && location.pathname ==='/') {
+    if(bag && !isopen) {
       setModal(true)
-    }
-    else if (bag === 0) {
+    } else if (bag === 0) {
         setModal(false)
     } else if(handleClickCart){
       setModal(false)
-    } 
-    
+    // how to hide modal with location.pathname  
+    } if (location.pathname.startsWith('/product/')) {
+      setModal(false)
+    }
     
   },[bag])
   
@@ -92,7 +94,7 @@ const Modal = () => {
   if(modal){
   setModal(false)
   }
-  }, 2000);
+  }, 1500);
   return () => clearInterval(timeout)
 
   },[modal])

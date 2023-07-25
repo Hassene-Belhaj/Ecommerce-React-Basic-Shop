@@ -48,9 +48,8 @@ margin: 4rem 0;
 
 const Category = ({}) => {
 
- const [data,setData,category,setCategory] = useContextData()
+ const [data,setData] = useContextData()
 
- console.log(category);
 
 
  
@@ -58,7 +57,6 @@ const Category = ({}) => {
 
 const {cat} = useParams()
 
-console.log(category);
 
 
 

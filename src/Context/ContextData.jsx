@@ -9,19 +9,18 @@ const useContextDataG = createContext()
 const ContextData = ({children}) => {
 
     const [data,setData] = useState([])
-    const [updata,setUpdata] = useState() 
-    const [category , setCategory] = useState(false)
 
-
+  useEffect(()=>{
     const fetchData = async()=>{
     const res = await fetch('Data/products.json',{headers : { 'Content-Type': 'application/json','Accept': 'application/json'}})
     const data = await res.json ()
     setData(data)
     }
+  
+      fetchData()    
 
-   useEffect(()=>{
-    fetchData()
-   },[category])
+    
+   },[])
     
   
 
@@ -48,7 +47,7 @@ const ContextData = ({children}) => {
 
 
   return (
-  <useContextDataG.Provider value={[data,setData,category,setCategory]}>
+  <useContextDataG.Provider value={[data,setData]}>
     {children}
   </useContextDataG.Provider>
     )
