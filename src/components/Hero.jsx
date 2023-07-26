@@ -10,7 +10,7 @@ width: 100%;
 height:40rem;
 background:${({theme})=>theme.background};
 transition: all 0.3s ease-in-out;
-margin: auto;
+margin: 8rem auto 0 auto;
 @media screen and (max-width : 768px) {
 margin-bottom:1rem;
 }

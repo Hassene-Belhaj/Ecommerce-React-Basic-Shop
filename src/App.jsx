@@ -49,7 +49,6 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
           <GlobalStyle />
               <Container >
                <Navbar Navigation={Navigation} />
-                <DarkLight theme={theme} toggleTheme={toggleTheme}/>
                <Routes>
                  <Route path='/category/:cat/' element={<Category />} />
                  <Route path='/' element={ <Products /> } />                 
@@ -62,6 +61,7 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
                 <Cart/>
                 <Modal />
                 <Footer FooterData={FooterData}/>
+                <DarkLight theme={theme} toggleTheme={toggleTheme}/>
             </Container>
           </ThemeProvider>
     </Router>

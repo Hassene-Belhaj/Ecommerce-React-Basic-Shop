@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import { Link as LinkReactScroll } from 'react-scroll'
 import { Button } from './Global'
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
+import DarkLight from './DarkLight'
 
 
 const Container = styled(motion.div)`
@@ -103,9 +104,6 @@ border-radius: 3px;
 const FooterBottom = styled.div`
 width: 100%;
 height: 10rem;
-display: flex;
-justify-content: center;
-align-items: center;
 `
 
 
@@ -166,12 +164,7 @@ if(inView){
             </form>
          </Form>
       </Grid>
-      
-      <FooterBottom >
-        <LinkReactScroll to='Top' spy={true} smooth={true} offset={0} duration={1000} >
-          <Button width={'5rem'} height={'3rem'}><BiChevronUp size={25} /></Button>
-        </LinkReactScroll>
-      </FooterBottom>
+
 
     </Container>
   )

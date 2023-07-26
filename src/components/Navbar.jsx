@@ -32,10 +32,9 @@ align-items: center;
 h2{
   width: 10%;
   font-size : 1rem;
-  /* margin-left: 1rem; */
 }
 @media screen and (max-width : 768px) {
-  width: 100%;
+  width: 95%;
 }
 `
 const Linklogo= styled(Link)`
@@ -281,8 +280,8 @@ ColorNav()
             {/* {user?.dipsplayName ? <button>log out</button> :  } */}
        </SignBtn>
              <SearchBarNav />
-  </Nav>
-          <BorderNav></BorderNav>
+       </Nav>
+      <BorderNav></BorderNav>
       
     
   

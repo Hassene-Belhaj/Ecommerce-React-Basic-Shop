@@ -14,7 +14,7 @@ width: 90%;
 height: 80vh;
 display: flex;
 justify-content: center;
-margin: 1rem auto 8rem auto;
+margin: 8rem auto 8rem auto;
 text-transform: capitalize;
 @media screen and (max-width : 768px) {
   display: block;

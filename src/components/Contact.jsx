@@ -8,7 +8,7 @@ display: flex;
 flex-direction: column;
 width: 50%;
 height: 100%;
-margin:2rem auto;
+margin:8rem auto 2rem auto;
 line-height: 2rem;
 h2,h3{
     margin-bottom: .5rem;

@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Container = styled.div`
 width: 50%;
 height: 100%;
-margin: auto;
+margin: 8rem auto 0 auto;
 display: flex;
 flex-direction: column;
 align-items: start;
