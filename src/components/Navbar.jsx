@@ -12,8 +12,11 @@ import SearchBarNav from './SearchBarNav'
 
 const Container = styled.div`
 width : 100% ;
-height : 100% ;
-position : relative ;
+height : 60px ;
+position : fixed ;
+background:${({color})=>color ? 'rgba(180,180,180,1)' : ''} ;
+transition : all .3s ease-in-out ;
+z-index: 1000;
 `
 
 
@@ -230,17 +233,24 @@ const Navbar = ({Navigation}) => {
   const {isopen,setIsOpen,handleClickCart,bag} = useContextCart()
   const {signin,handleSign,user } =   useContextAuth()
   const [toggle,setToggle] = useState(false)
+  const [color,setColor] = useState(false)
   const handleClick = () => setToggle(!toggle)
 
 
-
+const ColorNav = () => {
+window.addEventListener('scroll' , ()=> {
+window.scrollY > 60 ? setColor(true) : setColor(false)  
+})  
+}
   
-
+useEffect(()=>{
+ColorNav()
+},[])
 
 
 
   return (
-<Container id='Top'>
+<Container id='Top' color={color ? 1 : 0}>
   <Nav>
         <Linklogo to={'/'}  style={{textDecoration:'none',marginRight:'2rem'}}>            
             React Shopping

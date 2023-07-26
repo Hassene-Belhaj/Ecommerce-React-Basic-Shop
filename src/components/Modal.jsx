@@ -69,7 +69,7 @@ button{
 
 
 const Modal = () => {
-  const {bag,isopen,handleClickCart,decreaseQuantity,increaseQuantity} =  useContextCart()
+  const {bag,isopen,handleClickCart} =  useContextCart()
   const [modal,setModal] = useState(false)
 
   const location =useLocation()

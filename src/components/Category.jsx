@@ -16,6 +16,7 @@ import { useEffect } from 'react'
 const Container = styled.div`
 width: 100%;
 height: 100%;
+margin: 8rem 0 0 0;
 `
 const Grid = styled.div`
 width: 80%;
@@ -43,7 +44,7 @@ const IconSpan = styled.div`
 width: 100%;
 display: flex;
 justify-content: center;
-margin: 4rem 0;
+margin: 4rem 0 ;
 `
 
 const Category = ({}) => {

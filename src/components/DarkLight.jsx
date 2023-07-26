@@ -4,13 +4,14 @@ import styled from 'styled-components'
 
 
 const DarkLightDiv = styled.div`
+position: fixed;
 width : 100% ;
 height : auto;
 display : flex ;
 justify-content: start;
 align-items :center; 
 padding-left : 3rem ;
-margin-top:10px;
+margin-top:5rem;
 margin-bottom: 10px;
 button{
     display:flex;

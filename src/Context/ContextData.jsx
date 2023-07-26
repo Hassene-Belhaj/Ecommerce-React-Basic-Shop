@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useEffect, useReducer, useState } from 'react'
-import { callAPI } from '../utils/CallApi'
-import { useLocation, useNavigate } from 'react-router'
+
 
 const useContextDataG = createContext()
 
@@ -17,9 +16,8 @@ const ContextData = ({children}) => {
     setData(data)
     }
   
-      fetchData()    
+    fetchData()    
 
-    
    },[])
     
   
@@ -27,21 +25,7 @@ const ContextData = ({children}) => {
   
 
      
- // const fetchproducts = async () =>{
-    //   const res = await fetch('https://fakestoreapi.com/products')    
-    //   const data = await res.json()
-    //   setData(data)  
-    //   } 
-   
-    
-    
-//     const fetchProducts  = () => {
-//       callAPI(`Data/products.json`)
-//       .then((data)=>{
-//       setData(data)
-//       })
-//   }
-    
+
 
 
 
