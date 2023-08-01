@@ -76,7 +76,9 @@ if (!products[0]?.title)  return ( <h4 style={{textAlign:'center',margin:'2rem a
 
 return (
     <Container>
-     <h1 style={{textAlign:'center',fontSize:'1rem'}}>{cat}</h1>
+     <h1 style={{textAlign:'center',fontSize:'1rem'}}>
+      {cat}
+      </h1>
      <IconSpan>
       <BiSolidGridAlt onClick={()=>setDisplay(true)} style={{marginRight:'2rem',cursor:'pointer'}}  size={25}/>
       <AiOutlineMenu  onClick={()=>setDisplay(false)} size={25} style={{cursor:'pointer'}}/>

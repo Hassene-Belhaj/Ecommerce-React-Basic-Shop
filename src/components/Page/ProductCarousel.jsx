@@ -139,7 +139,7 @@ setIndex(i)
             bounce : 0.3 ,
             
         }}
-        exit={{opcity : 0}}
+        // exit={{opacity : 0}}
         key={Images[index].img}
         src={Images[index].img}
         alt="" 

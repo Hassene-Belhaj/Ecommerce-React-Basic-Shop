@@ -40,7 +40,7 @@ background: red;
 const Bottom = styled.div`
 position: fixed;
 border-top: 1px solid rgba(180,180,180,0.5);
-
+box-shadow: 1px 1px 5px ${({theme})=>theme.color};
 bottom: 0;
 width: 30%;
 height: 15%;

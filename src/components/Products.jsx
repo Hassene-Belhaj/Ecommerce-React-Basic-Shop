@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import {AnimatePresence,motion } from 'framer-motion'
 import Hero from './Hero'
 import { Link } from 'react-router-dom'
+import { Button } from './Global'
 
 
 const Container = styled.div`
@@ -172,7 +173,9 @@ const Products = () => {
        <CategoryDiv>
          <img src={item.image} alt="" />
          <Contraste>
+          <Button>
          <h3>{item.cat}</h3>
+          </Button>
          </Contraste>
        </CategoryDiv>
         </Link>

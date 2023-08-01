@@ -4,10 +4,7 @@ import styled from 'styled-components'
 import { motion ,useAnimation } from 'framer-motion'
 import { useInView} from 'react-intersection-observer'
 import { useEffect } from 'react'
-import { Link as LinkReactScroll } from 'react-scroll'
-import { Button } from './Global'
-import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
-import DarkLight from './DarkLight'
+
 
 
 const Container = styled(motion.div)`

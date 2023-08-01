@@ -14,7 +14,7 @@ const Container = styled.div`
 width : 100% ;
 height : 60px ;
 position : fixed ;
-background:${({color})=>color ? 'rgba(180,180,180,1)' : ''} ;
+background:${({color})=>color ? 'rgba(180,180,180,0.8)' : null} ;
 transition : all .3s ease-in-out ;
 z-index: 1000;
 `
@@ -221,6 +221,8 @@ transition: all 0.3s ease;
 }
 // navlink style now is activated 
 &.active{
+  /* text-decoration: underline;
+  text-underline-offset: .5rem; */
   border-bottom :solid 1px ${({theme})=>theme.color};
 }
 `
