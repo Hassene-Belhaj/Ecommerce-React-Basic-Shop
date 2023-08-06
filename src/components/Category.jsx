@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Cat } from '../../public/Data/Cat'
 import { useContextData } from '../Context/ContextData'
 import { useParams } from 'react-router'
 import Product from './Product'
@@ -10,7 +9,6 @@ import { useContextCart } from '../Context/ContextCart'
 import ProductsList from './ProductsList'
 import { BiExit, BiSolidGridAlt } from 'react-icons/bi'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect } from 'react'
 
 
 const Container = styled.div`
@@ -70,7 +68,6 @@ if (cat  === 'All'){
 })
 
 
-console.log(products);
 
 if (!products[0]?.title)  return ( <h4 style={{textAlign:'center',margin:'2rem auto',textTransform:'capitalize'}}>loading page...</h4> )
 
