@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import { useContextData } from '../Context/ContextData'
 import { useParams } from 'react-router'
 import Product from './Product'
-import { BsFillGridFill } from 'react-icons/bs'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { useContextCart } from '../Context/ContextCart'
 import ProductsList from './ProductsList'
-import { BiExit, BiSolidGridAlt } from 'react-icons/bi'
+import { BiSolidGridAlt } from 'react-icons/bi'
 import { AnimatePresence, motion } from 'framer-motion'
 
 
@@ -45,7 +44,7 @@ justify-content: center;
 margin: 4rem 0 ;
 `
 
-const Category = ({}) => {
+const Category = () => {
 
  const [data,setData] = useContextData()
 
