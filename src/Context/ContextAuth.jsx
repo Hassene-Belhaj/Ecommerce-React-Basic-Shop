@@ -1,40 +1,53 @@
 import { createContext, useContext, useState ,useEffect } from "react";
 import { GoogleAuthProvider,onAuthStateChanged,signInWithPopup,signOut} from 'firebase/auth'
-import { auth } from "../Firebase";
+import { Provider, auth } from "../Firebase";
+import { useNavigate } from "react-router";
 
 const ContextAuthG =  createContext()
 
 
 const ContextAuth = ({children}) => {
-  // const navigate = useNavigate()
-  const [signin,setSignIn] = useState(false)
-  const [user,setUser] =useState({})
-
-  const handleSign = () => setSignIn(!signin)
-    
   
-  const googleSignIn = () => {
-  const provider = new GoogleAuthProvider()
-  signInWithPopup(auth,provider)
+  const [signin,setSignIn] = useState(false)
+  const [succes , setSucces] = useState(false)
+  const [user,setUser] =useState(null)
+  
+  const navigate = useNavigate()
+  
+  
+  const googlesignIn = async () => {
+  try {
+    await signInWithPopup(auth , Provider)
+    setSucces(true)
+    console.log(user)
+    navigate('/')
+  } catch (error) {
+    console.log(error.code);
   }
+}
 
-  const googleLogOut = () => {
-   signOut(auth) 
+const logOut= async() => {
+  try {
+    await signOut(auth) 
+    setSucces(false)
+    navigate('/')
+ } catch (error) {
+  console.log(error.code);
+ }
   }
  
   useEffect(()=>{
   const unsubscribe = onAuthStateChanged(auth , (currUser)=> {
-    setUser(currUser)
-    
+    setUser(currUser)  
+    console.log(user);  
   }) 
-  return () => {
-    unsubscribe() 
-  }
-  
+  return () => unsubscribe() 
   },[])
 
+ 
+    
     return (
-     <ContextAuthG.Provider value={{signin,setSignIn,user,onAuthStateChanged,handleSign,googleSignIn,googleLogOut}} >
+     <ContextAuthG.Provider value={{signin,setSignIn,user,setUser,googlesignIn,logOut,succes}} >
        {children}  
      </ContextAuthG.Provider>
     )

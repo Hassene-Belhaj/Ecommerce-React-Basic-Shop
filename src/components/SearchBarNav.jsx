@@ -26,7 +26,7 @@ display: flex;
 justify-content: center;
 padding : 10rem;
 `
-const InputContainer = styled.span`
+const InputContainer = styled.div`
 width: 300px;
 height: 2rem;
 position: relative;
@@ -71,7 +71,6 @@ const SearchBar = styled.div`
 width: 300px;
 height: 2rem;
 display: flex;
-justify-content: center;
 border-radius: 5px;
 /* margin-left: 3rem; */
 position: absolute;

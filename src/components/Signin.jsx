@@ -184,29 +184,21 @@ cursor: pointer;
 `
 
 const Signin = () => {
-  const {signin,handleSign,googleSignIn,googleLogOut} = useContextAuth()
+  const {signin,user,googlesignIn,signOut} = useContextAuth()
+  
   const navigate = useNavigate()
 
-const handlegoogleSignIN = async () => {
-try {
-  await googleSignIn()
-  if(googleSignIn){
-  navigate('/')
-  }
-} catch (error) {
-  console.log(error);
-}  
-}
+
 
    
   return (
            
         <Container $signin={signin}> 
-          <Logo onClick={()=>navigate('/')}>
+          <Logo >
             <h2>React Shopping</h2>
           </Logo>
-          <Close onClick={()=>navigate('/')} >
-            <AiOutlineClose size={20}/>
+          <Close >
+            <AiOutlineClose onClick={()=>navigate('/')} size={20}/>
           </Close>
           <FlexContainer>
               <RightCol>
@@ -218,7 +210,7 @@ try {
                     <h3>Sign in</h3>
                     <p>Choose your preferred sign in method</p>
                     <Btn>
-                    <button onClick={handlegoogleSignIN} >
+                    <button onClick={googlesignIn} >
                       <BsGoogle style={{marginRight:'.5rem'}} size={13}/>
                        Google
                     </button>
@@ -243,7 +235,7 @@ try {
                    <input type="password" placeholder='*********' />
                     <Button>Sign in</Button> 
                     <Span>Don't you have an account yet ? </Span>
-                    <Span><h3 style={{fontSize:'1rem',paddingBottom:'.6rem', borderBottom:'solid 1px'}}>Sign Up</h3></Span>
+                    {/* <Span><h3 style={{fontSize:'1rem',paddingBottom:'.6rem', borderBottom:'solid 1px'}}>Sign Up</h3></Span> */}
                   </Form>
               </LeftCol>
           </FlexContainer>

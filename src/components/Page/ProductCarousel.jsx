@@ -13,7 +13,6 @@ display: flex;
     width: 100%;
     height: auto;
 }
-/* overflow: hidden; */
 `
 
 

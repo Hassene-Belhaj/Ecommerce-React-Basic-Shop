@@ -16,6 +16,7 @@ import Contact from './components/Contact'
 import Policy from './components/Policy'
 import Category from './components/Category'
 import Shop from './components/Shop'
+import ContextAuth from './Context/ContextAuth'
 
 
 const Container = styled.div`
@@ -45,6 +46,7 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
 
   return (
     <Router>
+      <ContextAuth>
           <ThemeProvider theme={theme ==='dark' ? light : dark}>
           <GlobalStyle />
               <Container >
@@ -64,6 +66,7 @@ theme === 'dark' ? setTheme('light') : setTheme('dark')
                 <DarkLight theme={theme} toggleTheme={toggleTheme}/>
             </Container>
           </ThemeProvider>
+    </ContextAuth>
     </Router>
 
 

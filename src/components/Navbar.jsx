@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { BsFillBagFill } from 'react-icons/bs'
-import { AiOutlineMenu,AiOutlineClose, AiOutlineSearch } from 'react-icons/ai'
+import { AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
 import { NavLink,Link} from 'react-router-dom'
 import { useContextCart } from '../Context/ContextCart'
 import { useContextAuth } from '../Context/ContextAuth'
@@ -23,7 +23,7 @@ z-index: 1000;
 
 const Nav = styled.nav`
 position: relative;
-width:95%;
+width:98%;
 margin: 0 auto;
 height:60px;
 display: flex;
@@ -97,6 +97,7 @@ cursor: pointer;
 
 const SignBtn = styled.div`
 position: absolute;
+display: flex;
 top: 50% ;
 right : 0 ;
 transform : translateY(-50%) ;
@@ -226,15 +227,22 @@ transition: all 0.3s ease;
   border-bottom :solid 1px ${({theme})=>theme.color};
 }
 `
+const BtnSignin = styled.button`
+`
 
-
+const Img = styled.img`
+width: 2rem;
+height: 2rem;
+border-radius: 50%;
+`
 
 const Navbar = ({Navigation}) => {
-   const [data] = useContextData()
+  const [data] = useContextData()
   const {isopen,setIsOpen,handleClickCart,bag} = useContextCart()
-  const {signin,handleSign,user } =   useContextAuth()
+  const {user , succes , logOut} =  useContextAuth()
   const [toggle,setToggle] = useState(false)
   const [color,setColor] = useState(false)
+
   const handleClick = () => setToggle(!toggle)
 
 
@@ -267,7 +275,6 @@ ColorNav()
               })}
             </LinksDiv>
             
-{/* search bar                      */}
 
       
        <Bag onClick={handleClickCart} >
@@ -275,17 +282,22 @@ ColorNav()
           <Quantity>{bag}</Quantity>
        </Bag>
 
-       <SignBtn>
-             <Link to={'/signin'}>
-            <button onClick={handleSign}>Sign in</button>
-            </Link>
-            {/* {user?.dipsplayName ? <button>log out</button> :  } */}
-       </SignBtn>
+   
              <SearchBarNav />
-       </Nav>
-      <BorderNav></BorderNav>
       
-    
+        <SignBtn>
+             <Link to={'/signin'}>
+                {user?.displayName ? 
+                <>
+                 {/* <Img src={user?.photoURL} alt="" /> */}
+                <BtnSignin onClick={logOut}>sign out</BtnSignin> 
+                </>
+                : 
+                <BtnSignin >Sign in</BtnSignin> }        
+            </Link>
+       </SignBtn>
+    </Nav>
+    {/* <BorderNav></BorderNav> */}
   
 
 
